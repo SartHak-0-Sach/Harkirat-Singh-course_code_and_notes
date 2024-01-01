@@ -4,3 +4,40 @@ HTML defines the outer structure of a website. To understand the intricacies of 
 Div is the most common tag used in HTML which stands for one division of our page and helps organise our website into blocks that can be further managed by using other semantic and non semantic tags followed by tags and attributes that help us put media and content in them.
 
 There is a heirarchy or order that is to be followed while writting HTML document by starting with html tag followed by head and then body. Even if we don't put html tag, the browser rendering it will automatically inject it while our code is getting compiled.
+
+In head tag, we write the meta data. This can be used to do search engine optimisation.
+
+Similarly we discussed all of the basic tags and their functionalities like anchor tag, img tag, p tag, div & span tag(and which one is used when), h1-h6 tags, bold tag, italics tag etc.
+
+We also learnt about different image formats given below-
+JPEG (Joint Photographic Experts Group), JPG, PNG (Portable Network Graphics), SVG (Scalable Vector Graphics), and WebP are all different image formats with distinct characteristics. Here's a brief overview of the differences between them:
+
+JPEG (Joint Photographic Experts Group):
+File Extensions: .jpeg, .jpg
+Compression: Lossy compression, which means some image quality is lost during compression.
+Color Support: Suitable for photographs and images with gradients.
+Transparency: Does not support transparency.
+Use Cases: Commonly used for photographs and images with complex color variations. Widely supported and suitable for web images.
+
+PNG (Portable Network Graphics):
+File Extension: .png
+Compression: Lossless compression, preserving image quality without loss.
+Color Support: Suitable for images with sharp edges, transparency, and limited color variations.
+Transparency: Supports alpha channel transparency.
+Use Cases: Ideal for graphics, logos, icons, and images with transparency requirements.
+
+SVG (Scalable Vector Graphics):
+File Extension: .svg
+Compression: XML-based, typically text-based and compressible.
+Color Support: Suitable for graphics, logos, and icons. Supports both flat colors and gradients.
+Scalability: Vector format, so it can be scaled without loss of quality.
+Transparency: Supports transparency.
+Use Cases: Best for logos, icons, and graphics that need to be scaled to different sizes.
+
+WebP:
+File Extension: .webp
+Compression: Lossy and lossless compression options available, offering good quality at smaller file sizes.
+Color Support: Suitable for a wide range of images, including photographs and graphics.
+Transparency: Supports both lossy and lossless transparency.
+Animation: Supports animation, similar to GIF.
+Use Cases: Gaining popularity on the web due to its efficient compression and support for various image types.
