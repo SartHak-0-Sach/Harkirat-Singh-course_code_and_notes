@@ -1,0 +1,6 @@
+In this lecture we learnt about Hyper Text Markup Language or HTML.
+HTML defines the outer structure of a website. To understand the intricacies of this markup language we will start by making a landing page of zerodha website.
+
+Div is the most common tag used in HTML which stands for one division of our page and helps organise our website into blocks that can be further managed by using other semantic and non semantic tags followed by tags and attributes that help us put media and content in them.
+
+There is a heirarchy or order that is to be followed while writting HTML document by starting with html tag followed by head and then body. Even if we don't put html tag, the browser rendering it will automatically inject it while our code is getting compiled.

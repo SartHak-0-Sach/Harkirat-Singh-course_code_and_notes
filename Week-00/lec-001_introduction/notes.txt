@@ -1,0 +1,11 @@
+Link to slides: https://slides.com/harkiratsingh-8/deck
+
+In this lecture we started out with the basics, what are browsers and how do they render websites? 
+
+The goal of a website is to allow one user to talk to another computer.
+
+If we open a website, we tell the server of the website to give me back the content of website in html css js and that is what gets rendered in the browser. So the goal of the browser is to allow people to hit a specific server from anywhere in the world to anywhere in the world, the server being specified by its unique address or URL.
+
+The goal of a browser is only limited to render the html css js that was requested by user sent by server of website.
+
+IDE= Intergrated Development Environment
