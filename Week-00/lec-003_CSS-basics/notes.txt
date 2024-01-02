@@ -1,0 +1,22 @@
+In this lecture we dive deep into CSS, Cascading Style Sheet, is not a programming language and is instead a style sheet language as the name suggests.
+
+This language helps us beautify, organise and structurise our HTML code and helps us getting the design requirements fulfilled.
+
+Later in this lecture we further read about common styling attributes used like color, background, border etc and also learnt basics about the box model and its terms like margin, padding, borders and box shadows and what are the differences between these terms.
+
+Then we went on to apply our learnings to use by redesigning our previously made Zerodha landing page(code available in the lecture-2 file).
+
+Then we learnt that margin and padding can be applied to a div in a specific direction also. 
+
+Followed by learning about the float property of span tag which allows us to reposition our span in parent element in a specific direction.
+
+Later we learnt about flexbox.
+
+In flexbox, even if we put div, we can adjust them into taking only the required amount of space and thus make them reside in the same line.
+
+So instead of doing absolute positioning or using float which can hinder with the responsiveness and scalability of code, we must use flexbox.
+
+At places that have a fixed width or height, we can use absolute positioning with respect to parent element and to make it responsive we can change the parent element.
+
+under display: flex, we can use justify-content and we can do it in 6 different types namely- flex-start, flex-end, center, space-between, space-around, space-evenly.
+
