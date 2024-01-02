@@ -18,5 +18,5 @@ So instead of doing absolute positioning or using float which can hinder with th
 
 At places that have a fixed width or height, we can use absolute positioning with respect to parent element and to make it responsive we can change the parent element.
 
-under display: flex, we can use justify-content and we can do it in 6 different types namely- flex-start, flex-end, center, space-between, space-around, space-evenly.
+In flexbox, we can use justify-content and we can do it in 6 different types namely- flex-start, flex-end, center, space-between, space-around, space-evenly.
 
