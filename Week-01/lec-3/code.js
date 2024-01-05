@@ -15,3 +15,12 @@ let age = 19;
 let isMarried = false;
 
 console.log("My name is " + firstName + " and my age is " + age);
+
+if(isMarried)
+{
+    console.log(firstName + "is married");
+}
+else
+{
+    console.log(firstName + "not married")
+}
