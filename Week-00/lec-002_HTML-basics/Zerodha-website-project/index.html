@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Zerodha landing page</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <img src="assets/logo.svg" alt="Zerodha logo">
-            <ul id="navbar">
-                <li class="options">Signup</li>
-                <li class="options">About</li>
-                <li class="options">Products</li>
-                <li class="options">Pricing</li>
-                <li class="options">Support</li>
-            </ul>
-        </nav>
+      <nav>
+        <div>
+          <img class="logo" src="assets/logo.svg" alt="Zerodha logo" />
+        </div>
+        <div>
+          <ul id="navbar">
+            <li class="options">Signup</li>
+            <li class="options">About</li>
+            <li class="options">Products</li>
+            <li class="options">Pricing</li>
+            <li class="options">Support</li>
+          </ul>
+        </div>
+        <div>
+            <img class="menu-logo" src="assets/bars-solid.svg" alt="Side-menu">
+        </div>
+        <div class="dropdown content" id="myDropdown">
+            <a href="#">Link-1</a>
+            <a href="#">Link-2</a>
+            <a href="#">Link-3</a>
+        </div>
+      </nav>
     </header>
-</body>
+    <br>
+    <section class="hero">
+        <div id="front-image">
+            <img src="assets/landing-page.png" alt="Investing Portfolio image">
+        </div>
+        <br><br>
+        <div>
+            <h1>Invest in everything</h1>
+        </div>
+        <br>
+        <div>
+            <p>Online platform to invest in stocks, derivatives, mutual funds, and more</p>
+        </div>
+        <div>
+            <button class="cta">Get Started Now!</button>
+        </div>
+        </section>
+        <script src="script.js"></script>
+  </body>
 </html>
-
-<!-- elements need to be accurate
-colour
-positioning of elements
-reponsiveness
-box shadow
-fonts
-cursor
-colour change
-side menu
-smooth scroll -->
