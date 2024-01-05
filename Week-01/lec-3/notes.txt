@@ -27,3 +27,6 @@ After understanding all this we moved on to learn more about Javascript syntax.
 We started off with the basics, what are variables, types of variable declaration we can use in javascript code(var, let, const), what are the different types of primitive datatypes(number, string, boolean, undefined, null) and reference datatypes(object, function, array), what are loops in Javascript, their use, their types(for, while, do-while, sub-types of for like- simple for loop, for-in loop, for-of loop, for-await-of loop).
 
 Next we moved on to learn in depth about reference datatypes like arrays and objects and wrote a few progams in them similarly we did earlier in with primitive datatypes.
+
+Go to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array to read more about arrays.
+
