@@ -20,5 +20,3 @@ JS has a single threaded nature. This means that when we run a javascript file, 
 
 In Javascript, program runs line by line, one line at a time.
 
-https://app.100xdevs.com/courses/3/9
-35:27
