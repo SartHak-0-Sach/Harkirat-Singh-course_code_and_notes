@@ -20,3 +20,4 @@ JS has a single threaded nature. This means that when we run a javascript file, 
 
 In Javascript, program runs line by line, one line at a time.
 
+We can use sub-routines to make it use all cores of a machine. But this single threaded default nature of js makes it only use one core at a time and thus is considered a bad language for scalable systems.
