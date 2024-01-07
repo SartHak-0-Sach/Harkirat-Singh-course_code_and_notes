@@ -30,5 +30,3 @@ Next we moved on to learn in depth about reference datatypes like arrays and obj
 
 Go to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array to read more about arrays.
 
-
-
