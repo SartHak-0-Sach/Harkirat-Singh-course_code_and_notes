@@ -100,6 +100,8 @@
 
 // Program-7 Write a program that reverses all the elements of an array
 
+
+
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 // const personArray = ["Sarthak", "Harkirat", "Sanjay"];
@@ -164,16 +166,59 @@
 
 
 
-// Q4 Write a function that can convert numbers to text 
+// Q4 Write a function that can convert numbers to text
 
 
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-let sum = 0;
+// let sum = 0;
 
-for (let i = 0; i < 1000000000; i++) {
-    sum += i;
-}
+// for (let i = 0; i < 1000000000; i++) {
+//     sum += i;
+// }
 
-console.log(sum);
+// console.log(sum); // bounty question
+
+// first way of calling functions
+
+// var bro1 = function(a,b){
+//     return a + b;
+// }
+
+// console.log(bro1(2,5));
+
+// second way of calling functions
+
+// var bro2 = (a,b) =>{
+//     return a + b;
+// }
+
+// third way
+
+// var bro3 = new Function('a', 'b', 'return a + b');
+
+// fourth way
+
+// var obj = {
+//     bro4: function(a, b) {
+//         return a + b;
+//     }
+// };
+
+// console.log((String)(bro1(4,6)) + " " + (String)(bro2(7,4)) + " " + (String)(bro3(3,6)) + " " + (String)(obj(obj.bro4(8, 9)))); // or you can also call bro4 using obj["bro4"](8,9)
+
+// var bro3 = new Function('a', 'b', `
+// This is a more complex function
+//     var result = a * b;
+//     if (result > 10) {
+//         return 'High';
+//     } else {
+//         return 'Low';
+//     }
+// `);
+
+// // Example of calling the function
+// console.log(bro3(4, 3)); // Output: 'Low'
+// console.log(bro3(5, 3)); // Output: 'High'
+

@@ -42,3 +42,5 @@ There are two different ways to give input to a function(pass by value, pass by 
 
 The answer to bounty question was the htop command not working correctly and that is why the single threaded nature of javascript was not appearing as it should by using only one core in cpu and taking one of its core's activity to 100% after running a really big program as shown in lecture which indeed it does but it was the issue with the command that made us not see the 100% usage.
 
+Then harkirat told us about V8 engine, written in c++ but was used to compile js into bytecode and the creators of node.js used v8, did a few modifications to it to make the current day nodeJS
+
