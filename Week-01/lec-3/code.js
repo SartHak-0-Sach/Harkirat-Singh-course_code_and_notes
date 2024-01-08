@@ -239,3 +239,19 @@
 // console.log(bro3(4, 3)); // Output: 'Low'
 // console.log(bro3(5, 3)); // Output: 'High'
 
+// function calculation(a, b, arithmaticFunction) {
+//     const ans = arithmaticFunction(a, b)
+//     return ans;
+// }
+
+// function sum(a,b){
+//     return a + b;
+// }
+
+// function sub(a,b){
+//     return a - b;
+// }
+
+// const value = calculation(1,2,sum);
+// console.log(value);
+
