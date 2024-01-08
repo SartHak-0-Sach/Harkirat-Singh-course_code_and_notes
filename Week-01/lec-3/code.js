@@ -164,7 +164,24 @@
 
 // Q3 Write a function that takes this sum and prints it in passive tense
 
+// function sum(num1, num2, fnToCall)
+// {
+//     return num1 + num2;
+// }
 
+// function displayResult(result)
+// {
+//     console.log("Result of sum is: " + result);
+// }
+
+// function displayResultInPassive(data)
+// {
+//     console.log("Sum's result is: " + data);
+// }
+
+// // If we are only allowed to call one function after this and we don't know which function user will call that is why we add callbacks(fnToCall) in our function to do this:-
+
+// const ans = sum(1,2,displayResultInPassive);
 
 // Q4 Write a function that can convert numbers to text
 
