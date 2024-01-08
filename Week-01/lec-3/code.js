@@ -255,3 +255,6 @@
 // const value = calculation(1,2,sum);
 // console.log(value);
 
+// Some examples of callbacks are setTimeout function and setInterval function where we pass them a function and a time arguments and the function is run after that amount of time in setTimeout function and after every x interval of time till we stop the function in case of set Interval function
+
+// ALERT!!!! Callback is not recursion, recursion is function calling itself but in case of callbacks we can call any function not specifically the same function(it might cause an error if we call the same function as it might go into an infinite loop of callbacks)
