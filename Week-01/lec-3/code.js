@@ -102,20 +102,78 @@
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-const personArray = ["Sarthak", "Harkirat", "Sanjay"];
+// const personArray = ["Sarthak", "Harkirat", "Sanjay"];
 
-const arraySize = personArray.length;
+// const arraySize = personArray.length;
 
-console.log(personArray[0] + " is best friend of " + personArray[1]);
+// console.log(personArray[0] + " is best friend of " + personArray[1]);
 
-personArray.push("Abhay");
-personArray.push("Saurabh");
+// personArray.push("Abhay");
+// personArray.push("Saurabh");
 
-console.log(personArray[3]);
-console.log(arraySize);
+// console.log(personArray[3]);
+// console.log(arraySize);
 
-const UpdatedArraySize = personArray.length;
+// const UpdatedArraySize = personArray.length;
 
-console.log(UpdatedArraySize);
+// console.log(UpdatedArraySize);
 // As updating the previous arraySize will throw error but adding removing changing values of const array doesn't give error
 
+// const allUsers = [
+//     {
+//         firstName: "Sarthak",
+//         lastName: "Sachdev",
+//         metadata: [
+//             {
+//                 age: 21, // here metadata is an array of objects and not an object in itself but an array
+//             },
+//         ],
+//         gender: "male",
+//     },
+//     {
+//         firstName: "Harkirat",
+//         lastName: "Singh",
+//         gender: "female",
+//     },
+// ];
+
+// for (let i = 0; i < allUsers.length; i++) {
+//     if (allUsers[i]["gender"] == "male") {
+//         console.log(`${allUsers[i]["firstName"]} is male`);
+
+//         // Check if metadata exists before accessing age property
+//         if (allUsers[i]["metadata"] && allUsers[i]["metadata"][0]["age"] !== undefined) {
+//             console.log(allUsers[i]["firstName"] + " is male and " + allUsers[i]["metadata"][0]["age"] +" is his age");
+//         } else {
+//             console.log(`${allUsers[i]["firstName"]} is male, but age is not available`);
+//         }
+//     }
+// }
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+// Q1 Write some function that finds sum of 2 numbers
+
+
+
+// Q2 Write a function that displays result in a pretty format
+
+
+
+// Q3 Write a function that takes this sum and prints it in passive tense
+
+
+
+// Q4 Write a function that can convert numbers to text 
+
+
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+let sum = 0;
+
+for (let i = 0; i < 1000000000; i++) {
+    sum += i;
+}
+
+console.log(sum);

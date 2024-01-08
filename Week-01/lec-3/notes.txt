@@ -30,3 +30,15 @@ Next we moved on to learn in depth about reference datatypes like arrays and obj
 
 Go to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array to read more about arrays.
 
+ Then we transitioned to learn about objects, similar to array, only difference is objects are many arrays combined together and can take all kinds of datatype values unlike arrays which can take only one type of value.
+
+Then we learnt more about how we can nest objects and add more dimensions to it(more values to it but inside different object instances so it makes it more complex)
+
+After that we started with functions. Functions are a part of your code that are programmed to help programmer out in order to reduce the manpower to typing same thing again and again and instead use a function for the same and just call the function out whenever we need to do that particular task. 
+
+Callbacks- Calling one function/same function inside a function.
+
+There are two different ways to give input to a function(pass by value, pass by reference)
+
+The answer to bounty question was the htop command not working correctly and that is why the single threaded nature of javascript was not appearing as it should by using only one core in cpu and taking one of its core's activity to 100% after running a really big program as shown in lecture which indeed it does but it was the issue with the command that made us not see the 100% usage.
+
