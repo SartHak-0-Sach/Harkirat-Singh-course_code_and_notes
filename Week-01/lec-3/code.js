@@ -192,7 +192,7 @@
 // let sum = 0;
 
 // for (let i = 0; i < 1000000000; i++) {
-//     sum += i;
+    //     sum += i;
 // }
 
 // console.log(sum); // bounty question
@@ -200,26 +200,26 @@
 // first way of calling functions
 
 // var bro1 = function(a,b){
-//     return a + b;
-// }
+    //     return a + b;
+    // }
+    
+    // console.log(bro1(2,5));
+    
+    // second way of calling functions
+    
+    // var bro2 = (a,b) =>{
+        //     return a + b;
+        // }
 
-// console.log(bro1(2,5));
-
-// second way of calling functions
-
-// var bro2 = (a,b) =>{
-//     return a + b;
-// }
-
-// third way
+        // third way
 
 // var bro3 = new Function('a', 'b', 'return a + b');
 
 // fourth way
 
 // var obj = {
-//     bro4: function(a, b) {
-//         return a + b;
+    //     bro4: function(a, b) {
+        //         return a + b;
 //     }
 // };
 
@@ -231,8 +231,8 @@
 //     if (result > 10) {
 //         return 'High';
 //     } else {
-//         return 'Low';
-//     }
+    //         return 'Low';
+    //     }
 // `);
 
 // // Example of calling the function
@@ -240,21 +240,42 @@
 // console.log(bro3(5, 3)); // Output: 'High'
 
 // function calculation(a, b, arithmaticFunction) {
-//     const ans = arithmaticFunction(a, b)
+    //     const ans = arithmaticFunction(a, b)
 //     return ans;
 // }
 
 // function sum(a,b){
-//     return a + b;
+    //     return a + b;
 // }
 
 // function sub(a,b){
-//     return a - b;
-// }
-
-// const value = calculation(1,2,sum);
-// console.log(value);
-
+    //     return a - b;
+    // }
+    
+    // function mul(a,b,c){ 
+        //     return a*b*c;
+        // } // This function has been added to explain that this is not use-case of callbacks as we should know number of arguments and thus we will have to call mul function separately
+        
+        // const value = calculation(1,2,sum);
+        // console.log(value);
+        
 // Some examples of callbacks are setTimeout function and setInterval function where we pass them a function and a time arguments and the function is run after that amount of time in setTimeout function and after every x interval of time till we stop the function in case of set Interval function
 
 // ALERT!!!! Callback is not recursion, recursion is function calling itself but in case of callbacks we can call any function not specifically the same function(it might cause an error if we call the same function as it might go into an infinite loop of callbacks)
+
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+// Q1 Create a counter in Javascript(counts down from 30 to 0)
+
+
+
+// Q2 Calculate the time it takes between a timeout call and inner function actually running
+
+
+
+// Q3 Create a terminal clock (HH:MM:SS)
+
+
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

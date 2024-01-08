@@ -44,3 +44,6 @@ The answer to bounty question was the htop command not working correctly and tha
 
 Then harkirat told us about V8 engine, written in c++ but was used to compile js into bytecode and the creators of node.js used v8, did a few modifications to it to make the current day nodeJS
 
+Then we studied about callbacks, how they can help us save loads of time by directly calling functions by passing them in argument of another function, the only drawback being we need to know what number of arguments we are going to use as in case of different number of arguments it won't work.
+
+Lastly we also learnt about non-blocking, it means that when asynchronous calls are taking place in javascript, when we make a database call, javascript being single threaded, it defers the call if the call is too expensive.
