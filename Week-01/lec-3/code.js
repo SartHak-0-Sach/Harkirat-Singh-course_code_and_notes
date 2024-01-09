@@ -34,6 +34,7 @@
 //     output: process.stdout
 // });
 
+// // Using a for loop
 // var totalSum = (n) => {
 //     let ans = 0;
 //     for (let i = 1; i <= n; i++) {
@@ -42,6 +43,7 @@
 //     console.log(ans);
 // }
 
+// // Using a while loop
 // var totalSum2 = function (n) {
 //     let ans = 0;
 //     let i = 1;
@@ -52,6 +54,7 @@
 //     console.log(ans);
 // }
 
+// // Using a do-while loop
 // var totalSum3 = (n) => {
 //     let ans = 0;
 //     let i = 1;
@@ -62,22 +65,64 @@
 //     console.log(ans);
 // }
 
+// // Using a for...in loop (not recommended for arrays or similar structures)
+// var totalSum4 = (n) => {
+//     let ans = 0;
+//     for (let i in Array.from({ length: n }, (_, index) => index + 1)) {
+//         ans += parseInt(i) + 1;
+//     }
+//     console.log(ans);
+// }
+
+// // Using a for...of loop (recommended for arrays and iterable objects)
+// var totalSum5 = (n) => {
+//     let ans = 0;
+//     for (let value of Array.from({ length: n }, (_, index) => index + 1)) {
+//         ans += value;
+//     }
+//     console.log(ans);
+// }
+
+// // Using Array.reduce()
+// var totalSum6 = (n) => {
+//     let ans = Array.from({ length: n }, (_, index) => index + 1).reduce((sum, value) => sum + value, 0);
+//     console.log(ans);
+// }
+
 // rl.question('Enter a number: ', (answer) => {
 //     let n = parseInt(answer);
 //     totalSum(n);
 //     totalSum2(n);
 //     totalSum3(n);
+//     totalSum4(n);
+//     totalSum5(n);
+//     totalSum6(n);
 //     rl.close();
 // });
 
 
 // Program-1 Write a program that greets a person given their first and last name
 
+// const greet = function(firstName, lastName){
+//     console.log(`Hello ${firstName} ${lastName}`);
+// }
 
+// greet("Sarthak", 'Sachdev');
 
 // Program-2 Write a program that greets a person based on their gender.
 
+// const greet = (gender)=>{
+//     if(gender === "male" || gender === "transgender")
+//     {
+//         console.log("Hello male person");
+//     }
+//     else
+//     {
+//         console.log("Hello female person");
+//     }
+// }
 
+// greet("gay");
 
 // Program-3 Write a program that counts from 0-1000 and prints all of these numbers.
 
@@ -88,7 +133,14 @@
 
 // Program-4 Write a program that prints all even numbers in an array.
 
-
+const value  = [1,2,3,4,5,6,7,8,9,10];
+for(i in value)
+{
+    if(i%2===0)
+    {
+        console.log(i);
+    }
+}
 
 // Program-5 Write a program that can print the biggest number in an array.
 
@@ -279,3 +331,22 @@
 
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+// function findNestedEntry(obj, key) {
+//     for (let prop in obj) {
+//         if (obj.hasOwnProperty(prop)) {
+//             if (prop === key) {
+//                 return obj[prop]; // Found the key, return its value
+//             } else if (typeof obj[prop] === 'object') {
+//                 const result = findNestedEntry(obj[prop], key);
+//                 if (result !== undefined) {
+//                     return result; // Found the key in a nested object, return its value
+//                 }
+//             }
+//         }
+//     }
+//     // Key not found
+//     return undefined;
+// }
+
+// we can use programs like these to find entries in nested complex objects using recursion and loops for each level
