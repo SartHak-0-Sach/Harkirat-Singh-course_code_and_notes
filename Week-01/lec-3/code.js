@@ -158,13 +158,65 @@
 
 // Program-6 Write a program that prints all the male people's first name given a complex object.
 
-const complexObject = {
-    
-}
+// const complexObject = {
+//     states: {
+//         Haryana: { Chandigarh: { males: { firstName: ["Raghu", "Surya", "Shailendra"] } } },
+//         Punjab: { Moga: { males: { firstName: ["Jassi", "Raunak"] } } },
+//         Rajasthan: {
+//             Udaipur: { males: { firstName: ["Saket", "Saurabh"] } },
+//             Pratapgarh: { males: { firstName: ["Abhinav"] } }
+//         },
+//         Karnataka: {
+//             Bangalore: { males: { firstName: ["Harkirat"] } },
+//             Bengaluru: { males: { firstName: ["Akshat", "Sidhant"] } }
+//         }
+//     }
+// };
+
+// function printMaleFirstNames(complexObject) {
+//     for (const state in complexObject.states) {
+//         const stateObj = complexObject.states[state];
+//         for (const city in stateObj) {
+//             const cityObj = stateObj[city];
+//             if (cityObj.males && cityObj.males.firstName) {
+//                 const maleNames = cityObj.males.firstName;
+//                 console.log(`Male names in ${city}, ${state}: ${maleNames.join(", ")}`);
+//             }
+//         }
+//     }
+// }
+
+// // Calling the function with the provided complex object
+// printMaleFirstNames(complexObject);  
 
 // Program-7 Write a program that reverses all the elements of an array
 
+// const reverse = function(str) {
+//     let finalstr = [];
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         finalstr.push(str[i]);
+//     }
+//     return finalstr.join('');
+// }
 
+// const arr = ["Harkirat", "Singh", "javascript", "course"];
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(reverse(arr[i]));
+// }
+
+// we can also use these methods to reverse the string:-
+
+/*
+const reverse = function(str) {
+    return Array.from(str).reverse().join('');
+};
+
+const reverse = function(str) {
+    return str.split('').reverse().join('');
+};
+
+lastly we can also do that by initializing an empty string and adding characters to it
+*/
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
