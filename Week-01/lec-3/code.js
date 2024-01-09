@@ -144,11 +144,23 @@
 
 // Program-5 Write a program that can print the biggest number in an array.
 
+// let largest = Number.MIN_SAFE_INTEGER;
+// const arr = [19,24,33,34,5,16,72,86,98];
+// for(i in arr)
+// {
+//     if(arr[i]>largest)
+//     {
+//         largest = arr[i];
+//     }
+// }
 
+// console.log(largest);
 
 // Program-6 Write a program that prints all the male people's first name given a complex object.
 
-
+const complexObject = {
+    
+}
 
 // Program-7 Write a program that reverses all the elements of an array
 
