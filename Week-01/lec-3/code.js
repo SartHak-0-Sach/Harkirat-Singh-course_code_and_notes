@@ -112,7 +112,7 @@
 // Program-2 Write a program that greets a person based on their gender.
 
 // const greet = (gender)=>{
-//     if(gender === "male" || gender === "transgender")
+//     if(gender === "male")
 //     {
 //         console.log("Hello male person");
 //     }
@@ -122,7 +122,7 @@
 //     }
 // }
 
-// greet("gay");
+// greet("male");
 
 // Program-3 Write a program that counts from 0-1000 and prints all of these numbers.
 
@@ -133,14 +133,14 @@
 
 // Program-4 Write a program that prints all even numbers in an array.
 
-const value  = [1,2,3,4,5,6,7,8,9,10];
-for(i in value)
-{
-    if(i%2===0)
-    {
-        console.log(i);
-    }
-}
+// const value  = [1,2,3,41,51,6,71,81,9,10];
+// for(let i in value)
+// {
+//     if(value[i] % 2 === 0)
+//     {
+//         console.log(value[i]);
+//     }
+// }
 
 // Program-5 Write a program that can print the biggest number in an array.
 
