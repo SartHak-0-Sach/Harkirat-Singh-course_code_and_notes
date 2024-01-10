@@ -279,11 +279,7 @@ lastly we can also do that by initializing an empty string and adding characters
 
 // console.log(sum(2,4));
 
-// Q2 Write a function that displays result in a pretty format
-
-
-
-// Q3 Write a function that takes this sum and prints it in passive tense
+// Q2 Write a function that takes this sum and prints it in passive tense
 
 // function sum(num1, num2, fnToCall)
 // {
@@ -303,10 +299,6 @@ lastly we can also do that by initializing an empty string and adding characters
 // // If we are only allowed to call one function after this and we don't know which function user will call that is why we add callbacks(fnToCall) in our function to do this:-
 
 // const ans = sum(1,2,displayResultInPassive);
-
-// Q4 Write a function that can convert numbers to text
-
-
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -389,13 +381,12 @@ lastly we can also do that by initializing an empty string and adding characters
 
 // Q1 Create a counter in Javascript(counts down from 30 to 0)
 
+// for(let i = 30; i >= 0; i--)
+// {
+//     setTimeout(() => console.log(i), 1000*(30-i));
+// }
 
-
-// Q2 Calculate the time it takes between a timeout call and inner function actually running
-
-
-
-// Q3 Create a terminal clock (HH:MM:SS)
+// Q2 Create a terminal clock (HH:MM:SS)
 
 
 

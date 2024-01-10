@@ -1,0 +1,5 @@
+Lec-3
+
+In this lecture, we traversed through different concepts mentioned in the code handbook of week-1 and understood how javascript syntax can help us do complex tasks in single lines of code.
+
+It is not necessary to learn everything by heart but just knowing about different topics is enough as you can google the syntax later.
