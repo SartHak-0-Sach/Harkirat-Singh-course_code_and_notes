@@ -1,0 +1,49 @@
+Slides link:- https://appx-recordings.s3.ap-south-1.amazonaws.com/drm/100x/slides/JS+foundations.pdf
+
+In this lecture, we started by discussing why we need so many programming languages and learnt more about how computers work. In a computer we have RAM and SSD(or HDD) and for different purpose computers, gaming, crypto-mining, multipurpose simple systems etc have different specifications accordingly.
+
+In a computer all our photos,videos,apps reside in SSD but if we open them they go into RAM(Random Access Memory). In the RAM the binary code goes which is typed in programming languages(high level code) converted to binary using compilers. Through this binary code the RAM understands how to run applications.
+
+After a language is compiled, an additional file is created which is then opened in RAM and run to get our output.
+
+But Javascript is different, as it is an interpreted language.
+
+In C++, which is a compiled language, the code is read by compiler as a whole, an additional file is created, and then the code is run.
+
+But in Javascript, which is an interpreted language, the code is read by compiler line by line and converted to binary and gives the output along the way without creating any new file.
+Therefore unlike compiled languages, these languages run code partially until they encounter an error.
+More examples of interpreted language is python and of compiled language is Java, Rust etc.
+
+Javascript, unlike C++, is a loosely typed language. It is also called a dynamically typed language and C++ is a static strictly typed language which doesn't excuse any syntax error and has a proper method to working in it. While in js, we have the leverage(that can be a problem a lot of times) that we can change datatype of variable along the way and can ignore few syntax pointers like putting semi-colon at the end.
+
+JS has a single threaded nature. This means that when we run a javascript file, the code will only run on a single core and we cannot divide our code to multiple cores unlike in C++ which is a multi threaded language.
+
+In Javascript, program runs line by line, one line at a time.
+
+We can use sub-routines to make it use all cores of a machine. But this single threaded default nature of js makes it only use one core at a time and thus is considered a bad language for scalable systems.
+
+After understanding all this we moved on to learn more about Javascript syntax.
+
+We started off with the basics, what are variables, types of variable declaration we can use in javascript code(var, let, const), what are the different types of primitive datatypes(number, string, boolean, undefined, null) and reference datatypes(object, function, array), what are loops in Javascript, their use, their types(for, while, do-while, sub-types of for like- simple for loop, for-in loop, for-of loop, for-await-of loop).
+
+Next we moved on to learn in depth about reference datatypes like arrays and objects and wrote a few progams in them similarly we did earlier in with primitive datatypes.
+
+Go to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array to read more about arrays.
+
+ Then we transitioned to learn about objects, similar to array, only difference is objects are many arrays combined together and can take all kinds of datatype values unlike arrays which can take only one type of value.
+
+Then we learnt more about how we can nest objects and add more dimensions to it(more values to it but inside different object instances so it makes it more complex)
+
+After that we started with functions. Functions are a part of your code that are programmed to help programmer out in order to reduce the manpower to typing same thing again and again and instead use a function for the same and just call the function out whenever we need to do that particular task. 
+
+Callbacks- Calling one function/same function inside a function.
+
+There are two different ways to give input to a function(pass by value, pass by reference)
+
+The answer to bounty question was the htop command not working correctly and that is why the single threaded nature of javascript was not appearing as it should by using only one core in cpu and taking one of its core's activity to 100% after running a really big program as shown in lecture which indeed it does but it was the issue with the command that made us not see the 100% usage.
+
+Then harkirat told us about V8 engine, written in c++ but was used to compile js into bytecode and the creators of node.js used v8, did a few modifications to it to make the current day nodeJS
+
+Then we studied about callbacks, how they can help us save loads of time by directly calling functions by passing them in argument of another function, the only drawback being we need to know what number of arguments we are going to use as in case of different number of arguments it won't work.
+
+Lastly we also learnt about non-blocking, it means that when asynchronous calls are taking place in javascript, when we make a database call, javascript being single threaded, it defers the call if the call is too expensive.
