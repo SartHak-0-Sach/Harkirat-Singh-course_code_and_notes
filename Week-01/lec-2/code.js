@@ -388,7 +388,57 @@ lastly we can also do that by initializing an empty string and adding characters
 
 // Q2 Create a terminal clock (HH:MM:SS)
 
+const readline = require('readline');
 
+function startClock(hours, minutes, seconds) {
+    // Validate input
+    if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+        console.log("Invalid input. Please enter valid numbers for hours, minutes, and seconds.");
+        return;
+    }
+
+    // Calculate total seconds from user input
+    let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+    // Function to format time with leading zeros
+    function formatTime(value) {
+        return value < 10 ? '0' + value : value;
+    }
+
+    // Function to update and display the clock
+    function updateClock() {
+        const currentHours = Math.floor(totalSeconds / 3600) % 24; // Handle rollover
+        const currentMinutes = Math.floor((totalSeconds % 3600) / 60);
+        const currentSeconds = totalSeconds % 60;
+
+        // Print the formatted time
+        process.stdout.write(`\r${formatTime(currentHours)}:${formatTime(currentMinutes)}:${formatTime(currentSeconds)}`);
+
+        // Update total seconds and set the next update after 1 second
+        totalSeconds++;
+        setTimeout(updateClock, 1000);
+    }
+
+    // Start the clock
+    updateClock();
+}
+
+// Create a readline interface for user input
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+// Get user input for hours, minutes, and seconds
+rl.question("Enter hours: ", (hours) => {
+    rl.question("Enter minutes: ", (minutes) => {
+        rl.question("Enter seconds: ", (seconds) => {
+            // Start the clock with user input
+            startClock(parseInt(hours), parseInt(minutes), parseInt(seconds));
+            rl.close();
+        });
+    });
+});
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
