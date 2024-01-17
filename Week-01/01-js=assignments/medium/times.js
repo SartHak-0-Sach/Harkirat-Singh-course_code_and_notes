@@ -9,5 +9,21 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+    var sum = 0;
+
+    // Start measuring time
+    var start_time = performance.now();
+
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+    // Stop measuring time
+    var final_time = performance.now();
+
+    return final_time - start_time;
 }
+
+console.log(calculateTime(100));         // Time for sum from 1-100
+console.log(calculateTime(100000));      // Time for sum from 1-100000
+console.log(calculateTime(1000000000));  // Time for sum from 1-1000000000
