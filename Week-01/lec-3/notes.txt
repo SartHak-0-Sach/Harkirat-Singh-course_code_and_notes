@@ -3,3 +3,13 @@ Lec-3
 In this lecture, we traversed through different concepts mentioned in the code handbook of week-1 and understood how javascript syntax can help us do complex tasks in single lines of code.
 
 It is not necessary to learn everything by heart but just knowing about different topics is enough as you can google the syntax later.
+
+At first, we started off by learning string functions that make our job easier, like str.length, str.indexOf(targetStr), str.lastIndexOf(targetStr), str.slice(targetStr, end), str.substring(start, end), str.replace(target, replacement), str.split(separatorChar), str.trim()(removes spaces from start and end), str.toUpperCase, str.toLowerCase etc.
+
+We also learnt about how to extract numbers from a string using parseInt(string) and parseFloat(string) functions.
+
+Then we also learnt about array functions like- arr.push(element), arr.pop(), arr.shift(), arr.unshift(element), let arr3 = arr1.concat(arr2), arr.forEach(// can call a function here, or a loop, or even a simple console log command), arr.find(// again you can write anything in here), arr.sort(anything written here too) and lastly 2 important array functions being map and filter that are used as arr.map() and arr.filter() which were also taken separately by harkirat.
+
+Then later we learnt why classes are important in programming in general and what is the need of using classes, that they help us avoiding the dry principle, i.e, "Don't Repeat Yourself" and be lazy with it anywhere when it comes to coding.
+
+Later on we also learnt about time related library functions provided by javascript

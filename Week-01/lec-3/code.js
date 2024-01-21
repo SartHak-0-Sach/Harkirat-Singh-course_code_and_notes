@@ -1,9 +1,7 @@
-// String handbook
+// Code handbook
 
 // String: length, indexOf(), lastIndexOf(), slice(), substring(), replace(),
 // split(), trim(), toUpperCase(), toLowerCase(), etc.
-
-// Run each function to see the output, play and learn by doing.
 
 // Length
 function getLength(str) {
@@ -107,8 +105,6 @@ explainParseFloat("42px");
 
 // Array:   push(), pop(), shift(), unshift(), splice(), slice(),
 // concat(), forEach(), map(), filter(), reduce(), find(), sort()
-
-// Run each function to see the output, play and learn by doing.
 
 // push()
 function pushExample(arr, element) {
