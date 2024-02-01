@@ -1,0 +1,144 @@
+In this lecture we took a deep dive into what Bash is, what are command line interfaces, and by the end of lecture we also learnt how to setup NodeJS in our systems.
+
+What is Bash?
+Bash is nothing but a command line interpreter language that helps us interact with our operating system.
+
+In a standard terminal like cmd, what we see in front of us is a prompt, and through it we can give any instruction to our operating system to execute, so the job of the shell(my command line interface) is to understand and interpret this prompt and it is the duty of the kernel to execute.
+
+The term "Unix-like operating systems" refers to operating systems that share similarities with the original Unix operating system, which was developed at Bell Labs in the 1970s. While there isn't a strict definition, Unix-like operating systems typically exhibit certain characteristics and design principles inspired by Unix.
+
+Key features of Unix-like operating systems include:
+
+Multiuser and Multitasking: Unix-like systems are designed to support multiple users and allow them to run multiple programs simultaneously. Each user has their own account and can run processes independently.
+
+Hierarchical File System: Unix-like systems organize files in a hierarchical directory structure. Directories can contain both files and subdirectories, forming a tree-like structure.
+
+Shell: Interaction with the operating system is often done through a command-line interface (CLI) known as the shell. Users can issue commands to perform various tasks.
+
+Portability: Unix and Unix-like systems aim for portability across different hardware platforms. This is achieved by separating the operating system kernel from the hardware and providing a standard set of APIs (Application Programming Interfaces).
+
+Security: Unix-like systems implement a security model based on file permissions. Each file has associated permissions for the owner, group, and others, controlling who can read, write, or execute the file.
+
+Networking: Unix-like systems have robust networking capabilities. They were designed from the beginning to support networking protocols, making them well-suited for server environments.
+
+Popular Unix-like operating systems include:
+
+Linux: A Unix-like operating system kernel that is often used with the GNU operating system to create a complete Unix-like operating system.
+
+BSD (Berkeley Software Distribution): A family of Unix-like operating systems based on the Unix version developed at the University of California, Berkeley.
+
+macOS: The operating system used on Apple Macintosh computers, which has a Unix-based core known as Darwin.
+
+While these systems share Unix's philosophy and design principles, they may have differences in terms of kernel architecture, user interface, package management, and other aspects. The term "Unix-like" is used to encompass this variety while highlighting the common characteristics inherited from Unix.
+
+Now let us understand various commands in depth-
+1. pwd- Print Working Directory
+        This command displays the current working directory with this command
+
+2. ls- List Files
+        This command displays a list of files and directories in the current directory.
+        In ls we can further use a lot of commands to see more details about files present in the directory.
+        'ls -l' This command shows detailed information about each file including permissions (read/write), owner, group, size, and time of last modification.
+        'ls -R' This command gives information about each subdirectories and within those we can see all files in the given directories
+        'ls -t' Through this command we can see files in the order of last modified
+        Now in ls we can combine multiple options together too
+        Like : 'ls -ltr' or 'ls --full-time=atime' to sort by access time
+        'ls -la' To show all including hidden files
+        'ls -lRa' To recursively list all the directories for us 
+        'ls -lr' To see files in reverse order according to the time when they were modified
+        'ls -lt' Through this command we can not only see files in last modified order but also see at what timestamp was a file modified.
+        'ls -s' To list all the subdirectories sorted by size
+        NOTE: All of these above mentioned commands have to be followed by a relative or absolute path of directories/any subdirectories
+        'ls -lR | grep .json' (grep command Grep command in Unix/Linux is the short form of 'global search for the regular expression') Through this command, we recursively look for all .json files in all directories and subdirectories of path provided, can be even done at the highest C: drive folder also which will give all .json files in system.
+        'ls *.json' Searches for all .json files in a directory(can be done for any file extension)
+        'ls': Lists the contents of the current directory.
+        'ls ..': Lists the contents of the parent directory.
+
+3. cd- Change Directory
+        This command is used to navigate to different folders or directories on your computer.
+
+4. cat- Concatenate
+        This command is used to display the contents of a file.
+        (We can also use 'cat >' followed by file name to change the text of the file to the text you adding)
+        (Or we can use 'cat >>' followed by file name to append new text at the end of existing text in the file)
+
+5. touch- Create a new file
+        This command is used to create a new file.
+
+6. mkdir- Make Directory
+        This command is used to create a new directory.
+        If we use the command 'mkdir -p current_folder_name/new_folder_name' in Unix-like operating systems, we can create a directory and its parent directories (if they do not already exist). The -p option ensures that the command creates all necessary parent directories along the specified path. Through this command we can create new directories and files recursively.
+
+7. mv- Move
+        Through this command we can move files from one folder to another.
+        'mv name_of_file new_name_of_file' We can rename certain file.
+        'mv name_of_folder_where_we_moving_our_file/new_name_of_file' We can rename the file and also move it.
+
+8. cp- Copy
+        Through this command we can copy any directory along with all its subdirectories and files.
+        By adding a path in front of cp command and the name of file, we can copy the given file/folder to the path written.
+        'cp -r' We can recursively copy the mentioned file(s). Everywhere in command prompt or git Bash -r: Specifies the recursive option, which means the command will copy not only files in the source directory but also all subdirectories and their contents.
+
+9. rm- Remove
+        Through this command we can remove files and folders.
+        By using simple rm command we can remove specified files but by using rm -r for folders, we can wipe out entire folders.
+
+10. chmod- Change file permissions
+        If we do 'ls -l' command, we can also see permissions of all files and subdirectories, so with chmod command, we can modify, read, write, and execute permissions of a file.
+        In 'chmod' command, after writing chmod, we have to do add 2 things in front of it, and for both these words, we have a list of attributes that we can add to specify the permission-
+            1st word- For whom are you setting the permissions for?
+                u- User
+                g- Group
+                o- Others
+                We can also write ug, go, uo, ugo
+                This word is followed by a '+' or '-' telling the computer if we are adding or removing permissions
+
+            2nd word- Type of permission?
+                r- Read (represented by 4 in numeric form)
+                w- Write (represented by 2 in numeric form)
+                x- Execute (represented by 1 in numeric form)
+                Here also you can write rw, wx, rx, rwx 
+        
+        So one example of such a command will be- 'chmod ug-x name_of_file', for folders- 'chmod -R ug-x name_of_file' 
+
+NOTE: The numeric form of chmod does not function the same way we doing with letters and involves sum of number so understand that too.
+
+11. echo- Display message
+        Through 'echo message_text(or a variable like $PATH)' command we can display any text we want in command prompt.
+
+12. head/tail- Display head or tail part of file
+        Through head command followed by file name, we can see the first 10 rows of a file, through tail command, we can see the last 10 rows of a file.
+        head or tail followed by '-x', we can see the first x lines or last x lines of a file. eg- head -20 index.html
+        By using tail followed by -n and putting +x in front of it, we can start from x rows for tail.
+        To do the same for head, we can use the command 'sed -n '25,$p' filename | head' or also use tail with | operator to do the same.
+
+NOTE: Learn how to use &(AND operator) and |(PIPE operator) in command prompt for merging commands
+
+13. wc- Word Count
+        Through this command we can check the number of rows, number of words, number of characters in a file.
+
+14. grep- Global Search for the Regular Expression
+        Through this command, we can search for the occurence of a word or character in a file and by using -r we can do that recursively in multiple files.
+        By using -c or -h or -hi we can see count, locations where it is present, both uppercase and lowercase location of word.
+        Much more such commands are possible solving for bigger purposes like -hinw, -hir, -o, -v(print all lines except one with given keyword from the file mentioned), -A(see occurence of given keyword after mentioned number of lines), -B, -C.
+
+NOTE: See the lecture at 32:02 for learning how to combine multiple commands and solve bigger purposes
+
+15. history- Shows history
+        Through this command we can see an indexed history of all the commands that we have implemented yet in the code.
+
+NOTE: Bash is not just a command prompt to run commands but rather a programming language in which we can write scripts and execute them to automate big tasks. On the first line of our script, we must specify which interpreter we would like to use to parse our script, in this scenario, it is Bash. Thus, we must put the shebang in the first line of our script.
+
+16. sed- Stream Editor
+        It is a command-line tool in Unix and Unix-like operating systems used for parsing and transforming text. It reads input line by line, applies specified text transformations, and then outputs the modified text. It is often used for search and replace operations, as well as more complex text manipulations through regular expressions.
+
+        'sed -n '/Term_we_are_looking_for/ p' name_of_file' This command uses the sed tool to search for a specific term, 'Term_we_are_looking_for,' in the file named 'name_of_file.' The -n option suppresses automatic printing of pattern space, and the command prints only the lines containing the specified term.
+
+        By using 'sed 's/term/new_term' name_of_file' command we can substitute given term by new term in a file.
+
+        We can also substitute values in specific lines by mentioning the line number.
+
+        by using -ibackup we can also create a backup file in the same directory as of file.
+
+17. awk- This is a whole new scripting language in itself but can also be used as a command to modify files.
+        By using awk, we can change occurences, print occurences or file, count occurences, substitute words, add text at start and end of file, print specific columns of a file, do arithmatic operations, search by timestamp and much more.
