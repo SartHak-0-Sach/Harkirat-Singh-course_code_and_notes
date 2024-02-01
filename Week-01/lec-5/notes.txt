@@ -1,1 +1,42 @@
-lec-5
+In this lecture we started off by discussing about async and sync functions.
+
+Sync functions mean sequential, doing one thing at a time. That means I will do a task only when the other task is finished. In example of cooking, I will first fill water and set it on gas to boil, wait until it boils and only then go on to cut the vegeatable and so on.
+
+Async function means I will simply set water to boil and go on to cut the vegeatables while also delegate tasks to others like getting groceries from market and tell them to do it while I am cutting vegeatables. Through this we can decrease a significant amount of time.
+
+Javascript and humans both are single threaded and can't multi-task but we can context switch and delegate tasks to others and context switch between my tasks while I am doing something else to reduce time.
+
+In JavaScript, context switching refers to the process of changing the execution context, often associated with asynchronous operations. It allows the program to handle multiple tasks concurrently without blocking the main thread, enabling non-blocking and responsive behavior.
+
+For seeing this properly you can go to this website- http://latentflip.com/loupe
+
+In javascript some functions are async function like setTimeout which are executed asynchronously while other code continues to execute.
+
+These async function get their job done parallel to the rest of the code, then get executed whenever they are completed independent of what's going on in the rest of the code.
+
+Even if async functions are declared first, it is possible for all the rest of the code to get executed first while this async code is still busy executing because this async function works independent of all other code and doesn't block the thread from working on other stuff mentioned later than this async code.
+
+There are many async functions in javascript, some of the popular ones being- setTimeout function, fs.readFile(uses error first callbacks to get executed) function or fetch command.
+
+If there are 2 setTimeout functions present, then the one with lesser time will be output first irrespective of order in which they were called in the code because these functions work asynchronously and will come into callback queue as soon as they are executed waiting to print output in function call stack.
+
+Now we will study more about promises.
+Promises in javascript are syntactical sugar to make the callback code slightly readable. Under the sheet, its still doing the same thing of using callbacks and using callback queue and then going to function call stack to get executed.
+
+To make our own asynchronous function, we will mostly be using other asynchronous functions which are already provided in javascript like setTimeout or readFile and using these we can make our own async function.
+
+Why we use promises? Because of callback hell that we will discuss later.
+
+Promise is like an agreement in code, that a function sends a promise that it will do the mentioned job, if the job is done the output is shown else promise is not resolved.
+
+Any promise can have 3 states- pending, resolved, rejected
+
+Promises only come in handy in case of writing async function as they provide a conventionally cleaner version of writing them, even though a simple non-promise code would look more cleaner and appealing.
+
+Actually in promises, .then is not necessary but rather async await is used which gives promises its power and advantage and makes them better than non-promisified code.
+
+The async await syntax makes the code stuck at the await line, for example if we have a setTimeout function written waiting for 5 seconds, any code written after the await line will wait for the await line to resolve(or throw error but not be pending) but in the case of .then syntax, nothing written after the .then statement waits for it to complete and all the other code continues to run even though its the exact same thing going on under the hood as we are still doing callbacks and nothing different is going on in case of async await promises. 
+
+The waiting for await to resolve was a conscious decision by developer because it does not want rest of the code to run first but rather wait for await to resolve as the logic from await statement might be used in the rest of the code.
+
+It is necessary for await statement to be in a function declared using async term.
