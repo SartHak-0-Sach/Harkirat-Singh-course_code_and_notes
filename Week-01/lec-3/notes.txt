@@ -1,5 +1,3 @@
-Lec-3
-
 In this lecture, we traversed through different concepts mentioned in the code handbook of week-1 and understood how javascript syntax can help us do complex tasks in single lines of code.
 
 It is not necessary to learn everything by heart but just knowing about different topics is enough as you can google the syntax later.
@@ -11,5 +9,19 @@ We also learnt about how to extract numbers from a string using parseInt(string)
 Then we also learnt about array functions like- arr.push(element), arr.pop(), arr.shift(), arr.unshift(element), let arr3 = arr1.concat(arr2), arr.forEach(// can call a function here, or a loop, or even a simple console log command), arr.find(// again you can write anything in here), arr.sort(anything written here too) and lastly 2 important array functions being map and filter that are used as arr.map() and arr.filter() which were also taken separately by harkirat.
 
 Then later we learnt why classes are important in programming in general and what is the need of using classes, that they help us avoiding the dry principle, i.e, "Don't Repeat Yourself" and be lazy with it anywhere when it comes to coding.
+In classes we understood the basic syntax of first calling a constructor(optional as default constructor is provided) but the only reason to make your constructor is you can customise it and do not have to first call a class and then call variables separately as you can do all that in a single line. In a class we can write common functions and call them with syntax class.function(args) and use that for each object of this class declared. To declare an object we use the syntax let object_name = new class_name(args of constructor). In a class we can also write static functions. Static functions are class specific functions that don't need an object to be declared to call them. Though we cannot use static functions to alter or call any object as they are not associated to any one object and rather associated to the class itself and thus do not have access to object specific data and only have access to common data provided in class.
 
-Later on we also learnt about time related library functions provided by javascript
+### bonus
+
+In this bonus section we will discuss prototypes. Every object declared in javascript has a prototype that we can access and alter using __proto__ command. If we call a function or a command that is there in the prototype of an object but not there in the object itself, then javascript will automatically pick it up from prototype and give us the answer.
+
+
+Later on we also learnt about time related library functions provided by javascript through which we can get current date, week, year, second, minute, month etc.
+We can also set time using functions setFullYear or setMonth and display that as the result.
+We can also calculate the amount of time taken by a function by using new Date() function and declare current exact time(time of the moment i run the function) as 0 and calculate all time passed after that which will give us the time elapsed to execute a specific command or loop or function.
+
+Then we learnt about json methods. JSON stands for javascript object notation. In javascript when we declare any object, and we try to pass the data as a string by putting the object in double apostrophe, then we are unable to access the data of the object as the object is now converted to a string and does not function as an object anymore. So by using JSON methods, we easily stringify an object and later on parse it to use the values whenever we want.
+
+After that we studied about math methods like floor(), ceil(), max(), min() etc but the important one is math.random() which gives us a random number between 0 and 1.
+
+Last but certainly not the least, we studied about object methods through which we can perform tons of operations on the keys and values of these objects and using these we can even simplify finding stuff in complex objects into few lines of code. Some of these functions being- 
