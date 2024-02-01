@@ -1,0 +1,35 @@
+In this lecture we explored more about command prompt and the various commands we can write in it to get our work done. All the commands mentioned in this video have already been discussed in the next video that was a more in depth advanced guide of bash, command prompt and NodeJS so refer to notes of lecture 2.4 for all info.
+
+We will only mention what new things we learn here-
+1. What is command prompt? Command Prompt Terminal is nothing but another interface to do things on your machine.
+
+2. You can navigate outside a folder to parent folder using cd .. similarly cd../.. will take you 2 folders behind and so on
+
+3. If you want to create a folder you use mkdir else if you want to create a file you use touch command
+
+4. We can copy and move files using mv and cp commands(If you are copying folders use -r)
+
+5. nvm stands for node version manager, what is nvm and what does it do? It is a simple bash script that allows you to easily install and manage(switch between) multiple versions of Node.js on the same machine. It is a command-line tool used to manage multiple versions of the Node.js runtime environment on a single machine. It allows users to easily switch between different versions of Node.js, which can be useful for working on projects that require specific versions of NodeJS.
+
+Here are some reasons why nvm is used:
+
+Manage multiple versions of Node.js: nvm allows users to install and manage multiple versions of Node.js on their machine. This can be useful when working on projects that require different versions of Node.js.
+
+Easy switching between versions: nvm allows users to easily switch between different versions of Node.js. This can be useful when working on multiple projects that require different versions of Node.js.
+
+Global packages: nvm allows users to install global packages that are available to all versions of Node.js installed on the machine. This can be useful when working on projects that require global packages.
+
+Sharing Node.js versions: nvm allows users to share their Node.js versions with other users on the same machine. This can be useful when working on projects with a team.
+
+Simplified installation: nvm simplifies the installation process for Node.js by providing a single command to install and manage multiple versions of Node.js.
+
+Compatibility: nvm ensures compatibility between different versions of Node.js and npm (Node Package Manager). This can be useful when working on projects that require specific versions of Node.js and npm.
+
+6. When we type node and enter, we enter what we call a shell, in this we can write and execute javascript code and using node sampleFile.js we can also run JavaScript files and see its output in the terminal itself.
+
+7. What is npm, what does it do and why is it used?
+npm (Node Package Manager) is the default package manager for the Node.js runtime environment. It is used to install and manage-party libraries or that can be used Node.js. provides a way to share and reuse code, making it easier for developers to build complex applications.
+
+npm makes it easy to install by providing a simple command-line interface. You can use the npm install command to install a package and its dependencies. Npm will automatically download and install the package and its dependencies, making it easy to get started with a new library or framework.
+
+Npm is also used to manage the dependencies of a Node.js project. When you create a new Node.js application, you will often use a number of third-party libraries or packages. Npm allows you to specify the dependencies of your project in a package.json file. When you (or another developer) clone the project, you can use the npm install command to automatically install all of the dependencies of the project.
