@@ -1,34 +1,112 @@
-Slides link:- https://appx-recordings.s3.ap-south-1.amazonaws.com/drm/100x/slides/JS+foundations.pdf
+In this lecture, we revised the concepts we read about earlier like promises, async functions, async await syntax, callbacks etc.
 
-In this lecture, we started by discussing why we need so many programming languages and learnt more about how computers work. In a computer we have RAM and SSD(or HDD) and for different purpose computers, gaming, crypto-mining, multipurpose simple systems etc have different specifications accordingly.
+New things from the previous week that we learnt in this lecture are-
+1. There are various functions like reading a file, sending a network request, or a deliberate timeout. Such commands should always be carried out asynchronously because they might take a lot of time to execute and for that we don't want the thread to get stuck until this line of code resolves, that is the use of async functions.
 
-In a computer all our photos,videos,apps reside in SSD but if we open them they go into RAM(Random Access Memory). In the RAM the binary code goes which is typed in programming languages(high level code) converted to binary using compilers. Through this binary code the RAM understands how to run applications.
+2. JavaScript is single threaded language, so in case of asynchronous tasks, it delegates the task to the V8 engine, or whichever compiler we are running the code on and that handles the web API and callback queue section.
 
-After a language is compiled, an additional file is created which is then opened in RAM and run to get our output.
+3. If you want any async or sync function to use the data coming from an async function, the only option you have is to execute it inside the async function the data of which you want to use.
 
-But Javascript is different, as it is an interpreted language.
+4. The primary reason for shifting from standard callback syntax to promises was to address callback hell, where nested functions in asynchronous operations led to unreadable and repetitive code. The introduction of promises and the subsequent adoption of the async/await syntax provided a more systematic and readable way to handle asynchronous code. It is important to note that async/await is often referred to as syntactic sugar because it simplifies the syntax, making the code cleaner and more understandable, while still performing the same asynchronous operations under the hood.
 
-In C++, which is a compiled language, the code is read by compiler as a whole, an additional file is created, and then the code is run.
+5. What exactly is promise? Promise is just another class in javascript just like we read about date() earlier in lecture 1.3
 
-But in Javascript, which is an interpreted language, the code is read by compiler line by line and converted to binary and gives the output along the way without creating any new file.
-Therefore unlike compiled languages, these languages run code partially until they encounter an error.
-More examples of interpreted language is python and of compiled language is Java, Rust etc.
+6. Return is not required in a function, although it is the only place we can write it. If we omit a return, JS supplies one as the function is exited: undefined. Functional programming relies upon the flow of data into and out of functions.
 
-Javascript, unlike C++, is a loosely typed language. It is also called a dynamically typed language and C++ is a static strictly typed language which doesn't excuse any syntax error and has a proper method to working in it. While in js, we have the leverage(that can be a problem a lot of times) that we can change datatype of variable along the way and can ignore few syntax pointers like putting semi-colon at the end.
+7. Callback hell, also known as "pyramid of doom" or "callback pyramid," refers to the situation in asynchronous programming where multiple nested callbacks within callbacks make the code difficult to read and maintain. This typically happens when dealing with asynchronous operations in languages like JavaScript, where callbacks are used to handle asynchronous tasks such as reading files, making HTTP requests, or handling events. Consider the following example code-
 
-JS has a single threaded nature. This means that when we run a javascript file, the code will only run on a single core and we cannot divide our code to multiple cores unlike in C++ which is a multi threaded language.
+readFile('file1.txt', function(err, data1) {
+    if (err) {
+        handleError(err);
+    } else {
+        readFile('file2.txt', function(err, data2) {
+            if (err) {
+                handleError(err);
+            } else {
+                // Nested callback for file2
+                readFile('file3.txt', function(err, data3) {
+                    if (err) {
+                        handleError(err);
+                    } else {
+                        // Use data from file1, file2, and file3
+                        processData(data1, data2, data3);
+                    }
+                });
+            }
+        });
+    }
+});
 
-In Javascript, program runs line by line, one line at a time.
+Promises were introduced in JavaScript to address this issue. Promises provide a cleaner way to handle asynchronous operations and avoid callback hell. A Promise represents a value that may be available now, or in the future, or never. It has three states: pending, fulfilled, or rejected.
 
-We can use sub-routines to make it use all cores of a machine. But this single threaded default nature of js makes it only use one core at a time and thus is considered a bad language for scalable systems.
+readFilePromise('file1.txt')
+    .then(data1 => readFilePromise('file2.txt'))
+    .then(data2 => readFilePromise('file3.txt'))
+    .then(data3 => processData(data1, data2, data3))
+    .catch(error => handleError(error));
 
-After understanding all this we moved on to learn more about Javascript syntax.
+With Promises, the code becomes more linear, and error handling is consolidated at the end with the catch method.
 
-We started off with the basics, what are variables, types of variable declaration we can use in javascript code(var, let, const), what are the different types of primitive datatypes(number, string, boolean, undefined, null) and reference datatypes(object, function, array), what are loops in Javascript, their use, their types(for, while, do-while, sub-types of for like- simple for loop, for-in loop, for-of loop, for-await-of loop).
+Async/await is a syntactic sugar built on top of Promises that further improves the readability of asynchronous code. The same code can be rewritten using async/await:
 
-Next we moved on to learn in depth about reference datatypes like arrays and objects and wrote a few progams in them similarly we did earlier in with primitive datatypes.
+async function processDataAsync() {
+    try {
+        const data1 = await readFilePromise('file1.txt');
+        const data2 = await readFilePromise('file2.txt');
+        const data3 = await readFilePromise('file3.txt');
+        processData(data1, data2, data3);
+    } catch (error) {
+        handleError(error);
+    }
+}
 
-Go to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array to read more about arrays.
+processDataAsync();
 
+Async/await makes the code look more synchronous and is often easier to understand.
 
+Regarding promise chaining, when you chain promises together, each then block returns a new promise, allowing you to chain additional asynchronous operations. This sequential chaining helps in avoiding callback hell, as the code remains readable and avoids deep nesting. The key is that each promise in the chain returns a new promise, allowing the next operation to be specified in a clean and organized manner.
 
+In the async/await code, try is part of a try-catch block. The try-catch block is used to handle exceptions (errors) that might occur during the execution of the asynchronous code.
+The try block contains the asynchronous code that may potentially throw an exception. In this case, the asynchronous operations involve reading files using readFilePromise and processing the data.
+
+If an exception occurs within the try block (for example, if one of the promises is rejected), the control will immediately jump to the catch block.
+
+The catch block contains code that will be executed if an exception occurs. In this example, the handleError function is called to handle the error. You can customize the code inside the catch block to handle errors in a way that makes sense for your application.
+
+Using try-catch with async/await is a way to centralize error handling for asynchronous operations and make the code more robust by gracefully handling errors that may occur during execution.
+
+8. One can pass as many function callbacks apart from resolve in a promise and we usually do 2 to show if promise gets resolved or if it gets rejected/error(This is similar to how we signal an error in readFile function)
+
+9. We can even spawn new threads in JavaScript using some library
+
+10. We can do reading of a file synchronously also using readFileSync()
+
+11. JavaScript's execution context and memory management are fundamental concepts that play a crucial role in understanding how JavaScript code is executed and how memory is allocated and managed. Let's delve into each of these concepts:
+
+Execution Context:
+An execution context is an abstract concept that refers to the environment in which JavaScript code is executed. Every time a function is invoked, a new execution context is created. The execution context consists of two main components: the Variable Environment and the Lexical Environment.
+
+Variable Environment: This is where the variables are stored, and it includes the function's arguments, local variables, and the this keyword.
+
+Lexical Environment: This contains a reference to the outer lexical environment, forming a chain known as the scope chain. This chain helps in variable resolution, ensuring that the correct values are accessed.
+
+There are three types of execution contexts in JavaScript:
+
+Global Execution Context: The default or outermost context that is created when the script is run.
+
+Function Execution Context: Created when a function is called, and it includes the function's local variables and arguments.
+
+Eval Function Context: Created when code is executed inside the eval() function. Note that using eval() is generally discouraged due to security and performance reasons.
+
+The execution context stack, also known as the call stack, keeps track of the currently executing contexts. When a function is called, a new context is pushed onto the stack, and when the function completes, its context is popped off the stack.
+
+Memory Management:
+Memory management in JavaScript involves the allocation and deallocation of memory for variables and data structures. JavaScript has an automatic memory management system known as garbage collection, which helps in reclaiming memory that is no longer in use.
+
+Heap: The heap is the region of memory where objects (such as variables and data structures) are stored. Memory allocation and deallocation for objects occur in the heap.
+
+Stack: The stack is used for managing the execution context stack. It stores function call information, local variables, and other related data.
+
+Garbage Collection: JavaScript uses a garbage collector to automatically identify and reclaim memory that is no longer reachable or referenced by the program. The most common algorithm for garbage collection in JavaScript is the Mark-and-Sweep algorithm.
+
+Memory Leaks: While garbage collection helps in managing memory automatically, it's still important for developers to be mindful of potential memory leaks. Memory leaks can occur when references to objects are unintentionally maintained, preventing the garbage collector from reclaiming memory.
