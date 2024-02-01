@@ -1,0 +1,112 @@
+In this lecture we are going to learn about Node.js and HTTP servers(HyperText Transfer Protocol)(a Protocol for frontend to interact with backend)
+
+First let's start with the basics.
+What is ECMAscript. ECMAscript is a scripting language specification on which JavaScript is based. A specification is like a documentation. ECMAscript tells us what JavaScript should look like and its syntax.
+
+ECMAscript serves as the guidelines or rules for scripting languages design. While on the other hand JavaScript is the implementation. JavaScript is the scripting language that conforms to ECMAscript specification, and is its most widely used implementation.
+
+JavaScript also includes additional features like DOM manipulation which is crucial for web development but is not defined by ECMAscript but are provided by browsers and NodeJS.
+
+Common JS browser engines are V8 and SpiderMonkey.
+
+IMPORTANT INTERVIEW QUESTION!!! What is NodeJS, is it a Programming language? What is it used for? Why is it used?
+Node.js is not a programming language, but rather an environment that allows JavaScript to be executed outside of a web browser. It is built on the V8 JavaScript engine, which is developed by Google. Node.js is used for various purposes, including web server development, real-time applications, and RESTful APIs.
+
+The reason Node.js is used is due to its non-blocking, event-driven architecture. This allows it to handle a large number of simultaneous connections efficiently, making it suitable for applications that require high concurrency. Additionally, Node.js has a large and active community, which contributes to its extensive library ecosystem.
+
+Because of development of Node.js JavaScript became a popular backend language as earlier it was only used in frontend.
+
+What is Bun? Other than the fact that JS is a single threaded language, Node.js is slow(multiple reasons for it), so some smart people said they wanted to re-write the JS runtime for backend and introduced Bun, which has a significantly faster run-time, and it is written in Zig. 
+
+Now let us learn what all we can do with Node.js-
+1. Create clis(command line interface)
+2. Create a video player
+3. Create games
+4. Create an HTTP server(most popular usecase of Node.js)
+
+What is an HTTP server?
+It stands for HyperText Transfer Protocol, it is a protocol that is defined for machines to communicate, and specifically for websites, it is the most common way for your website's frontend to talk to its backend.
+
+There are many protocols, example a popular one is Web RTC protocol, but we will learn about protocols later.
+
+Backend talking to frontend and vice versa is not at all as easy as it sounds because there are huge networks of optical fibres running under the sea that help us connect the world.
+
+HTTP server is any server(any code) that follows HTTP protocol.
+
+Protocols are a set of rules and conventions that define how data is transmitted and communicated over a network. They are essential for enabling communication between devices and systems, ensuring that data is exchanged in a standardized and organized manner. Protocols govern various aspects of communication, including the format of data, error handling, and the sequence of actions performed during communication.
+
+Protocols are used to establish a common ground for communication between different devices, applications, or systems, allowing them to understand and interpret the information being exchanged. Without protocols, it would be challenging for devices from different manufacturers or software from different developers to communicate effectively.
+
+HTTP (Hypertext Transfer Protocol) is one of the fundamental protocols used on the internet. It defines how messages are formatted and transmitted, as well as how web servers and browsers should respond to various commands. HTTP is the foundation of data communication on the World Wide Web, enabling the transfer of hypertext (linked documents) between web servers and browsers.
+
+Key features of HTTP include:
+
+Statelessness: Each request from a client to a server is independent and contains all the information needed for the server to fulfill the request. The server does not retain information about previous requests.
+
+Connectionless: Each request and response in the HTTP protocol is independent, and there is no continuous connection between the client and the server. After a response is sent, the connection is closed.
+
+Text-based: HTTP messages are typically text-based, making them human-readable and easy to understand. The information is usually transmitted in the form of headers and a message body.
+
+Request-Response Model: HTTP follows a simple request-response model. A client (e.g., a web browser) sends a request to a server, and the server responds with the requested information or an error message.
+
+HTTP(client side) consists of-
+Protocol(HTTP/HTTPS), the protocol decides what kind of request is being sent back to the server which then returns the request with the required data rendered by browser as the frontend of the website or any other query requested by user.
+Address(URL/IP/PORT), this represents the address of the backend server of website
+Route
+Headers, Body, query params
+Method
+
+HTTP(server side) consists of-
+Response headers
+response body
+Status codes
+
+Every URL consists of first the name of protocol, then the URL, then the route
+Example - http://www.google.com/search?q=node.js
+Here 'http' is the protocol and '/search' is the route(defines what the website has to do) and 'q=node.js' is the query param
+Header- Cookie- 123as@rjg/E223
+Body- What is 2 + 2(usually in JSON)
+Method: POST
+
+You can see all this by inspecting any website you see on internet
+Just go to inspect, then Network, then see in headers for headers and payload for body.
+
+Now let us take a deep dive into HTTP protocol and see what really happens when we fire the HTTP request-
+1. Browser parses the URL
+2. Does a DNS lookup(converts google.com to an IP)
+3. Establishes a connection to the IP(does handshake(OSI model computer network concept))
+
+What is DNS resolution?
+URLs are just like contacts in your phone.
+In the end, they map to an IP
+If you ever buy a URL of your own, you will need to point it to the IP of your server.(Domain Name Server Resolution)
+
+In JavaScript, there is no inherent concept of an API (Application Programming Interface) in the way that it exists as a specific language feature. However, JavaScript is a versatile language that can be used on both the client and server sides, and APIs are commonly implemented in JavaScript for communication between different software components.
+
+Here's a breakdown of the topic:
+
+API Definition:
+
+An API is a set of rules and protocols that allows one piece of software application to interact with another. It defines the methods and data formats that applications can use to request and exchange information. APIs can be implemented in various ways, and HTTP is one common protocol used for communication.
+JavaScript and APIs:
+
+On the client-side, JavaScript often interacts with APIs provided by servers. These are commonly known as HTTP APIs or Web APIs. These APIs expose endpoints (URLs) that can be accessed using HTTP methods (such as GET, POST, etc.), and they return data, often in JSON format.
+
+JavaScript can make HTTP requests to these APIs using technologies like the XMLHttpRequest object or the more modern Fetch API. Additionally, JavaScript frameworks like Axios or libraries like jQuery provide convenient methods for making HTTP requests.
+
+Server-side JavaScript and APIs:
+
+With the advent of technologies like Node.js, JavaScript can also be used on the server-side. This means you can build server-side APIs using JavaScript. Express.js is a popular framework for building server-side applications, including APIs.
+RESTful APIs:
+
+REST (Representational State Transfer) is a common architectural style for designing networked applications. RESTful APIs use HTTP methods and follow certain conventions for structuring URLs. JavaScript is frequently used to consume and interact with RESTful APIs.
+GraphQL:
+
+GraphQL is another API technology that allows clients to request only the data they need. It is an alternative to RESTful APIs and is becoming increasingly popular. JavaScript can be used to consume GraphQL APIs.
+In summary, while JavaScript itself doesn't define APIs, it is widely used for working with APIs, especially on the client-side for consuming HTTP APIs, and on the server-side for building them. The term "API" in the context of JavaScript commonly refers to HTTP APIs, but it's crucial to understand that APIs can exist in various forms and protocols beyond HTTP.
+
+NOTE: Using PORT we can host multiple servers on one single device by assigning different port numbers to different servers.
+
+URL parsing is a function of traffic management and load-balancing products that scan URLs to determine how to forward traffic across different links or into different servers. A URL includes a protocol identifier (http, for Web traffic) and a resource name, such as www.microsoft.com.
+In simple words, parsing a URL means removing http part of URL, removing all /blah-blah part and just taking the main name of site and checking to what server does this URL map to.
+
