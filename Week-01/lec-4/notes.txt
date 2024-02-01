@@ -1,2 +1,7 @@
-lec-4
+In this lecture we studied about loops, what loops are, why we need them and what all we can do using loops.
 
+Then we learnt about functions, what they are, why we need them. Functions do the same task as loops which is to prevent us from writing same code again and again manually if something is being repeated again and again in the code(DRY principle), they are similar to loops but are capable of performing much larger tasks that need to be repeated and thus we declare a function for it.
+
+Then we studied about callbacks, which is calling a function inside another function as an argument. Callbacks are really useful tool which help us save loads of time by calling multiple functions for different tasks inside multiple other functions and prevent us from rewriting the same code again and again. In a function there can be any number of callbacks present. Callbacks are different from recursion as in recursion you are calling the same function multiple times and in callbacks we are calling another function as an argument to this function. Through callbacks we can execute any different function inside another function without changing the original code but we have to define the number of functions in the arguments itself and give them some dummy name there. But there are issues with callbacks. One such issue is called callback hell which we will discuss later.
+
+Lastly we studied about anonymous functions, functions that are written without a name in the arguments of another function. The purpose for not naming it is because such functions cannot be called from outside due to scoping and thus are functions without a name but can have any kind of arguments and can return anything depending on the usecase.
