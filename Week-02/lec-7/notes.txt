@@ -1,0 +1,88 @@
+This lecture was an introduction lecture about Git and GitHub.
+
+What is Git? Git is a free and opensource version control system.
+
+Now what is a version control system? A version control system is a system that keeps track of files to a previous state, revert the entire project to a previous state, compare changes overtime, see who last modified something so that we can know what might be causing a problem, or what is the issue, who made it, and when with the details.
+
+Earlier the version control systems were made as a centralized VCS, which was great but had a lot of issues:-
+1. All the code and all the files are present at a single centralized VCS so if the centralized VCS goes down or data is lost or corrupted, everything goes down for everyone which can cause huge losses. All changes are tracked by one single user. If that user dies or leaves the company then all the code history becomes worthless.
+2. All the changes are pushed into a centralized server which can really hinder scalability and cause lots of continuity problems in case of large companies with many employees working on same project at the same time.
+3. Security: The main issue with centralized VCS like CVS or Subversion (SVN), is that there's only one master copy of your code. If someone has access to the main server, it can lead to huge amounts of data leaks.
+
+So to solve these issues, Distributed VCS were developed which were single-handedly able to solve all these problems by answers you yourself can see while using GitHub.
+
+But why Git only and not any other version control system? 
+Because its free, opensource, scalable, super fast and because processes like branching and merging are very cheap
+
+What is GitHub?
+GitHub is a web based hosting service for git repositories. You can use Git without GitHub but you cannot use GitHub without Git.
+
+Difference between git and GitHub are:-
+Git:-   1. Used for version control
+        2. Installed locally in computer
+        3. Tracks changes made to a file
+
+GitHub:-    1. Used for hosting Git repositories
+            2. Cloud based platform
+            Provides a web interface to view file changes
+
+Local repository- Every VCS tool provides a private workplace as a working copy. Developers make changes in their private repo and after commit, these changes become a part of their repo. Git takes it one step further by providing them a private copy of whole repo. Users now can perform many operations with this repo such as adding deleting renaming moving altering files.
+
+Working Directory/Staging Area/Index:- An intermediate area where commits can be formatted and reviewed before completing the commit.
+
+push:- Send a change to another repo
+
+pull:- grab a change from a repo
+
+Now let us learn more about the basic workflow of Git-
+Step-1 You modify a file
+Step-2 You add these files to staging area(git add)
+Step-3 You perform commit operation that moves the files from staging area. After push, it stores the changes permanently in Git repository(git commit)
+
+BLOB- 
+blob stands for Binary Large Object. Each version of file is represented by blob. A blob holds file data but doesn't contain any metadata about the file. It is a binary file, and in Git database, it is named as SHA1 hash to that file. In Git, files are not addressed by names. Everything is content-addressed.
+
+TREES-
+Trees is an object, which represents a directory. It holds blobs as well as other sub-directories. A tree is a binary file that stores references to blobs and trees which are also named as SHA1 hash of the object.
+
+How do you define commits?
+Commits hold current state of repository. It is also known as a SHA1 hash. Each commit is like the node of a linked list. Every commit object has a pointer to the parent commit object. From a given commit, you can traverse back by looking at the parent pointer to view the history of commit. If a commit has multiple parent commits, then that particular commit has been created by merging two branches.
+
+Now let us take a look at commands in GitHub-
+1. Clone- Bring a repo hosted somewhere(like hosted on GitHub) into a folder on your local submachine
+2. Add- Track your files and changes in Git.
+3. Commit- Save your files int git.
+4. Push- Upload your commits to a git repo, like GitHub.
+5. Pull- Download changes from a remote repository to your local repository.
+
+For learning more commands and how various operations can be performed in git using Git Bash, use ChatGPT or watch cwh video.
+
+
+GIT MERGE CONFLICT-
+Git merge conflict is defined as an issue that occurs when multiple people are working on the same file and they try to push their changes at the same time which cause continuity problems.
+
+This issue has two parts-
+1. While starting the merge process- If there are changes in the working directory's staging area for the current project, merging won't start. In this case, conflict happens due to pending changes that need to be stabilized.
+
+2. During the merge process- When there is a conflict between local branch and the branch being merged. Git resolves as much as possible, but there are things that have to be resolved manually in conflicted files.
+
+Occasionally this process doesn't go smoothly. If you have changed the same part of same file differently in two branches that you're merging, Git won't be able to merge them cleanly. If you fix for feature branch modified the same part of a file as the hotflix branch, you'll get a merge conflict error message.
+
+Git hasn't automatically created a new merge commit. Rather, it has paused the process while you resolve your conflict. If you want to see which files are unmerged at any point after a merge conflict, you can use git status and check.
+
+Anything that has merge conflicts and hasn't been resolved is listed as unresolved. Git adds standard conflict-resolution markers to files that have conflict and can open them manually and resolve those conflicts. 
+
+The version is HEAD (your master branch, because that was what you checked out when ran your merge command) is the top part of that block (everything above the ========), while the version is your feature_branch looks like everything in the bottom part. In order to resolve conflict, you have to either choose one side or the other or merge the contents yourself.
+
+Now in git there are various commands that can help us do conflict resolution:-
+
+1. git log --merge: Produces the list of commands that are causing the conflict.
+2. git diff: Identify the differences between the state repositories or files.
+3. git checkout: Used to undo the changes made to the file, or for changing branches.
+4. git reset --mixed: Used to undo changes to the working directory and staging area.
+5. git merge --abort: Helps in exiting the merge process and returning back to the state before merging began.
+6. git reset: Used at time of merge conflict to reset the conflicted file to their original state.
+
+NOTE:- Stashing in GitHub means saving your changes somewhere else and keeping them aside somewhere and later pick them up then get back your changes and see what to do with it. To stash our changes to a file we do not use commit.
+
+NOTE(part-2):- In GitHub there is also a very important fnuctionality of connecting PR with an issue.
