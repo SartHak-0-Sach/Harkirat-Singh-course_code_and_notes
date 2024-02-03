@@ -1,0 +1,23 @@
+In this lecture we will study about map, filter array methods and arrow functions.
+
+We will start with arrow functions, what they are, why we need them, and what is its significance.
+
+Arrow functions, also known as fat arrow functions, are a concise way to write function expressions in JavaScript. They were introduced in ECMAScript 6 (ES6) to provide a shorter syntax for writing functions compared to traditional function expressions.
+
+Key features and reasons for using arrow functions:
+1. They have a shorter syntax compared to regular function expressions.
+2. Arrow functions can only be used in the body of an object literal or as the argument to another function (e.g., in the callbacks).
+3. The 'this' keyword behaves differently in arrow functions as compared to normal functions. Inside arrow functions, 'this' does not refer to the global object but it refers to the nearest enclosing lexical context. So if you are calling an arrow function from inside another function then 'this' will point to that function instead of window or undefined. 
+4. Arrow functions do not have their own 'prototype', so they inherit prototype from the parent function. This property makes them lighter than normal functions because they don’t have their own scope chain which contains properties like arguments and caller.
+5. We can also pass arrow functions as parameters to other higher-order functions such as map(), filter() etc.
+6. Arrow functions can contain any type of expression including object literals, arrays, and even other arrow functions.
+7. Arrow functions are more suitable when we just need to execute some functionality without worrying about the value of 'this'. For example, event handlers where we just need to execute something and don't care about the value of 'this'.
+8. Arrow functions can only be used in single line statements. If you want to use multiple lines of code inside the function body then you should not use an arrow function.
+
+Now we will study about array methods map and filter.
+Let us start by studying map first.
+
+Map is a very useful array method because it can help us transform any datatype array by using the transformation function as the argument telling the machine what we want to do with the array. Using this we can make any changes into the original array.
+
+You can use the map function with arrays of various data types, including arrays of strings or characters. The key is to provide a callback function to the map method that specifies the transformation you want to apply to each element of the array.
+
