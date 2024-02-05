@@ -1,1 +1,2 @@
-lec-5
+In this lecture we tried understanding how express works with an example.
+Consider the case of a person who is a doctor. This person has the skill of being a doctor and have studied to acquire that skill over various years, then they provide this as a service to people who want to use their skill.
