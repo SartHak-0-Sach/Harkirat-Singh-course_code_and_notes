@@ -110,3 +110,69 @@ NOTE: Using PORT we can host multiple servers on one single device by assigning 
 URL parsing is a function of traffic management and load-balancing products that scan URLs to determine how to forward traffic across different links or into different servers. A URL includes a protocol identifier (http, for Web traffic) and a resource name, such as www.microsoft.com.
 In simple words, parsing a URL means removing http part of URL, removing all /blah-blah part and just taking the main name of site and checking to what server does this URL map to.
 
+JavaScript is a single threaded langauge then how do websites take care of multiple requests at once? Because these database calls are asynchronous so the thread doesn't have to wait for database call to complete and can still work fine.
+
+This does not holds true in case of busy waiting(Busy waiting, also known as spinning, or busy looping is a process synchronization technique in which a process/task waits and constantly checks for a condition to be satisfied before proceeding with its execution).
+
+We also learned about what public IPs and private IPs are.
+
+Public IP Address:
+A public IP address is a unique address assigned to a device on the Internet. It serves as the identifier for that device when communicating across the Internet.
+Your router is assigned a public IP address by your Internet Service Provider (ISP). This address is used for communication between your local network and the external Internet.
+
+Private IP Address:
+Private IP addresses are used within a local network and are not directly accessible from the Internet. They allow devices within the same local network to communicate with each other.
+The range of private IP addresses is defined by specific address blocks reserved for private use. Commonly used private IP address ranges include:
+192.168.x.x
+172.16.x.x to 172.31.x.x
+10.x.x.x
+Network Address Translation (NAT):
+
+Since many devices in a local network share the same public IP address, a technique called Network Address Translation (NAT) is used by the router. This allows multiple devices within the local network to use the same public IP address when accessing the Internet.
+NAT helps conserve public IP addresses and adds a layer of security by keeping internal IP addresses hidden from the external network.
+Access Control:
+
+Devices with private IP addresses within a local network are generally not directly accessible from the Internet. This provides a level of security, as external entities cannot directly connect to devices within the network without specific configurations (such as port forwarding).
+
+In summary, your router has a public IP address that is used for communication with the Internet. Devices within your local network have private IP addresses, and the router uses NAT to manage the communication between the private local network and the public Internet. This setup helps in conserving public IP addresses, providing a layer of security, and facilitating communication within the local network.
+
+We also got to know more about what APIs are, what is REST API, meaning of Representational API, RESTful API.
+API (Application Programming Interface):
+
+An API is a set of rules and tools that allows different software applications to communicate with each other. It defines the methods and data formats that applications can use to request and exchange information.
+REST API (Representational State Transfer API):
+
+REST is an architectural style for designing networked applications. A RESTful API is an implementation of this architecture that uses HTTP as the communication protocol. REST APIs are designed to be stateless and scalable, making them well-suited for the web.
+Representational State Transfer (REST):
+
+REST is an architectural style that uses a set of constraints to create web services. It relies on a stateless communication model, where each request from a client contains all the information needed to understand and fulfill the request. The principles of REST include a client-server architecture, statelessness, cacheability, and a uniform interface.
+Representational API:
+
+It seems there might be a confusion in the term "Representational API." If you are referring to RESTful APIs, the "Representational" part in REST stands for the idea that resources (data or services) are represented as entities that can be identified, manipulated, and transferred over the network. Each resource is identified by a unique URI (Uniform Resource Identifier), and the representation can be in various formats, such as JSON or XML.
+RESTful API:
+
+A RESTful API is an implementation of REST principles. It adheres to the constraints and guidelines defined by the REST architecture. These APIs use standard HTTP methods (GET, POST, PUT, DELETE) for operations on resources. The data is typically exchanged in a format like JSON or XML. RESTful APIs are known for being scalable, stateless, and easy to understand.
+In summary, APIs provide a way for different software systems to communicate, and RESTful APIs specifically follow the principles of REST architecture to enable efficient and scalable communication over the web. The "Representational" in REST emphasizes the concept that resources are represented and manipulated through standard interfaces.
+
+APIs refer to any piece of code that is publically accessible in simple terms. 
+
+Are REST API and http are interchangeable terms?
+While REST API and HTTP are related and often used together, they are not interchangeable terms. Let's clarify the relationship between REST API and HTTP:
+
+HTTP (Hypertext Transfer Protocol):
+
+HTTP is a protocol that governs how data is transferred over the web. It is the foundation of any data exchange on the internet. HTTP defines a set of rules for communication between a client (e.g., a web browser) and a server. It is a stateless protocol, meaning that each request from a client to a server is independent, and the server doesn't retain information about the previous requests.
+REST API (Representational State Transfer API):
+
+REST is an architectural style that defines a set of constraints to be used when creating web services. RESTful APIs use HTTP as the communication protocol, leveraging its methods (GET, POST, PUT, DELETE) and status codes to perform operations on resources. While HTTP is the underlying transport, REST encompasses a set of principles, including statelessness, uniform interface, client-server architecture, and representation of resources.
+In summary, HTTP is the protocol that facilitates the communication between clients and servers on the web. REST API is a set of architectural principles that guide the design of web services, and these services often use HTTP as their communication protocol. While RESTful APIs commonly use HTTP, not all HTTP APIs strictly adhere to the principles of REST. The interchangeable aspect often comes from the fact that many web APIs are designed following REST principles and use HTTP as the means of communication. However, it's essential to recognize that REST is an architectural style, and HTTP is a protocol.
+
+
+
+HOMEWORK- 
+1) If you feel confident in your ability to code, write a HTTP server from scratch in C++.
+2) Create a todo app that lets users store todos on the server
+3) Create a http server in rust using actix-web
+4) Create a http server in golang using guerilla framework 
+5) Create a http server in golang using springboot in java
+6) You can also make a sample database with fake generated data and use the backend code using express to generate responses from that data on getting search queries from users.
