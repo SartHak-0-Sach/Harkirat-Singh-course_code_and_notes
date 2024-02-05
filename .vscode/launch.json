@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/saksh/OneDrive/Desktop/github/harkirat-singh-course_code_and_notes",
-      "program": "c:/Users/saksh/OneDrive/Desktop/github/harkirat-singh-course_code_and_notes/build/Debug/outDebug",
+      "cwd": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/036-5th_feb-Unique_char_in_string",
+      "program": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/036-5th_feb-Unique_char_in_string/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
