@@ -19,5 +19,6 @@ app.get('/route-handler', (req,res) => {
     res.json({
         // send a javascript object to the server here
     })
+    res.send('<b> Hi there </b>') // can also send HTML code
 })
 
