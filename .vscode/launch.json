@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/036-5th_feb-Unique_char_in_string",
-      "program": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/036-5th_feb-Unique_char_in_string/build/Debug/outDebug",
+      "cwd": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/038-7th_feb-Sort_char_by_frequency",
+      "program": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/038-7th_feb-Sort_char_by_frequency/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
