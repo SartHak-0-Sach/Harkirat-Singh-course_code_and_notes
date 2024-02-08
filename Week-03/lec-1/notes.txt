@@ -1,0 +1,8 @@
+In this lecture, let us continue with the same doctor analogy in lec-5 of week-2.
+Let us reimagine the site of a hospital. In the hospital let us introduce a new rule, before a patient reaches the doctor, they have to perform certain steps and when each step is completed successfully only then access will be granted. The steps are after entering waiting area are-
+1) The aadhar card/insurance info is taken, only if insurance is present will the patient be allowed to proceed.
+2) Blood test is done, only if no STD are present will the patient be allowed to proceed.
+3) BP is checked, only if BP is reasonable will the patient be allowed to proceed.
+
+Now imagine all of this as a single javascript thread. Imagine same doctor is doing all the steps for each patient and only allowing those who have successfully completed all steps into the cabin. The waiting area referring to callback queue, while these steps represent auth checks(insurance check for money for doctor fees) and ensure input provided by user is valid(BP and blood tests). All of these represent middlewares.
+
