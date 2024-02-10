@@ -51,5 +51,7 @@ This repository is licensed under the [MIT License](LICENSE). You are free to us
 
 ---
 
-We hope you find this repository invaluable in your journey of mastering web development from 0 to 100. Happy coding!
+We hope you find this repository invaluable in your journey of mastering web development from 0 to 100. 
+
+Happy coding!☺️🚀
 
