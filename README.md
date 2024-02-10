@@ -4,7 +4,7 @@ Welcome to the "0-100 Complete Web Development" course repository! Here, you'll 
 
 Thank you for visiting this repository. All the resources provided here are meticulously curated from the famous "0-100 Complete Web Development" course, ensuring you get a comprehensive learning experience.
 
-![0-100 Cohort](README-banner.jpg)
+![Harkirat Singh](README-banner-2.jpg) ![0-100 Cohort](README-banner.jpg) 
 
 ## Overview
 
