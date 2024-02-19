@@ -6,3 +6,276 @@ Let us reimagine the site of a hospital. In the hospital let us introduce a new 
 
 Now imagine all of this as a single javascript thread. Imagine same doctor is doing all the steps for each patient and only allowing those who have successfully completed all steps into the cabin. The waiting area referring to callback queue, while these steps represent auth checks(insurance check for money for doctor fees) and ensure input provided by user is valid(BP and blood tests). All of these represent middlewares.
 
+Before we proceed, let's add constraints to our route:-
+1. User needs to send a kidneyId as a query param which should be a number from 1-2(because we only have 2 kidneys)
+2. User should send a username and password in headers
+
+We can write auth using if else statements but that would be really ugly way of doing it, here's why:-
+The code provided demonstrates a basic health checkup endpoint implemented using Express.js, a popular web application framework for Node.js. However, there are several issues and potential bugs in the code that need to be addressed for improved security, reliability, and maintainability. Let's examine these issues and discuss why the implementation can be considered "ugly":
+
+1. Plain Text Passwords in Headers:
+Storing passwords in plain text headers (req.headers.password) is highly insecure. HTTP headers are visible to anyone inspecting network traffic, making it easy for attackers to intercept passwords.
+It's recommended to use secure authentication mechanisms such as HTTPS and hashed passwords stored securely in a database with proper salt and hashing techniques.
+2. Lack of Authentication Middleware:
+Authentication logic is directly embedded within the route handler. This violates the principle of separation of concerns and makes the code less maintainable and scalable as authentication logic needs to be repeated across multiple routes.
+It's advisable to use authentication middleware to centralize authentication logic and apply it to multiple routes uniformly.
+3. Incorrect Conditional Logic:
+The condition if (kidneyId != 1 || kidneyId != 2) will always evaluate to true because a variable cannot be simultaneously equal to two different values. This likely leads to unintended behavior.
+Perhaps the intention was to check if kidneyId is neither 1 nor 2. The correct condition should be if (kidneyId !== 1 && kidneyId !== 2).
+4. Lack of Input Sanitization:
+The input validation logic for kidneyId is incomplete. While it checks whether kidneyId is not equal to 1 or 2, it does not handle cases where kidneyId is not provided, or if it's provided in an unexpected format.
+Proper input validation and sanitization are essential to prevent security vulnerabilities such as SQL injection and cross-site scripting (XSS).
+5. Incomplete Error Handling:
+The code lacks comprehensive error handling. It returns generic error messages without providing specific details about the cause of the error. This can make debugging and troubleshooting difficult, especially in production environments.
+6. Lack of Scalability and Extensibility:
+The code lacks support for other HTTP methods such as PUT, which may be necessary for updating resource states. Extending the application to support additional endpoints and functionalities may require significant code modifications.
+7. Logging and Monitoring:
+There's no provision for logging or monitoring application events and errors, making it challenging to track and diagnose issues in production environments.
+To improve the code:
+
+Implement secure authentication mechanisms such as JWT (JSON Web Tokens) or OAuth for user authentication.
+Use middleware functions for authentication and input validation.
+Implement proper error handling with descriptive error messages.
+Consider using a dedicated logger for logging application events and errors.
+Ensure adherence to RESTful principles for consistent API design and scalability.
+Overall, while the code demonstrates basic functionality, it lacks several crucial aspects necessary for building secure, reliable, and maintainable web applications.
+
+Building large-scale backend systems like those used by Google involves a combination of architectural principles, technologies, and best practices to ensure scalability, reliability, and performance. Here's an in-depth look at some key components and considerations:
+
+1. Distributed Systems Architecture:
+Large backend systems are typically built as distributed systems, where computation, storage, and networking resources are distributed across multiple servers or data centers. This architecture provides scalability, fault tolerance, and resilience to failures.
+
+2. Microservices Architecture:
+Google and other large-scale companies often adopt a microservices architecture, breaking down complex applications into smaller, independently deployable services. Each service handles a specific business function and communicates with other services through well-defined APIs.
+
+3. Scalable Data Storage:
+Google employs various storage technologies tailored to different use cases:
+
+Distributed Databases: Google's Spanner and Bigtable are distributed databases designed for scalability, high availability, and global replication.
+Cloud Storage: Google Cloud Storage provides scalable, durable, and globally distributed object storage for unstructured data.
+4. Scalable Compute Infrastructure:
+Google's compute infrastructure is based on:
+
+Google Compute Engine: A scalable and flexible virtual machine (VM) hosting service that allows users to run virtualized workloads.
+Kubernetes: Google's open-source container orchestration platform for automating deployment, scaling, and management of containerized applications.
+5. Load Balancing and Traffic Management:
+Google employs sophisticated load balancing and traffic management systems to distribute incoming requests across multiple backend servers or services. This includes:
+
+Global Load Balancers: Distribute traffic across multiple regions to optimize latency and availability.
+HTTP(S) Load Balancing: Balance HTTP and HTTPS traffic across backend services based on various criteria such as load, proximity, and health checks.
+6. Caching and Content Delivery:
+Google utilizes caching mechanisms to improve performance and reduce latency:
+
+Content Delivery Network (CDN): Google's CDN caches static content at edge locations worldwide, delivering content closer to users and reducing latency.
+Memcached and Redis: In-memory caching systems used to cache frequently accessed data and improve application performance.
+7. Monitoring and Observability:
+Google employs comprehensive monitoring and observability tools to monitor the health, performance, and reliability of its backend systems:
+
+Stackdriver: Google's monitoring, logging, and diagnostics platform provides insights into application performance, resource utilization, and system health.
+Distributed Tracing: Tools like Google's Cloud Trace enable tracing and analysis of requests as they propagate through distributed systems, helping identify performance bottlenecks and latency issues.
+8. Security and Compliance:
+Google places a strong emphasis on security and compliance in its backend systems:
+
+Identity and Access Management (IAM): Google Cloud IAM allows fine-grained control over access to resources, enabling organizations to enforce least privilege principles.
+Encryption: Google Cloud services support encryption at rest and in transit to protect data confidentiality.
+9. DevOps Practices:
+Google follows DevOps practices to streamline development, deployment, and operations:
+
+Continuous Integration/Continuous Deployment (CI/CD): Automated pipelines for building, testing, and deploying applications ensure rapid and reliable delivery of software updates.
+Infrastructure as Code (IaC): Google uses tools like Terraform and Deployment Manager to provision and manage infrastructure resources programmatically.
+10. Disaster Recovery and High Availability:
+Google's backend systems are designed for high availability and disaster recovery:
+
+Multi-Region Deployment: Google's services are deployed across multiple regions to ensure redundancy and fault tolerance.
+Automated Failover: Automated failover mechanisms detect and mitigate failures to minimize downtime and maintain service availability.
+By incorporating these components and best practices, Google builds and operates large-scale backend systems that deliver high performance, reliability, and scalability to meet the demands of its global user base.
+
+Browsers:
+Rendering Engine: Parses HTML, CSS, and JavaScript to display web pages. Examples include Blink, Gecko, and WebKit.
+
+HTML Parser: Converts HTML markup into a DOM tree.
+
+CSS Parser: Analyzes CSS stylesheets to determine element styling.
+
+Layout: Calculates the position and dimensions of page elements based on CSS.
+
+Painting: Renders pixels onto the screen based on the layout.
+
+JavaScript Engine: Executes client-side scripts to modify the DOM and page behavior.
+
+Backend:
+Server: Processes client requests and generates responses.
+
+Application Logic: Handles functionalities like user authentication and data processing.
+
+Database: Stores and retrieves data, using systems like MySQL or MongoDB.
+
+APIs: Define endpoints and data formats for frontend-backend communication.
+
+Frameworks and Libraries: Tools like Node.js, Django, or Flask streamline development.
+
+URL Parsing:
+URL Components: Include scheme, host, port, path, query parameters, and fragment identifier.
+
+Parsing: Extracts components from a URL string.
+
+Resolution: Determines the server to connect to and fetches the requested resource.
+
+Other Concepts:
+HTTP and HTTPS: Protocols for data transfer over the web, with HTTPS adding encryption.
+
+Cookies and Sessions: Mechanisms for maintaining user state between requests.
+
+Caching: Storing web resources locally to improve performance.
+
+Browser Security: Policies like Same-Origin Policy and Content Security Policy prevent malicious behavior.
+
+Backend Scaling Strategies:
+Horizontal vs. Vertical Scaling: Adding more instances vs. upgrading hardware resources.
+
+Sharding and Partitioning: Distributing data across multiple servers.
+
+URL Optimization:
+Canonicalization: Standardizing URLs to prevent duplicate content.
+
+URL Shortening Services: Generate shorter, manageable URLs for sharing.
+
+Backend Security Best Practices:
+Input Validation and Sanitization: Ensure user input safety.
+
+Authentication and Authorization: Verify user identity and access rights.
+
+Browser Performance Optimization:
+Resource Minification: Reducing file size for faster loading.
+
+Browser Cache Management: Controlling caching behavior to optimize performance.
+
+URL Routing:
+Server-side Routing: Mapping URLs to server-side code or handlers.
+
+Client-side Routing: Handling navigation within SPAs using JavaScript.
+
+Browser Security Features:
+Sandboxing: Running web content in isolated environments.
+
+Mixed Content Blocking: Preventing insecure content loading on HTTPS pages.
+
+Progressive Web App (PWA) Features:
+Offline Support: Enabling access to cached content without internet connection.
+
+Push Notifications: Sending notifications to users' devices.
+
+Load Balancing:
+Load balancing evenly distributes incoming network traffic across multiple servers to optimize resource utilization, minimize response times, and prevent server overload.
+
+Reverse Proxy Servers:
+Reverse proxies sit between clients and backend servers, forwarding requests to the appropriate backend server and providing various benefits such as load distribution, caching, SSL termination, security, and content transformation.
+
+Server-Side Rendering (SSR) and Client-Side Rendering (CSR):
+SSR involves the server generating HTML content and sending it to the client, improving initial page load times and SEO. CSR involves sending minimal HTML to the client and using JavaScript to fetch and render additional content, commonly used in SPAs for interactivity. Hybrid approaches combine SSR and CSR techniques for flexibility.
+
+High Availability (HA):
+High availability refers to the ability of a system or service to remain operational and accessible for a high percentage of time, typically measured as a percentage of uptime over a given period. Key points include:
+
+Redundancy: HA systems often employ redundancy at various levels, including hardware components, network paths, and data centers, to mitigate the impact of failures and ensure continuous operation.
+Failover Mechanisms: Failover mechanisms automatically redirect traffic or workload to alternate resources or servers in the event of a failure, minimizing downtime and maintaining service availability.
+Load Distribution: Load distribution mechanisms, such as load balancers, distribute incoming traffic across multiple servers or resources to prevent overloading individual components and improve overall system performance and reliability.
+Monitoring and Alerting: HA systems implement robust monitoring and alerting mechanisms to proactively detect issues, monitor system health and performance metrics, and alert administrators to potential problems or anomalies.
+Disaster Recovery: HA strategies often include disaster recovery plans and procedures to recover from catastrophic events or outages, ensuring business continuity and minimizing data loss.
+Geographic Redundancy: Geographic redundancy involves distributing resources across multiple geographic regions or data centers to mitigate the impact of localized disasters, improve fault tolerance, and enhance overall system resilience.
+High availability is essential for critical systems and services, ensuring continuous operation, minimal downtime, and reliable access for users.
+
+What can and cannot be written in URLs:
+
+URLs (Uniform Resource Locators) are used to specify addresses on the World Wide Web. They consist of several components, each serving a different purpose. Here's a breakdown of the components and what you can and cannot write in them:
+
+a. Scheme: This is typically "http://" or "https://". You can write alphanumeric characters, plus symbols like ".", "-", and "+" are also allowed. Other symbols are not permitted in this part.
+
+b. Domain: This is the address of the website. You can use alphanumeric characters and hyphens. Special characters like underscores (_) are not allowed. The domain name must follow certain rules, such as not beginning or ending with a hyphen, and not containing consecutive hyphens.
+
+c. Path: This specifies the specific resource on the server. You can use alphanumeric characters, along with symbols like "-", "_", ".", and "~". Other symbols might need to be percent-encoded (replaced by "%xx" where xx is the ASCII code in hexadecimal).
+
+d. Query Parameters: These are key-value pairs used to send data to the server. You can use alphanumeric characters and certain symbols like "-", "_", ".", and "~". Special characters such as "&" and "=" have special meanings in URLs and must be properly encoded if they're part of the parameter values.
+
+e. Fragment Identifier: This is used to identify a specific section within a resource. You can use alphanumeric characters and certain symbols like "-", "_", ".", and "~".
+
+Overall, it's important to properly encode special characters that have reserved meanings in URLs. This is typically done using percent-encoding, where the special character is replaced by its ASCII code in hexadecimal preceded by a percent sign ("%").
+
+Guide to Backend Servers and How They Work:
+
+Backend servers are responsible for handling requests from clients (like web browsers or mobile apps), processing those requests, and sending back appropriate responses. Here's an overview of how they work:
+
+a. Receiving Requests: Backend servers typically listen for incoming requests on specific ports. When a request arrives, the server parses it to extract relevant information such as the requested URL, HTTP headers, and any data sent with the request (e.g., form submissions).
+
+b. Processing Requests: Once the server receives a request, it determines how to handle it based on the requested URL and other parameters. This may involve querying a database, performing calculations, or interacting with other services.
+
+c. Generating Responses: After processing the request, the server generates an appropriate response. This could be an HTML page, JSON data, an image, or any other type of content. The server sets the appropriate HTTP headers (such as Content-Type) and sends the response back to the client.
+
+d. Interacting with Databases and Other Services: Backend servers often need to interact with databases to retrieve or store data. This could involve querying a relational database using SQL, or interacting with a NoSQL database like MongoDB. Additionally, servers may need to communicate with other services or APIs to perform tasks such as sending emails, processing payments, or accessing external data sources.
+
+e. Scaling and Load Balancing: As the number of users and requests grows, backend servers need to scale to handle the increased load. This can be achieved through techniques like load balancing, where incoming requests are distributed across multiple server instances, and horizontal scaling, where new server instances are added to handle the load.
+
+f. Security: Backend servers must implement security measures to protect against various threats such as unauthorized access, data breaches, and denial-of-service attacks. This includes techniques like input validation, authentication, authorization, encryption, and regular security audits.
+
+g. Monitoring and Logging: To ensure the smooth operation of backend servers, it's important to monitor their performance, track errors, and log important events. This can help identify and troubleshoot issues quickly, as well as optimize performance and resource usage over time.
+
+h. Deployment and Continuous Integration/Continuous Deployment (CI/CD): Backend servers are typically deployed to production environments using CI/CD pipelines, which automate the process of building, testing, and deploying code changes. This ensures that updates can be released quickly and reliably while maintaining the stability of the system.
+
+Overall, backend servers play a crucial role in the functioning of web applications, handling tasks such as data processing, business logic, and integration with external services. Understanding how they work is essential for building scalable, secure, and reliable web applications.
+
+As a beginner backend engineer, there are several good practices and tips you should follow to build reliable, efficient, and maintainable backend systems. Here's an in-depth guide covering some of the most important aspects:
+
+Understand the Fundamentals:
+
+Before diving into backend development, make sure you have a solid understanding of programming fundamentals, data structures, algorithms, and databases.
+Learn about web protocols and standards such as HTTP, REST, and GraphQL.
+Choose the Right Technology Stack:
+
+Select technologies and frameworks that are well-suited to the requirements of your project.
+Consider factors such as scalability, performance, community support, and ease of use.
+Follow Design Patterns and Architectural Principles:
+
+Familiarize yourself with common design patterns such as MVC (Model-View-Controller), MVP (Model-View-Presenter), and MVVM (Model-View-ViewModel).
+Understand architectural principles like separation of concerns, single responsibility, and scalability.
+Write Clean and Readable Code:
+
+Follow coding conventions and style guides appropriate for the language and framework you're using.
+Write self-documenting code with meaningful variable and function names.
+Use comments sparingly to explain complex logic or document important decisions.
+Implement Authentication and Authorization:
+
+Secure your backend endpoints by implementing robust authentication and authorization mechanisms.
+Use industry-standard protocols like OAuth 2.0 or JWT (JSON Web Tokens) for authentication.
+Implement role-based access control (RBAC) or permissions-based authorization to restrict access to resources.
+Handle Errors and Exceptions Gracefully:
+
+Implement proper error handling mechanisms to handle exceptions and errors gracefully.
+Provide informative error messages without revealing sensitive information.
+Log errors and exceptions for debugging and auditing purposes.
+Validate User Input:
+
+Validate user input on both client and server sides to prevent security vulnerabilities such as injection attacks and cross-site scripting (XSS).
+Use server-side validation to enforce data integrity and consistency.
+Optimize Performance:
+
+Write efficient algorithms and optimize database queries to minimize response times.
+Use caching mechanisms to store frequently accessed data and reduce database load.
+Monitor performance metrics and identify bottlenecks for optimization.
+Implement Data Security Measures:
+
+Encrypt sensitive data at rest and in transit using industry-standard encryption algorithms and protocols.
+Implement secure storage mechanisms for credentials, keys, and other sensitive information.
+Test Your Code Thoroughly:
+
+Write unit tests, integration tests, and end-to-end tests to verify the correctness and robustness of your backend code.
+Use automated testing frameworks and continuous integration tools to streamline the testing process.
+Document Your Code and APIs:
+
+Write comprehensive documentation for your backend code, including explanations of functions, classes, and modules.
+Document your APIs using tools like Swagger or OpenAPI to provide clear usage instructions for consumers.
+Continuously Learn and Improve:
+
+Stay updated with the latest trends, technologies, and best practices in backend development.
+Participate in online communities, forums, and meetups to learn from experienced developers and share knowledge with others.
+By following these good practices and tips, you'll be on your way to becoming a proficient backend engineer and building robust and scalable backend systems. Remember to continuously iterate and improve your skills as you gain more experience in the field.
+
