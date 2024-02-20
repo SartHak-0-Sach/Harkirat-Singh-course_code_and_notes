@@ -1,0 +1,14 @@
+In this lecture we will learn more about dynamic backend authentication using Express JWT and MongoDB
+
+Let us start by recalling what we have done so far. Till now we have either used postman or used the browser URL to send a get request to an HTTP server. But we haven't done that like in chatGPT when we click a button like enter button after writing the prompt, a request goes out and the backend gets trigged which then fetches the response. Thankfully the browsers provide you a function to do this which is part of the javascript runtime(not ECMAscript but was created by browser creators). This specific function is called fetch.
+
+So now we are going to use this third way to send a request.
+Let us say we have to create an HTML page where-
+1. User can see names of 10 people
+2. You need to make sure you get these data from an API call
+
+For this we are going to use a sample API https://fakerapi.it/api/v1/persons
+
+Whenever we put this URL on the browser and inspect, we can see that we get a response in network-headers which has all the data.
+This response is an object that has data as an array which has 10 different values, all of these values are objects containing the persons name address birthday etc
+
