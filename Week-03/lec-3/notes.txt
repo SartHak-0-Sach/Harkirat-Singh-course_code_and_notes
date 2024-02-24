@@ -1,0 +1,12 @@
+In this lecture we did JWT and authentication recap with a fun example, and discussed the assignment.
+
+Let us get straight into understanding the concepts with an example.
+
+Let us take an example of a bank, in this bank Mishra is the manager and Kirat from college is a person wanting to open a bank account.
+
+1. Kirat goes to open a bank account
+2. Kirat deposits some money in
+3. Kirat gets back a cheque book from the bank
+
+The cheque book here is a authentication way to say that your account has been successfully opened and with this cheque book you can access the money in your account. If this gets in wrong hands then you can be in deep trouble.
+
