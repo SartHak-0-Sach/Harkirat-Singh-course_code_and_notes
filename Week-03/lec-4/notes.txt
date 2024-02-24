@@ -29,3 +29,9 @@ When you create a script, where inline in a <script> element or included in the 
 
 The DOM was designed to be independent of any particular programming langauge, making the structural representation of document available from a single, consistent API.
 
+DOM represents the webpage using a series of objects. The main object is the document object, which in turn houses other objects which also house their own objects and so on.
+
+When a web browser parses an HTML document, it builds a DOM tree and then uses it to display the document.
+
+The document object is the top most object in DOM. It has properties and methods which you can use to get information about the document using a rule known as dot notation.
+
