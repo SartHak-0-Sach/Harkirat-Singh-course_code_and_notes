@@ -10,3 +10,46 @@ Let us take an example of a bank, in this bank Mishra is the manager and Kirat f
 
 The cheque book here is a authentication way to say that your account has been successfully opened and with this cheque book you can access the money in your account. If this gets in wrong hands then you can be in deep trouble.
 
+Whenever I have to pay someone, I sign the cheque
+Everyone can see my sign but the bank will only accept the cheque if I sign the cheque and not some couterfieting my identity.
+
+My cheque book here represents my JSON web token.
+
+Like if you login to chatGPT and you have chatGPT 4 access, then whenever you will sign in, chatGPT will return your sign in request with a JWT and anyone who has access to that can access your account.
+
+Bank also does the same thing, whenever a cheque is issued in someone's name by me, the bank checks if it is real and not fake and understands that I want to pay the person mentioned this much amount and they transfer the money accordingly.
+
+So something that bank gives me the first time I visit it(sign in).
+Something I need to keep safe, if I lose the cheque, someone can debit my account.
+Even though other people can see my signature/ how the cheque looks, if they try to re-create it, the bank will get to know it and catch them.
+
+The only way kirat can lose his money is if it gives someone else his checkbook and the other person fakes to be kirat and does his signature, then Mishra ji bank manager will not be able to know if it is the real kirat or fake intruder.
+
+JSON web tokens or JWT work just like that.
+They are issued by the backend when you sign in.
+Anyone can create something similar, but the backend would reject it.
+If you lose your original jwt, then it is a problem.
+
+So first time you sign in, chatGPT will give you your jwt and so whenever you will make a request, let's say ask chatGPT any question, then the jwt will also get sent as a header named authorization and on verifying jwt, the chatGPT paid model will run and return the required answer.
+
+now let us see 3 major aspects associated to JWTs.
+1. Generating
+2. Decoding
+3. Verifying
+
+Generating- Just like bank creates a cheque book through a certain process in their machine, they know how to tell it differently from a real and fake one, similarly backend generating and returning jwt have a protocol written to verify and tell if it is real or fake.
+
+Decoding and verifying- People can see my cheque book and decode it, see how it looks like and try to make a similar one, but verification is a different thing, as only the bank's machine which has generated the cheque book can verify it and can tell which one is counterfeit.
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2FydGhhayIsImFjY291bnROdW1iZXIiOjEyMzQ1Njc4OTAsImlhdCI6MTcwODc2MTczN30.6nVxa5woBgaD601Pla0g4PuGcbPO2_YpmEN2l3Q1gBc
+This was the jwt generated from the code mentioned in the code file and if we go on https://jwt.io/ and put the jwt token there, we can decode it and see the contents mentioned.
+Through these contents, the intruder can try creating its own token, but that won't work because the verification will fail because the intruder does not have the "secret" mentioned in the file by the bank(by the one who wrote the backend code and can be anything).
+
+Now we will study about try catch.
+In javascript whenever we are writing code, we expect certain input to be provided by the user, but in many cases there can be possibilities that user gives wrong input, does not give input, or one part of code is not working due to any reason. In all above cases, an error is returned. But the biggest problem with this error getting returned during compiling the code is that nothing else written in the code gets executed.
+
+So now if we imagine a large codebase with thousands and thousands of lines of code, the code not getting executed because of one wrong snippet can cause whole site to go down and that we do not want, instead we want only that part of code to not work and tell compiler to continue compiling the code as it was doing earlier and ignore the error.
+
+In short we are going to try catching the error by using the try catch syntax, so if error happens, we can continue compiling the rest of the code as it happening earlier.
+
+So in commands like jwt.verify which will either verify the string or throw an error, we put them in a try catch syntax.
