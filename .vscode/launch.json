@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/038-7th_feb-Sort_char_by_frequency",
-      "program": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/038-7th_feb-Sort_char_by_frequency/build/Debug/outDebug",
+      "cwd": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/056-25th_feb-GCD_traversal",
+      "program": "c:/Users/saksh/OneDrive/Desktop/github/365-day_daily-problem_challenge/056-25th_feb-GCD_traversal/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
