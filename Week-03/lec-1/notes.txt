@@ -769,5 +769,35 @@ So we need to learn how to catch these errors and respond with the correct error
 
 But it will be too hectic to write so much code everywhere checking every possible error and keeping a track of all of it.
 
-Instead we prefer using zod for doing input validation. Zod is a TypeScript-based schema library that helps you validate data types, enforce structure. To do so, you can use a try-catch syntax.
+Instead we prefer using zod for doing input validation. Zod is a TypeScript-first schema validation library with static type inference that helps you validate data types, enforce structure. To do so, you can use a try-catch syntax.
 
+
+As we have seen before, anyone can use postman and send request to our backend server, so it is not safe to put validation and authentication checks in the frontend, as the requests can be intercepted by a potential threat and changed accordingly and can be dangerous.
+
+So we put authentication in backend of our website.
+
+And how to put authentication, not by doing the manual checks that we wrote at the start of this lecture, because they are too redundant, violate DRY principle, monotonous for both developer and user, not safe and difficult to check for a large database so not scalable either and have to done again and again by the user.
+
+Thus to ensure if a user has access to a certain resource?
+
+Application platform monitoring in website backend refers to the process of tracking, analyzing, and managing the performance, availability, and behavior of the software applications and platforms that power a website's backend infrastructure. This monitoring is crucial for ensuring the smooth functioning of the website, identifying and resolving issues promptly, and optimizing the overall performance and user experience.
+
+Here are some key aspects of application platform monitoring in website backend:
+
+Performance Monitoring: Monitoring tools track various metrics related to the performance of the backend applications and platforms, including response times, latency, throughput, error rates, and resource utilization (CPU, memory, disk usage, etc.). This helps in identifying performance bottlenecks and optimizing the performance of the backend systems.
+
+Availability Monitoring: Availability monitoring ensures that the backend systems are accessible and operational. It involves monitoring uptime, downtime, and overall system availability. Alerts are generated in case of any outages or disruptions, allowing for quick resolution of issues to minimize downtime.
+
+Error Monitoring: Error monitoring involves tracking and analyzing errors and exceptions occurring in the backend applications and platforms. This includes capturing stack traces, error messages, and other relevant details to diagnose and troubleshoot issues effectively. By monitoring errors in real-time, developers can quickly identify and address bugs and issues that may impact the website's functionality.
+
+Logging and Log Management: Logging plays a crucial role in monitoring and troubleshooting backend systems. Logs provide valuable insights into the behavior of applications and platforms, capturing information about transactions, requests, events, and errors. Log management tools aggregate, store, and analyze logs from various sources, making it easier to search, filter, and visualize log data for monitoring and troubleshooting purposes.
+
+Infrastructure Monitoring: In addition to monitoring the applications themselves, it's essential to monitor the underlying infrastructure that supports them, such as servers, databases, networks, and other resources. Infrastructure monitoring tools track metrics like server health, database performance, network traffic, and resource utilization to ensure the stability and reliability of the backend infrastructure.
+
+Alerting and Notification: Monitoring tools typically provide alerting mechanisms to notify administrators and developers about critical issues and anomalies in the backend systems. Alerts can be configured based on predefined thresholds or conditions, and notifications can be sent via email, SMS, or other channels to ensure timely response and resolution of issues.
+
+Performance Tuning and Optimization: Continuous monitoring of backend systems allows for performance tuning and optimization efforts to improve the efficiency and scalability of the applications and platforms. By analyzing monitoring data and identifying areas for improvement, developers can make informed decisions to optimize code, configurations, and infrastructure to enhance performance and user experience.
+
+Security Monitoring: Security monitoring is another critical aspect of backend monitoring, involving the detection and mitigation of security threats, vulnerabilities, and unauthorized access attempts. Security monitoring tools help in identifying suspicious activities, monitoring for compliance with security policies, and responding to security incidents to protect the website and its data from potential threats.
+
+Overall, application platform monitoring in website backend is essential for ensuring the reliability, performance, and security of backend systems, ultimately contributing to a positive user experience and the success of the website.
