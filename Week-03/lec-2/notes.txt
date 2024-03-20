@@ -12,3 +12,102 @@ For this we are going to use a sample API https://fakerapi.it/api/v1/persons
 Whenever we put this URL on the browser and inspect, we can see that we get a response in network-headers which has all the data.
 This response is an object that has data as an array which has 10 different values, all of these values are objects containing the persons name address birthday etc
 
+
+Now let us learn authentication.
+In authentication, there is some cryptography jargon that we need to know of before understanding authentication-
+
+1) Hashing
+2) Encryption
+3) JSON Web Tokens
+4) Local Storage
+
+Hashing:
+Definition: Hashing is a process of converting input data (such as a password or any other data) into a fixed-size string of characters, which is typically a sequence of numbers and letters. The output, known as a hash value or hash code, is unique to the input data.
+Features:
+One-way function: Hash functions are designed to be one-way, meaning it's computationally infeasible to reverse the process and obtain the original input from the hash value.
+Deterministic: For the same input, a hash function will always produce the same output.
+Collision resistant: Good hash functions minimize the likelihood of two different inputs producing the same hash value (collision).
+Examples: Common hashing algorithms include MD5, SHA-1, SHA-256, and bcrypt.
+Usage: Hashing is commonly used for password storage. Instead of storing passwords directly, backend systems store their hash values. When a user logs in, the system hashes the provided password and compares it to the stored hash.
+Encryption:
+Definition: Encryption is the process of converting plaintext (readable data) into ciphertext (unreadable data) using an algorithm and a key. The purpose is to ensure confidentiality by making data unreadable to unauthorized users.
+Features:
+Reversible: Encryption is a reversible process, meaning ciphertext can be decrypted back to its original plaintext form if you have the appropriate key.
+Key-dependent: The encryption process depends on a secret key, which is used to both encrypt and decrypt the data.
+Examples: Common encryption algorithms include AES (Advanced Encryption Standard), RSA, and DES (Data Encryption Standard).
+Usage: Encryption is used to protect sensitive data during transmission (e.g., HTTPS for secure web communication) and storage (e.g., encrypting files or databases).
+JSON Web Tokens (JWT):
+Definition: JSON Web Tokens (JWT) are compact, URL-safe tokens used for securely transmitting information between parties as a JSON object. They consist of three parts: a header, a payload, and a signature.
+Features:
+Stateless: JWTs are stateless, meaning the server doesn't need to store session information. All necessary data is contained within the token itself.
+Verifiable: JWTs include a digital signature, allowing the recipient to verify that the token hasn't been tampered with.
+Compactness: JWTs are lightweight and can be easily transmitted as URL parameters or within HTTP headers.
+Examples: JWTs are commonly used for authentication and authorization in web applications and APIs.
+Usage: When a user successfully logs in, the server generates a JWT containing user information (payload) and signs it with a secret key. The client then includes this token in subsequent requests, allowing the server to authenticate and authorize the user based on the token's contents.
+Differences:
+Hashing vs. Encryption:
+Hashing is a one-way process, whereas encryption is reversible.
+Hashing is commonly used for storing passwords securely, while encryption is used for protecting data during transmission or storage.
+Hashing vs. JWT:
+Hashing is used for converting data into fixed-size hash values, while JWT is used for securely transmitting information between parties.
+Hashing is deterministic, while JWT contains structured data (header, payload) along with a signature for verification.
+Encryption vs. JWT:
+Encryption transforms plaintext into unreadable ciphertext using keys, while JWT securely transmits structured data in a compact format.
+Encryption ensures confidentiality of data, while JWT provides a secure means of transmitting information with integrity and authenticity.
+
+Local Storage:
+Definition: Local storage is a feature of web browsers that allows web applications to store data locally on a user's device. It provides a way to persistently store key-value pairs beyond a single session or page reload.
+Like I have some Amazon credentials for accessing my account, when I had done login on this device into the new account, that's when I recieved my JWT token, that was then stored into my local storage of browser and goes to and fro to show that it is me who is trying to do payment, or add something to cart etc etc. This token authenticated the user to access something that is not open to all and thus the local storage does not get deleted but only gets updated even if we close the browser, or shut down our laptop.
+
+We can see this in inspect->Application->Local Storage->"website name"
+
+From this storage the frontend relays back the token with every request it sends it as a header.
+
+Features:
+Persistence: Data stored in local storage remains even after the browser is closed and reopened.
+Capacity: Local storage typically offers larger storage capacity compared to cookies.
+Client-side: Local storage operations are performed on the client-side, meaning data is stored and accessed directly by the web browser.
+Usage: Local storage is commonly used for storing user preferences, session tokens, cached data, and other application-specific data.
+
+So full and final thing from start to end is-
+1) User logs into his/her account using username and password
+2) Password is checked and hashing is done
+3) After verification that the password is correct, backend of the website allows access to the user by generating and returning a JWT token.
+4) This token authenticates the user to access his or her account and gets stored in the local storage.
+5) Everytime the page is refreshed, a new command or response is generated by user, or the user closes the window and reopens it, this JWT from local storage goes with every request to prevent user from putting login credentials everytime.
+6) Only logging out initiates the code of removing this JWT token from your local storage and user has to be re-logged in to access stuff now.
+
+
+Now, let's tie all these concepts together in a real-life example:
+
+Example: User Authentication and Authorization in a Web Application
+Suppose you are developing a web application that requires user authentication and authorization. Here's how you might implement it using hashing, JWT, encryption, and local storage:
+
+User Registration:
+
+When a user registers on your website, you hash their password using a secure hashing algorithm like bcrypt. The hashed password is then stored in your database.
+
+User Login:
+
+When a user logs in, you hash the provided password and compare it to the stored hash in the database. If they match, you generate a JWT containing the user's ID and any relevant information.
+This JWT is signed using a secret key known only to the server. You send this JWT back to the client as part of the login response.
+
+JWT Storage:
+
+Upon receiving the JWT, the client stores it securely in local storage. This token will be sent with every subsequent request to authenticate the user.
+
+Protected Routes:
+
+When the user accesses protected routes or resources on your backend, they include the JWT in the HTTP Authorization header.
+Your backend server verifies the JWT's signature using the secret key. If the signature is valid, the server extracts the user's ID from the token and proceeds with the request.
+
+Authorization:
+
+In addition to authentication, you may also use JWT to convey authorization information. For example, you could include user roles or permissions in the token's payload.
+
+Encryption for Sensitive Data:
+
+If your application deals with particularly sensitive data, such as credit card information, you might encrypt this data before storing it in the database.
+Encryption ensures that even if someone gains unauthorized access to the database, they cannot decipher the sensitive information without the encryption key.
+By combining hashing, JWT, encryption, and local storage, you can create a secure and efficient user authentication and authorization system for your web application, ensuring confidentiality, integrity, and authenticity of user data.
+
