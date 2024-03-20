@@ -8,11 +8,38 @@
 </head>
 
 <body>
-    <button onclick="getAnimalData()">get animal data</button>
     <script>
         function getAnimalData() {
-            alert("function was triggered")
+            // alert("function was triggered");
+            const response = fetch("https://fakerapi.it/api/v1/persons"); // has default method get
+
+            /* const response = fetch("https://fakerapi.it/api/v1/persons", {
+                method: "POST"
+            }); We can mention the method by using this syntax */
+
+            /*
+            console.log(response);
+            .then(function (response) {
+                response.json();
+                .then(function (finalData) {
+                    console.log(finalData);
+                })
+            })
+            */
         }
+
+        <button onclick="getAnimalData()">get animal data</button>
+
+        /*
+        or you can also do this
+        async function getAnimalData()
+        {
+            const response = await fetch("https://fakerapi.it/api/v1/persons");
+            const finalData = await response.json();
+            console.log(finalData);
+        }
+        getAnimalData();
+        */
     </script>
 </body>
 
