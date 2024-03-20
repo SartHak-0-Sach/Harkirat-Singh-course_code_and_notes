@@ -248,37 +248,95 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`)); /
 
 // app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-const express = require('express')
-const app = express()
-const port = 3000
+// const express = require('express')
 
-// can also do async functions like database calls should be made async
-async function middleware(req, res, next) {
-    await fetch();
-    next();
+// const app = express()
+// const port = 3000
+
+// // can also do async functions like database calls should be made async
+// async function middleware(req, res, next) {
+//     await fetch();
+//     next();
+// }
+
+// function middleware2(req, res, next) {
+//     fetch().then({})
+//     next();
+// }
+
+// app.use(express.json());
+
+// app.post("/health-checkup", function (req, res) {
+//     // kidneys = [1,2] expecting an array like this
+//     const kidneys = req.body.kidneys;
+//     const kidneyLength = kidneys.length;
+//     res.send("you have " + kidneyLength + " kidneys");
+// });
+
+// // global catches- catch any error that occurs globally into this codebase
+// let errorCount = 0;
+// app.use(function (err, req, res, next) {
+//     errorCount++; // if there are too many errors coming through, that means something is wrong with the code and not a fault from users
+//     res.json({
+//         msg: "Some error occurred"
+//     })
+// })
+
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+// const express = require('express')
+// const app = express()
+// const z = require('zod');
+// const port = 3000
+
+// // const schema = zod.array(zod.number()); // statement telling what kind of input I am expecting from my user
+
+// const schema = z.object({
+//     email: z.string().email(),
+//     password: z.string().min(8),
+//     country: z.literal("IN").or(z.literal("US")),
+//     kidneys: z.array(z.number()) // we can use z or zod both but for calling z I used const z = require('zod') in the package declaration at the top of the code else I would have done zod if I want to write zod.array instead
+// })
+
+// app.post("/health-checkup", function (req, res) {
+//     // kidneys = [1,2] expecting an array like this
+//     const kidneys = req.body.kidneys;
+//     const response = schema.safeParse(obj);
+//     // const kidneyLength = kidneys.length;
+//     // res.send("you have " + kidneyLength + " kidneys");
+//     // res.send({
+//     //     response
+//     // })
+
+//     if (!response.success) {
+//         res.status(400).json({
+//             msg: "Invalid input"
+//         })
+//         return;
+//     }
+
+//     else {
+//         const kidneyLength = kidneys.length;
+//         res.send("you have " + kidneyLength + " kidneys");
+//         res.send({
+//             response
+//         })
+//         console.log(response);
+//     }
+// });
+
+// app.get('/', (req, res) => res.send('Hello World!'))
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+// HW quetion
+/*
+If this is an array of strings with at least 1 input, return true, else return false with and without using zod(without zod you will have to use a for loop, check for each input and with zod just define a schema for the same)
+
+typeof arr == "object", arr.length>=1, typeof arr[0] == "number"
+
+function validateInput()
+{
+    
 }
+*/
 
-function middleware2(req, res, next) {
-    fetch().then({})
-    next();
-}
-
-app.use(express.json());
-
-app.post("/health-checkup", function (req, res) {
-    // kidneys = [1,2] expecting an array like this
-    const kidneys = req.body.kidneys;
-    const kidneyLength = kidneys.length;
-    res.send("you have " + kidneyLength + " kidneys");
-});
-
-// global catches- catch any error that occurs globally into this codebase
-let errorCount = 0;
-app.use(function (err, req, res, next) {
-    errorCount++; // if there are too many errors coming through, that means something is wrong with the code and not a fault from users
-    res.json({
-        msg: "Some error occurred"
-    })
-})
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
