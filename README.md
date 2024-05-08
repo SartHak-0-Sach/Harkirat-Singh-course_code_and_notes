@@ -35,7 +35,10 @@ To start utilizing the resources in this repository:
 
 ## BONUS-SECTION!!!
 
-I have added new separate sections about the android course and MLops course provided along with this cohort free of cost along with also covering GSOC Ad-Hoc classes necessary for learning open-source.
+I have added new sections for the following three courses:-
+- Native App Development in Android by famous youtuber and content creator Harnoor Singh.
+- Machine Learning fundamentals + ML-OPS course
+- Ad-hoc classes for getting into open source contribution and learning how to prepare for getting selected in GSOC.
 
 ## Contribution
 
