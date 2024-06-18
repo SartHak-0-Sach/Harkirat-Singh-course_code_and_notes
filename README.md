@@ -39,6 +39,7 @@ I have added new sections for the following three courses:-
 - Native App Development in Android by famous youtuber and content creator Harnoor Singh.
 - Machine Learning fundamentals + ML-OPS course
 - Ad-hoc classes for getting into open source contribution and learning how to prepare for getting selected in GSOC.
+- DSA classes in Java and C++
 
 ## Contribution
 
