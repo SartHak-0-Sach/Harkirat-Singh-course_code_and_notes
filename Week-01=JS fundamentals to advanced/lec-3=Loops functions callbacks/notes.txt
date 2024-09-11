@@ -1,3 +1,124 @@
+Lecture 6: Loops and Callbacks
+Introduction to Loops
+Definition: Loops are constructs that allow repeated execution of a block of code.
+Purpose: They help automate repetitive tasks, reducing the need for manual code repetition.
+Types of Loops in JavaScript:
+For Loop: Repeats a block of code a certain number of times.
+javascript
+ 
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+While Loop: Continues to execute a block of code as long as a specified condition is true.
+javascript
+ 
+let i = 0;
+while (i < 10) {
+    console.log(i);
+    i++;
+}
+Do-While Loop: Similar to the while loop, but guarantees at least one iteration.
+javascript
+ 
+let i = 0;
+do {
+    console.log(i);
+    i++;
+} while (i < 10);
+For-In Loop: Iterates over the enumerable properties of an object.
+javascript
+ 
+let obj = {a: 1, b: 2, c: 3};
+for (let key in obj) {
+    console.log(key, obj[key]);
+}
+For-Of Loop: Iterates over iterable objects like arrays.
+javascript
+ 
+let arr = [1, 2, 3];
+for (let value of arr) {
+    console.log(value);
+}
+Introduction to Functions
+Definition: Functions are reusable blocks of code designed to perform a specific task.
+Purpose: They help in maintaining the DRY (Don't Repeat Yourself) principle by encapsulating code that can be reused multiple times.
+Syntax:
+javascript
+ 
+function functionName(parameters) {
+    // Code to be executed
+}
+Example:
+javascript
+ 
+function add(a, b) {
+    return a + b;
+}
+let result = add(2, 3); // result is 5
+Callbacks
+Definition: A callback is a function passed as an argument to another function.
+Purpose: Callbacks allow functions to be executed in sequence or after certain events.
+Syntax:
+javascript
+ 
+function first(callback) {
+    console.log("First function executed");
+    callback();
+}
+
+function second() {
+    console.log("Second function executed");
+}
+
+first(second); // First function executed, then Second function executed
+Difference from Recursion:
+Recursion: A function calling itself.
+javascript
+ 
+function recursiveFunction(n) {
+    if (n > 0) {
+        console.log(n);
+        recursiveFunction(n - 1);
+    }
+}
+recursiveFunction(5); // Prints 5, 4, 3, 2, 1
+Callbacks: One function passed into another as an argument.
+Callback Hell
+Definition: Callback hell refers to the situation where callbacks are nested within other callbacks, leading to hard-to-read and maintain code.
+Example:
+javascript
+ 
+asyncFunction1(function(result1) {
+    asyncFunction2(result1, function(result2) {
+        asyncFunction3(result2, function(result3) {
+            // So on...
+        });
+    });
+});
+Solution: Use Promises or async/await for cleaner and more manageable code.
+Anonymous Functions
+Definition: Functions without a name, often used as arguments to other functions.
+Purpose: They are used when the function doesn't need to be reused elsewhere.
+Syntax:
+javascript
+ 
+function(callback) {
+    callback();
+}
+
+function(arg1, arg2, function() {
+    // Anonymous function code
+});
+Example:
+javascript
+ 
+setTimeout(function() {
+    console.log("This is an anonymous function");
+}, 1000);
+This lecture provided an in-depth understanding of loops and functions, emphasizing the importance of callbacks and anonymous functions in writing efficient and reusable code. Future lectures will build upon these concepts to explore more advanced topics in JavaScript and programming in general.
+
+
+Small summary of what all I covered above in simple terms-
 In this lecture we studied about loops, what loops are, why we need them and what all we can do using loops.
 
 Then we learnt about functions, what they are, why we need them. Functions do the same task as loops which is to prevent us from writing same code again and again manually if something is being repeated again and again in the code(DRY principle), they are similar to loops but are capable of performing much larger tasks that need to be repeated and thus we declare a function for it.
