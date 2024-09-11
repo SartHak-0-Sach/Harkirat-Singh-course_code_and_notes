@@ -1,21 +1,50 @@
-In this lecture we dive deep into CSS, Cascading Style Sheet, is not a programming language and is instead a style sheet language as the name suggests.
+Lecture 3: CSS Basics
 
-This language helps us beautify, organise and structurise our HTML code and helps us getting the design requirements fulfilled.
+This lecture covered the fundamentals of CSS, focusing on common styling attributes, the box model, and layout techniques using float and flexbox. Practical application involved redesigning a previously created landing page to reinforce the concepts learned. Future lectures will build on these basics, exploring more advanced CSS techniques and best practices.
 
-Later in this lecture we further read about common styling attributes used like color, background, border etc and also learnt basics about the box model and its terms like margin, padding, borders and box shadows and what are the differences between these terms.
+Introduction to CSS
+CSS (Cascading Style Sheets):
+Not a programming language but a style sheet language.
+Used to style, organize, and structure HTML documents.
+Essential for meeting design requirements.
+Common Styling Attributes
+Color: Sets the text color.
+Background: Sets the background color or image.
+Border: Defines the border around an element.
+Box Model
+Box Model Terms:
 
-Then we went on to apply our learnings to use by redesigning our previously made Zerodha landing page(code available in the lecture-2 file).
+Margin: Space outside the border.
+Padding: Space inside the border, between the border and the content.
+Border: The edge surrounding the padding and content.
+Box Shadow: Adds shadow effects around an element's frame.
+Differences:
 
-Then we learnt that margin and padding can be applied to a div in a specific direction also. 
+Margin vs. Padding:
+Margin is outside the border.
+Padding is inside the border.
+Practical Application
+Project: Redesigned the Zerodha landing page (initially created in Lecture 2) using CSS.
+Specific Direction Styling:
+Margin and padding can be applied in specific directions (top, right, bottom, left).
+Float Property
+Float Property:
+Applied to span tags to reposition within the parent element.
+Float directions: left, right.
+Usage: Helps in aligning elements but can affect layout flow and responsiveness.
+Flexbox
+Introduction to Flexbox:
 
-Followed by learning about the float property of span tag which allows us to reposition our span in parent element in a specific direction.
+Provides a flexible way to layout content.
+Div elements can be adjusted to take only the required amount of space and align in a single line.
+More responsive and scalable than absolute positioning or float.
+Key Properties:
 
-Later we learnt about flexbox.
+justify-content: Aligns items along the main axis.
+Types: flex-start, flex-end, center, space-between, space-around, space-evenly.
+Benefits:
 
-In flexbox, even if we put div, we can adjust them into taking only the required amount of space and thus make them reside in the same line.
-
-So instead of doing absolute positioning or using float which can hinder with the responsiveness and scalability of code, we must use flexbox.
-
-At places that have a fixed width or height, we can use absolute positioning with respect to parent element and to make it responsive we can change the parent element.
-
-In flexbox, we can use justify-content and we can do it in 6 different types namely- flex-start, flex-end, center, space-between, space-around, space-evenly.
+Flexbox is preferable for dynamic layouts over absolute positioning and float.
+Absolute positioning can be used for fixed-width/height elements, but should be used sparingly for responsiveness.
+Practical Flexbox Usage
+Implemented flexbox in the redesign of the Zerodha landing page to improve layout and responsiveness.
