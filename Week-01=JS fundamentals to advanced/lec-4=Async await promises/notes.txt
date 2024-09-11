@@ -1,3 +1,111 @@
+Lecture 7: Async Await and Promises
+Introduction to Asynchronous and Synchronous Functions-
+
+This lecture provided a comprehensive understanding of asynchronous operations in JavaScript, emphasizing the importance of promises and async/await for writing clean, efficient, and maintainable code.
+
+Synchronous Functions:
+
+Definition: Execute tasks sequentially, one at a time.
+Example: Cooking sequentially – fill water, wait for it to boil, then cut vegetables.
+Implication: Tasks wait for the previous one to finish before starting.
+Asynchronous Functions:
+
+Definition: Execute tasks concurrently, allowing other tasks to proceed before the current one completes.
+Example: Cooking asynchronously – set water to boil and start cutting vegetables, delegate tasks like getting groceries.
+Implication: Tasks can run in parallel, reducing overall execution time.
+Context Switching:
+
+Definition: Changing the execution context, often associated with asynchronous operations.
+Example: Switching between tasks while the water is boiling to optimize time.
+In JavaScript: Allows handling multiple tasks without blocking the main thread.
+Asynchronous Operations in JavaScript
+JavaScript's Nature: Single-threaded but supports asynchronous operations through context switching.
+Async Functions: Examples include setTimeout, fs.readFile, and fetch.
+Behavior: Async functions execute independently and don't block the thread.
+Website Demonstration
+Latentflip Loupe: A tool to visualize how JavaScript handles async operations – Latentflip Loupe.
+Understanding Promises
+Definition: Promises provide a cleaner, more readable way to handle asynchronous operations.
+
+States of a Promise:
+
+Pending: Initial state, neither fulfilled nor rejected.
+Resolved (Fulfilled): Operation completed successfully.
+Rejected: Operation failed.
+Creating a Promise:
+
+let promise = new Promise((resolve, reject) => {
+    // Async operation
+    if (success) {
+        resolve(result);
+    } else {
+        reject(error);
+    }
+});
+Using Promises:
+
+With .then():
+javascript
+ 
+promise.then(result => {
+    console.log(result);
+}).catch(error => {
+    console.error(error);
+});
+With async/await:
+javascript
+ 
+async function asyncFunction() {
+    try {
+        let result = await promise;
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+asyncFunction();
+Why Use Promises?
+Avoiding Callback Hell: Promises provide a structured way to handle nested callbacks, making code more readable and maintainable.
+Example of Callback Hell:
+javascript
+ 
+asyncFunction1(function(result1) {
+    asyncFunction2(result1, function(result2) {
+        asyncFunction3(result2, function(result3) {
+            // So on...
+        });
+    });
+});
+Example with Promises:
+javascript
+ 
+asyncFunction1()
+    .then(result1 => asyncFunction2(result1))
+    .then(result2 => asyncFunction3(result2))
+    .catch(error => console.error(error));
+Async/Await
+Definition: Syntactic sugar for promises, making asynchronous code look synchronous.
+Syntax:
+javascript
+ 
+async function asyncFunction() {
+    try {
+        let result = await asyncOperation();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+Behavior:
+Await Statement: Causes the function to pause until the promise settles (resolved or rejected).
+Blocking Nature: Code after the await statement waits for the promise to resolve.
+Key Points
+Async Functions: Execute concurrently without blocking the main thread.
+Promises: Provide a cleaner way to handle asynchronous operations, avoiding callback hell.
+Async/Await: Makes asynchronous code easier to write and understand, ensuring subsequent code waits for the promise to resolve.
+
+
+NOTE: Small summary of above lecture in my own words and bonus points-
 In this lecture we started off by discussing about async and sync functions.
 
 Sync functions mean sequential, doing one thing at a time. That means I will do a task only when the other task is finished. In example of cooking, I will first fill water and set it on gas to boil, wait until it boils and only then go on to cut the vegeatable and so on.
