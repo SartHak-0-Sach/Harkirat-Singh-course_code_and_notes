@@ -1,3 +1,107 @@
+Lecture 5: Basics of JavaScript API
+Introduction
+Focus on understanding JavaScript syntax to perform complex tasks efficiently.
+Emphasis on knowing various functions and methods rather than memorizing them.
+String Functions
+str.length: Returns the length of the string.
+str.indexOf(targetStr): Finds the first occurrence of targetStr.
+str.lastIndexOf(targetStr): Finds the last occurrence of targetStr.
+str.slice(start, end): Extracts a section of the string from start to end.
+str.substring(start, end): Similar to slice, but doesn’t accept negative indices.
+str.replace(target, replacement): Replaces occurrences of target with replacement.
+str.split(separatorChar): Splits the string into an array based on separatorChar.
+str.trim(): Removes whitespace from both ends of the string.
+str.toUpperCase(): Converts the string to uppercase.
+str.toLowerCase(): Converts the string to lowercase.
+Number Extraction from Strings
+parseInt(string): Converts a string to an integer.
+parseFloat(string): Converts a string to a floating-point number.
+Array Functions
+arr.push(element): Adds an element to the end of the array.
+arr.pop(): Removes the last element of the array.
+arr.shift(): Removes the first element of the array.
+arr.unshift(element): Adds an element to the beginning of the array.
+arr.concat(arr2): Merges two arrays into one.
+arr.forEach(callback): Executes a provided function once for each array element.
+arr.find(callback): Returns the first element that satisfies the provided testing function.
+arr.sort([compareFunction]): Sorts the elements of the array.
+arr.map(callback): Creates a new array populated with the results of calling a provided function on every element in the array.
+arr.filter(callback): Creates a new array with all elements that pass the test implemented by the provided function.
+Importance of Classes
+DRY Principle: "Don't Repeat Yourself" to write more efficient and maintainable code.
+Class Syntax:
+Constructor: Initializes an object's properties.
+javascript
+ 
+class MyClass {
+    constructor(prop1, prop2) {
+        this.prop1 = prop1;
+        this.prop2 = prop2;
+    }
+}
+Methods: Define behaviors of the class.
+javascript
+ 
+class MyClass {
+    constructor(prop1) {
+        this.prop1 = prop1;
+    }
+    
+    myMethod() {
+        // Method code
+    }
+    
+    static myStaticMethod() {
+        // Static method code
+    }
+}
+Creating an Object:
+javascript
+ 
+let myObject = new MyClass('value1', 'value2');
+Static Methods: Methods that belong to the class, not instances of the class.
+Prototypes
+Prototypes: Mechanism by which JavaScript objects inherit features from one another.
+Accessing Prototypes:
+javascript
+ 
+object.__proto__
+Date and Time Functions
+Getting Current Date/Time:
+javascript
+ 
+let currentDate = new Date();
+Setting Date/Time:
+javascript
+ 
+currentDate.setFullYear(2024);
+currentDate.setMonth(6);
+Calculating Time Elapsed:
+javascript
+ 
+let startTime = new Date();
+// Code to measure
+let endTime = new Date();
+let timeElapsed = endTime - startTime;
+JSON Methods
+Stringify and Parse:
+JSON.stringify(object): Converts an object to a JSON string.
+JSON.parse(string): Converts a JSON string back to an object.
+Math Methods
+Math.floor(): Rounds a number down to the nearest integer.
+Math.ceil(): Rounds a number up to the nearest integer.
+Math.max(): Returns the largest of the given numbers.
+Math.min(): Returns the smallest of the given numbers.
+Math.random(): Returns a random number between 0 and 1.
+Object Methods (Missed)
+Object.keys(object): Returns an array of a given object's property names.
+Object.values(object): Returns an array of a given object's property values.
+Object.entries(object): Returns an array of a given object's key-value pairs.
+Object.assign(target, ...sources): Copies all enumerable own properties from one or more source objects to a target object.
+This lecture provided a comprehensive overview of essential JavaScript functions and methods, offering tools to perform complex tasks efficiently and effectively. Future lectures will build upon these basics to explore more advanced JavaScript functionalities and applications.
+
+
+NOTE: Small summary of above lecture and some bonus notes-
 In this lecture, we traversed through different concepts mentioned in the code handbook of week-1 and understood how javascript syntax can help us do complex tasks in single lines of code.
 
 It is not necessary to learn everything by heart but just knowing about different topics is enough as you can google the syntax later.
