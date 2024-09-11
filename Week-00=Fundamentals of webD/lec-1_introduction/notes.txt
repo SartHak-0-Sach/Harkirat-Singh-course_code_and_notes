@@ -1,11 +1,61 @@
+Lecture 1: Setting Up Your IDE and Future Projects with HTML, CSS, and JavaScript
+
 Link to slides: https://slides.com/harkiratsingh-8/deck
 
-In this lecture we started out with the basics, what are browsers and how do they render websites? 
-
-The goal of a website is to allow one user to talk to another computer.
-
-If we open a website, we tell the server of the website to give me back the content of website in html css js and that is what gets rendered in the browser. So the goal of the browser is to allow people to hit a specific server from anywhere in the world to anywhere in the world, the server being specified by its unique address or URL.
-
-The goal of a browser is only limited to render the html css js that was requested by user sent by server of website.
-
-IDE= Intergrated Development Environment
+Introduction to Browsers and Website Rendering
+Browsers:
+Definition: Software applications designed to retrieve, present, and traverse information on the World Wide Web.
+Rendering Engine: Component responsible for interpreting HTML, CSS, and JavaScript to display webpages. Examples include WebKit (Safari), Blink (Chrome), and Gecko (Firefox).
+Primary Function: Execute client-side scripts (JavaScript) and render the Document Object Model (DOM) as per the received HTML and CSS from the server.
+Web Communication
+Client-Server Model:
+Client: The browser or user agent making requests.
+Server: The machine responding to those requests with the requested resources.
+HTTP/HTTPS: Protocols used for transmitting requests and responses.
+URL (Uniform Resource Locator):
+Structure: Consists of the protocol (http/https), domain name, path, and optional query parameters.
+Purpose: Identifies the resource location on the server.
+Web Page Lifecycle
+Request Initiation:
+User enters a URL or clicks a link.
+Browser parses the URL and sends an HTTP/HTTPS request to the server.
+Server Response:
+Server processes the request and sends back the requested resources (HTML, CSS, JavaScript files).
+Response headers include metadata such as content type, status code, and caching policies.
+Rendering Process:
+HTML Parsing: Browser parses HTML to construct the DOM.
+CSS Parsing: CSS is parsed to create the CSS Object Model (CSSOM).
+JavaScript Execution: JavaScript is executed, potentially modifying the DOM/CSSOM.
+Layout and Painting: Browser computes the layout and paints the pixels on the screen.
+Integrated Development Environment (IDE)
+Definition: A comprehensive software suite that consolidates basic tools required for software development.
+Features:
+Code Editor: Syntax highlighting, code completion, and refactoring tools.
+Debugger: Step-through debugging and breakpoints.
+Build Automation Tools: Scripts to automate repetitive tasks.
+Version Control: Integration with systems like Git for source code management.
+Examples: Visual Studio Code, IntelliJ IDEA, Sublime Text.
+Future Projects Using HTML, CSS, and JavaScript
+HTML (HyperText Markup Language):
+Structure of web pages using elements and attributes.
+Semantic HTML for better accessibility and SEO.
+CSS (Cascading Style Sheets):
+Styling and layout of web pages.
+Responsive design techniques using media queries and flexible grids.
+JavaScript:
+Client-side scripting for dynamic and interactive web pages.
+DOM manipulation, event handling, and AJAX for asynchronous operations.
+Project Examples:
+Interactive Forms: Validations, conditional rendering.
+Single Page Applications (SPAs): Using frameworks/libraries like React, Angular, or Vue.js.
+Responsive Design: Ensuring compatibility across different devices and screen sizes.
+APIs Integration: Fetching and manipulating data from external services.
+Additional Points
+Goal of a Website: Allow one user to communicate with another computer.
+When a website is opened, the server sends back the content in HTML, CSS, and JavaScript.
+Goal of the Browser:
+Enable users to access a specific server from anywhere in the world, identified by its unique address or URL.
+Render the HTML, CSS, and JavaScript sent by the server as requested by the user.
+Conclusion
+This lecture provided an overview of setting up an IDE and introduced the fundamental concepts of web development using HTML, CSS, and JavaScript.
+Future lectures will delve deeper into each technology, exploring advanced techniques and project implementation.
