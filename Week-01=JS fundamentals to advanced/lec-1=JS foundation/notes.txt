@@ -1,7 +1,98 @@
+Lecture 4: JavaScript Foundation
+
 Slides link:- https://appx-recordings.s3.ap-south-1.amazonaws.com/drm/100x/slides/JS+foundations.pdf
+
+This lecture provided an in-depth understanding of JavaScript fundamentals, contrasting it with other programming languages, and delving into its syntax, execution model, and key features. Future lectures will build on these basics to explore advanced JavaScript concepts and practical applications.
 
 In this lecture, we started by discussing why we need so many programming languages and learnt more about how computers work. In a computer we have RAM and SSD(or HDD) and for different purpose computers, gaming, crypto-mining, multipurpose simple systems etc have different specifications accordingly.
 
+Introduction to Programming Languages
+Purpose of Multiple Programming Languages:
+Different languages serve various purposes: gaming, crypto-mining, multipurpose systems, etc.
+Each purpose requires specific hardware specifications (e.g., RAM, SSD/HDD).
+Understanding Computer Memory
+Memory Components:
+
+RAM (Random Access Memory): Temporary storage for running applications.
+SSD/HDD: Permanent storage for photos, videos, apps, etc.
+High-Level Code and Binary:
+
+High-level code is written in programming languages and compiled into binary.
+Binary code is loaded into RAM to run applications.
+Compiled vs. Interpreted Languages
+Compiled Languages (e.g., C++):
+
+Code is compiled as a whole into an executable file.
+The executable file is then run in RAM.
+Interpreted Languages (e.g., JavaScript, Python):
+
+Code is interpreted line by line, converting to binary and executing on the fly.
+No additional file is created.
+JavaScript Specifics
+Loose Typing and Dynamic Nature:
+
+JavaScript is loosely typed and dynamically typed, allowing variable types to change.
+Single-Threaded Nature:
+
+JavaScript runs on a single core by default.
+Multi-threading in JavaScript requires additional mechanisms (e.g., Web Workers).
+JavaScript Syntax Basics
+Variable Declarations:
+
+var, let, const: Different ways to declare variables.
+Primitive Data Types: number, string, boolean, undefined, null.
+Reference Data Types: object, function, array.
+Control Structures:
+
+Loops: for, while, do-while, and sub-types of for (for-in, for-of, for-await-of).
+Arrays and Objects
+Arrays:
+
+Data structures to store multiple values of the same type.
+Reference: MDN Array Documentation.
+Objects:
+
+Collections of key-value pairs.
+Can store various data types and can be nested.
+Functions
+Definition and Use:
+
+Functions reduce code repetition by encapsulating reusable code blocks.
+Syntax:
+javascript
+ 
+function functionName(parameters) {
+    // Function body
+}
+Callbacks:
+
+Functions passed as arguments to other functions.
+Useful for asynchronous operations and handling sequences of tasks.
+Passing Arguments:
+
+Pass by Value: Passing primitive types.
+Pass by Reference: Passing objects and arrays.
+The V8 Engine and Node.js
+V8 Engine:
+
+JavaScript engine written in C++.
+Compiles JavaScript into bytecode for execution.
+Node.js:
+
+Built on the V8 engine with modifications to support server-side JavaScript.
+Enables JavaScript to run outside of the browser.
+Asynchronous JavaScript
+Non-Blocking Nature:
+JavaScript defers expensive calls (e.g., database calls) to avoid blocking the main thread.
+Supports efficient execution of asynchronous tasks.
+Key Takeaways
+JavaScript:
+Interpreted, single-threaded, and loosely typed language.
+Supports both synchronous and asynchronous programming paradigms.
+Essential for building dynamic and interactive web applications.
+
+
+NOTE- Additional stuff about above info:-
 In a computer all our photos,videos,apps reside in SSD but if we open them they go into RAM(Random Access Memory). In the RAM the binary code goes which is typed in programming languages(high level code) converted to binary using compilers. Through this binary code the RAM understands how to run applications.
 
 After a language is compiled, an additional file is created which is then opened in RAM and run to get our output.
