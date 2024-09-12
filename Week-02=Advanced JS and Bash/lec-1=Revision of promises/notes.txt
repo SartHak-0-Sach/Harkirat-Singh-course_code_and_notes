@@ -19,21 +19,22 @@ Using Promises
 Promise Chaining:
 Promises allow chaining of multiple asynchronous operations in a more readable manner.
 Each .then() block returns a new Promise, enabling sequential execution of asynchronous tasks.
+
 Example:
-javascript
-Copy code
+
 readFilePromise('file1.txt')
   .then(data1 => readFilePromise('file2.txt'))
   .then(data2 => readFilePromise('file3.txt'))
   .then(data3 => processData(data1, data2, data3))
   .catch(error => handleError(error));
+
 Async/Await Syntax
 Introduction to Async/Await:
 Async functions in JavaScript enable the use of the await keyword, which waits for asynchronous code to complete before proceeding.
 Async functions are declared using the async keyword.
+
 Example:
-javascript
-Copy code
+
 async function processDataAsync() {
   try {
     const data1 = await readFilePromise('file1.txt');
@@ -45,6 +46,7 @@ async function processDataAsync() {
   }
 }
 processDataAsync();
+
 Error Handling with Promises and Async/Await
 Error Handling:
 Promises use .catch() to handle errors at the end of a chain.
@@ -56,17 +58,17 @@ Execution Context:
 Refers to the environment in which JavaScript code is executed.
 Types: Global, Function, and Eval Function contexts.
 Managed by the JavaScript engine to keep track of variable scopes and function calls.
-Memory Management:
 
+Memory Management:
 JavaScript uses automatic memory management (garbage collection) to allocate and deallocate memory.
 Heap: Stores objects and dynamically allocated memory.
 Stack: Manages function call contexts and local variables.
 Garbage Collection: Reclaims memory occupied by objects no longer in use.
+
 Conclusion
 Understanding promises, async/await, and JavaScript's execution context and memory management is crucial for developing efficient and scalable applications. These concepts not only optimize code execution but also ensure effective resource utilization and error handling. By leveraging asynchronous programming techniques and proper memory management practices, developers can create responsive and robust JavaScript applications.
 
 This comprehensive overview prepares you to handle asynchronous tasks effectively, manage memory efficiently, and grasp the intricacies of JavaScript's execution model for your exam preparation.
-
 
 NOTE: Here is a small gist of above lecture in my own words-
 
