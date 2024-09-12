@@ -242,9 +242,9 @@ class Animal
     this.speaks = speaks
   }
 
-  static myType()
+  static type()
   {
-    console.log("Animal")
+    console.log("Animal") // is static so can be called without initiating an object of the class
   }
 
   speak()
@@ -262,6 +262,8 @@ let dog = new Animal("dog", 4, "bhow bhow");
 let cat = new Animal("cat", 4, "meow");
 cat.speak();
 dog.describe();
+
+console.log(Animal.type());
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -377,8 +379,6 @@ function objectMethods(obj)
 
   let newObj = Object.assign({}, obj, { newProperty: "newValue" });
   console.log("After Object.assign():", newObj);
-
-
 }
 
 // Example Usage for Object Methods
