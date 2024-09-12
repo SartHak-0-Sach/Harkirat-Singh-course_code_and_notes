@@ -607,7 +607,7 @@ Middleware functions must call next() to pass control to the next middleware fun
 These parameters are automatically injected by Express.js into middleware functions and route handlers when they are invoked during request processing. For example:
 
 javascript
-Copy code
+ 
 function middlewareFunction(req, res, next) {
     // Access request data using req object
     const requestData = req.body;
@@ -642,7 +642,7 @@ Execution Context: Route handler functions are executed when an incoming request
 Syntax: Route handler functions are typically defined using Express.js route methods (app.get(), app.post(), etc.) and take two parameters: req (request object) and res (response object).
 Example:
 javascript
-Copy code
+ 
 app.get('/example-route', function(req, res) {
     res.send('Hello, World!');
 });
@@ -654,7 +654,7 @@ Execution Context: Middleware functions are executed sequentially in the order t
 Syntax: Middleware functions are defined using app.use() or specific route methods (app.get(), app.post(), etc.). They typically take three parameters: req (request object), res (response object), and next (next function).
 Example:
 javascript
-Copy code
+ 
 app.use(function(req, res, next) {
     console.log('Middleware function executed!');
     next();
@@ -680,7 +680,7 @@ Execution Context: Middleware functions and route handlers receive the next func
 Role: next() facilitates sequential execution of middleware and route processing, allowing for modularization of functionality and ensuring proper order of execution.
 Example:
 javascript
-Copy code
+ 
 app.use(function(req, res, next) {
     // Execute logic
     next(); // Pass control to the next middleware or route handler
@@ -692,7 +692,7 @@ Route Handling: After all middleware functions are executed, Express.js invokes 
 Flow Control: The proper execution order ensures that each middleware function or route handler is executed in sequence, allowing for consistent and predictable processing of requests.
 Example:
 javascript
-Copy code
+ 
 app.use(function middleware1(req, res, next) {
     // Middleware 1 logic
     next(); // Pass control to middleware 2
@@ -714,7 +714,7 @@ Response Delay: Without next(), subsequent middleware functions or route handler
 Middleware Flow Control: Failing to call next() effectively prevents the proper flow of control through middleware functions, potentially resulting in incomplete or erroneous request processing.
 Example:
 javascript
-Copy code
+ 
 app.use(function(req, res, next) {
     // Missing next() call
     // The request-response cycle will halt here
