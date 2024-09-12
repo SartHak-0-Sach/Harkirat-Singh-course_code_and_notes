@@ -376,8 +376,7 @@ Express provides middleware for parsing different types of data commonly sent in
 Body Parsing: Express provides middleware like express.json() and express.urlencoded() to parse JSON and URL-encoded request bodies, respectively.
 File Parsing: Express middleware like multer can be used to parse multipart/form-data requests, commonly used for file uploads.
 Example (body parsing using express.json() middleware):
-javascript
-Copy code
+ 
 const express = require('express');
 const app = express();
 
@@ -476,9 +475,7 @@ In summary, the expression const port = process.env.PORT || 3000 allows you to d
 Query parameters are a way to pass information to a web server by appending key-value pairs to the end of a URL. They are commonly used in HTTP requests to provide additional data to the server, typically for the purpose of filtering, sorting, or modifying the response. Query parameters appear after the question mark (?) in a URL and are separated by ampersands (&) if there are multiple parameters.
 
 For example, consider the following URL:
-
-arduino
-Copy code
+ 
 https://example.com/search?q=query&category=books&page=1
 In this URL:
 
@@ -694,7 +691,7 @@ Watching for file changes
 Example code snippet demonstrating reading a file synchronously using fs:
 
 javascript
-Copy code
+ 
 const fs = require('fs');
 
 // Reading file synchronously
@@ -717,7 +714,7 @@ Static Files: Express can serve static files like HTML, CSS, images, etc., from 
 Example code snippet demonstrating a simple Express server:
 
 javascript
-Copy code
+ 
 const express = require('express');
 const app = express();
 
@@ -743,7 +740,7 @@ let's break down a typical boilerplate Express.js code and discuss related conce
 First, let's consider a simple Express.js server:
 
 javascript
-Copy code
+ 
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -760,28 +757,28 @@ Here's a breakdown of each part:
 Require Express:
 
 javascript
-Copy code
+ 
 const express = require('express');
 This line imports the Express.js framework into your application. express is a function that creates an instance of an Express application.
 
 Create an Express application instance:
 
 javascript
-Copy code
+ 
 const app = express();
 Here, app becomes our main application. We'll use this app to define routes, middleware, and more.
 
 Set up a port:
 
 javascript
-Copy code
+ 
 const port = 3000;
 This specifies the port on which the server will listen for incoming requests.
 
 Define a route:
 
 javascript
-Copy code
+ 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
@@ -790,7 +787,7 @@ This defines a route for handling GET requests to the root URL (/). When a clien
 Start the server:
 
 javascript
-Copy code
+ 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
