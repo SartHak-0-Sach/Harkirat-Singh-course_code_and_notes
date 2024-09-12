@@ -1,0 +1,19 @@
+In this lecture we are going to dive deep into React, learn some of its more advanced concepts that have made React what it is today and replace all other tech stacks.
+
+We will start with the basics of React, then move on to the advanced concepts and finally we will also implement all such concepts whose code is attached in code file.
+
+So let's start with what we learned earlier, we learned about react components, but one thing that we never really understood was why a component can only return a single top level xml(to all those thinking its html, no it is not it is actually xml which under the hood gets converted to simple html css js only later on but this react syntax uses xml)
+
+One of the biggest reasons for this was easy reconciliation(process of figuring out what DOM changes need to take place as the application progresses and starts running)
+
+Just like variables can't store more than one value at the same time, similarly in react we can't return more than one component and have to encapsulate all of it into one single parent element
+
+So to solve this we use React.Fragment(can also write only Fragment after importing react) or an empty parent which looks like this <></> to remove unnecessary div parent
+
+In React after doing the experiment project we found that instead of only re-rendering the part that is changing, react re-renders whole page(including the parent div in return if we don't use fragment)
+
+To avoid this re-rendering we can use memo(not same as useMemo as this one is React.memo or just memo)
+
+Also in React, earlier the components were written in a different manner when class based components were used, even though can still be written the same way as React is backward compatible but nowadays functional components are preferred. This allowed us to get access to lifecycle features, and to get that in functional components we use hooks.
+
+Earlier class based components had to use render() method and use lifecycle functions to manage state variable changes, which are now done using hooks.
