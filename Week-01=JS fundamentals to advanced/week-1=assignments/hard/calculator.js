@@ -16,41 +16,78 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {
-  constructor() {
-      this.result = 0;
-  }
+class Calculator
+{
+    constructor()
+    {
+        this.result = 0;
+    }
 
-  add(num) {
-      this.result += num;
-  }
+    // Arithmetic operations
+    add(num)
+    {
+        this.result += num;
+    }
 
-  subtract(num) {
-      this.result -= num;
-  }
+    subtract(num)
+    {
+        this.result -= num;
+    }
 
-  multiply(num) {
-      this.result *= num;
-  }
+    multiply(num)
+    {
+        this.result *= num;
+    }
 
-  divide(num) {
-      if (num === 0) {
-          throw new Error('Cannot divide by zero');
-      } else {
-          this.result /= num;
-      }
-  }
+    divide(num)
+    {
+        if (num === 0)
+        {
+            throw new Error('Cannot divide by zero');
+        } else
+        {
+            this.result /= num;
+        }
+    }
 
-  clear() {
-      this.result = 0;
-  }
+    // Clear the result
+    clear()
+    {
+        this.result = 0;
+    }
 
-  getResult() {
-      return this.result;
-  }
+    // Get the result value
+    getResult()
+    {
+        return this.result;
+    }
 
-  
+    // Parse and calculate the string expression
+    calculate(expression)
+    {
+        // Remove continuous spaces and validate expression for non-numerical characters
+        const sanitizedExpression = expression.replace(/\s+/g, '');
+
+        if (/[^0-9+\-*/().]/.test(sanitizedExpression))
+        {
+            throw new Error('Invalid expression: contains non-numerical characters');
+        }
+
+        // Evaluate the expression safely
+        try
+        {
+            this.result = new Function(`return ${sanitizedExpression}`)();  // Use Function constructor for expression evaluation
+        } catch (error)
+        {
+            throw new Error('Invalid mathematical expression');
+        }
+    }
 }
+
+// Example usage:
+const calculator = new Calculator();
+calculator.calculate('10 +  2 *    (   6 - (4 + 1) / 2) + 7');
+console.log(calculator.getResult());
 
 // Example usage:
 // const calculator = new Calculator();
