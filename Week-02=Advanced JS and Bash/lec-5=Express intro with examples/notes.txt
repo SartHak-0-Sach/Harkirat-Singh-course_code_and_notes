@@ -19,12 +19,15 @@ Express is a framework written by really smart people who wrote optimized code f
 
 you can write multiple Express.js applications that listen on the same port, but you can only run one of them at a time. When you start a server on a specific port, that port becomes occupied, and attempting to start another server on the same port will result in an error due to port conflict.
 
-To achieve what you're asking for, you would need to organize your code in a way that allows you to choose which Express.js application to run at any given time. One common approach is to use environment variables or configuration files to determine which application to start.
+Steps for Running Multiple Express.js Applications Using Environment Variables
+To set up a system where you can choose which Express.js application to run using environment variables, follow these steps:
 
-Here's a simplified example of how you might structure your code:
+1. Create Separate Express.js Applications
+Create the First Express.js Application (app1)
 
-javascript
-// app1.js
+Create a file named app1.js.
+In app1.js, set up an Express server with a basic route:
+
 const express = require('express');
 const app = express();
 
@@ -33,8 +36,11 @@ app.get('/', (req, res) => {
 });
 
 module.exports = app;
+Create the Second Express.js Application (app2)
 
-// app2.js
+Create a file named app2.js.
+In app2.js, set up another Express server with a different route:
+
 const express = require('express');
 const app = express();
 
@@ -43,16 +49,21 @@ app.get('/', (req, res) => {
 });
 
 module.exports = app;
+2. Set Up a Central Server File (server.js)
+Create a file named server.js.
 
-// server.js
+In server.js, import the two applications and Express:
+
 const app1 = require('./app1');
 const app2 = require('./app2');
-
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+Determine Which Application to Use
 
-// Determine which app to use based on environment variable or configuration
+Use an environment variable (APP_TO_RUN) to decide which application to start.
+Set up conditional logic to apply the correct application:
+
 const selectedApp = process.env.APP_TO_RUN || 'app1';
 
 if (selectedApp === 'app1') {
@@ -63,19 +74,24 @@ if (selectedApp === 'app1') {
   console.error('Invalid app selection');
   process.exit(1);
 }
+Start the Server
+
+Listen on the specified port:
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-With this setup, you can choose which app to run by setting the APP_TO_RUN environment variable when starting your server:
+3. Run the Server with Different Applications
+To Run app1:
 
-bash
-# Run App 1
+Set the APP_TO_RUN environment variable to app1 and start the server:
+
 APP_TO_RUN=app1 node server.js
+To Run app2:
 
-# Run App 2
+Set the APP_TO_RUN environment variable to app2 and start the server:
+
 APP_TO_RUN=app2 node server.js
-This way, you can have multiple Express.js applications pointing to the same port, but you can control which one is actually running.
 
 These different servers created are like different doctors of same hospital, they can work together in different rooms(different ports) or work in the same room but turn by turn. And the get, post, patch etc commands written in an express server are like the variety of services provided by the doctor to a patient.
 
