@@ -1,0 +1,240 @@
+In this lecture are going to learn about common hooks used in React and its related concepts in detail
+
+Let's first start with understanding what Side Effects are- Anything that is not related to rendering, putting things or taking things from DOM can be called a side Effect in React
+eg- setInterval, setTimeout, fetch call from database etc all are side effects
+
+Why we use UseEffect()? Side effects when hard coded will run everytime code re-renders and useEffect allows us to write conditions regarding state variables to trigger this change and not trigger after every re-render
+
+Also, UseEffect gets triggered twice for which we can remove strictMode from react to make it only render once on start
+
+in order to use async await syntax, ugly way of doing it is to call the function outside and then call it inside(still can't await it and can only call it), and the function mentioned in useEffect also cannot be async, so for that we use asyncUseEffect hook.
+
+In React, routing refers to the process of managing how your application's UI changes in response to different URLs. It allows you to create single-page applications (SPAs) where the content is updated dynamically without requiring full page reloads.
+Here's how it works:
+Routes:
+You define routes that associate specific URLs with different components in your application. For example, / might display your home component, while /about displays an about page component.
+Navigation:
+Users navigate between different views within your app by clicking links or buttons. The routing library intercepts these interactions and updates the displayed content accordingly.
+Client-side routing:
+Unlike traditional server-side routing, React handles routing on the client-side using JavaScript. This makes for a smoother user experience, as only the necessary parts of the page are reloaded.
+React Router:
+The most popular library for implementing routing in React is React Router. It provides components like <BrowserRouter>, <Routes>, <Route>, and <Link> to help you set up and manage your routes.
+Example:
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+This code sets up a basic React application with two routes:
+/: Displays the Home component and /about: Displays the About component.
+
+Also another common mistake people do in React is to do function call directly when catering to useState which is not correct and should be wrapped in another function and only then should be called(simply do ()=>setFunction(args))
+
+Tree shaking is a technique used in JavaScript to eliminate unused code from the final bundle that is sent to the browser. This results in smaller bundle sizes, which in turn leads to faster loading times and improved performance for your React application.
+How does it work?
+1. Static analysis:
+Tree shaking relies on static analysis of your codebase. Modern JavaScript module bundlers like Webpack and Rollup examine the import and export statements in your code to identify which parts are actually used.
+2. Dependency graph:
+The bundler builds a dependency graph of your application, starting from the entry point. It traces all the imports and exports to determine which modules are necessary for the application to run.
+3. Removal of dead code:
+Modules or parts of modules that are not reachable through the dependency graph are considered "dead code" and are removed from the final bundle.
+Benefits of Tree Shaking in React:
+Reduced bundle size:
+By eliminating unused code, tree shaking can significantly reduce the size of your JavaScript bundles. This is especially beneficial for large applications that use many external libraries.
+Improved performance:
+Smaller bundle sizes mean faster downloads and parsing times, leading to improved initial page load performance.
+Optimized resource usage:
+Smaller bundles also translate to less JavaScript code that needs to be executed, leading to reduced memory usage and improved runtime performance.
+Enabling Tree Shaking in React:
+To take advantage of tree shaking in your React projects, you need to:
+Use a modern module bundler:
+Ensure you are using a modern module bundler like Webpack or Rollup that supports tree shaking.
+Use ES modules:
+Write your JavaScript code using ES modules (import/export) syntax, as it allows for static analysis of dependencies.
+Avoid side effects:
+Side effects in your code can make it difficult for the bundler to determine if a module is truly unused. Write pure functions whenever possible.
+In summary, tree shaking is a powerful optimization technique that can significantly improve the performance of your React applications by eliminating unnecessary code.
+
+Caching in React refers to storing the results of computations, data fetching, or rendering so that you can reuse them later, improving your application's performance.
+Here are a few ways caching is used in React:
+1. Memoization:
+useMemo Hook:
+This hook allows you to memoize the result of a function. It takes a function and a dependency array as arguments. If the dependencies don't change between renders, React will reuse the previously cached result.
+useCallback Hook:
+This hook is similar to useMemo, but it memoizes a callback function itself. This is useful for preventing unnecessary re-renders of child components that rely on the callback.
+2. React Cache (Experimental):
+cache Function: This experimental API allows you to wrap a function to cache its results based on the input arguments. This is useful for expensive computations that you want to avoid repeating.
+3. Data Fetching Libraries:
+Many data fetching libraries like React Query and SWR come with built-in caching mechanisms. They automatically cache the results of API calls and provide options for cache invalidation and updates.
+Benefits of Caching in React:
+Improved Performance:
+By avoiding unnecessary re-renders and computations, caching can significantly speed up your React application.
+Reduced Network Requests:
+Caching API responses can minimize the number of requests made to your server, improving load times and reducing server load.
+Enhanced User Experience:
+Faster applications provide a smoother and more responsive experience for users.
+Important Considerations:
+Cache Invalidation:
+Make sure to implement proper cache invalidation strategies to prevent stale data from being displayed to users.
+Cache Size:
+Be mindful of the size of your cache, especially when dealing with large amounts of data.
+Overall, caching is a valuable technique for optimizing React applications and improving their performance.
+
+referrential equality in react refers to two things which can be equal but are not referrentially equal because they refer to two different chunks in memory. This is only seen in case of functions, objects etc and for that we use useCallback, can check referrential equality similar to == operator
+
+In React, memo() and useMemo() are both tools used to optimize performance, but they have different purposes and are used in different scenarios:
+memo()
+A higher-order component that memoizes an entire component, caching its output and only re-rendering it if its props have changed. This can be useful when a component's rendering is expensive, especially if it's a functional component that depends solely on its props.
+useMemo()
+A React Hook that memoizes specific values or calculations within a component, caching a value based on its dependencies. This is useful when you have an expensive computation that only needs to be run when its dependencies change, such as in components with more complex internal logic.
+
+In React, custom hooks are JavaScript functions that start with the word use and allow you to extract component logic into reusable functions. They can use other built-in React Hooks like useState, useEffect, and useContext to manage state, side effects, and context within their logic.
+When to prefer custom hooks:
+Reusing logic:
+If you find yourself repeating the same logic across multiple components, a custom hook can help you extract and reuse that logic efficiently. This improves code readability, maintainability, and reduces duplication.
+Improving component organization:
+Custom hooks can help break down complex components into smaller, more manageable pieces, making your codebase easier to understand and navigate.
+Sharing stateful logic:
+If you need to share stateful logic between components that are not directly related, a custom hook can provide a clean and reusable way to achieve this.
+Example:
+JavaScript
+
+import { useState, useEffect } from 'react';
+
+// Custom hook to fetch data from an API
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+}
+
+// Using the custom hook in a component
+function MyComponent() {
+  const { data, loading, error } = useFetch('https://api.example.com/data');
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <ul>
+      {data.map(item => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
+This custom hook, useFetch, handles fetching data from an API, managing loading and error states, and can be reused in any component that needs to fetch data.
+
+Rules to Build React Custom Hooks
+Typically, custom hooks encapsulate stateful logic, allowing its reuse across multiple components seamlessly. Custom hooks are not components; they are functions that contain reusable logic, making them versatile and easy to integrate.
+
+Prop drilling in React refers to passing data (props) from a parent component down through multiple layers of child components, even if some of those intermediate components don't directly need that data.
+How to do it:
+Pass props from parent to child:
+In your parent component, pass the data you want to share as a prop to its child component:
+JavaScript
+
+   function ParentComponent() {
+     const message = "Hello from parent!";
+     return <ChildComponent message={message} />;
+   }
+Pass props further down:
+In the child component, if you need to pass the data to another child component, pass it as a prop again:
+JavaScript
+
+   function ChildComponent({ message }) {
+     return <GrandchildComponent message={message} />;
+   }
+Access props in the target component:
+Finally, in the component that actually needs the data, access it via props:
+JavaScript
+
+   function GrandchildComponent({ message }) {
+     return <div>{message}</div>;
+   }
+Example:
+JavaScript
+
+function App() {
+  const username = "John Doe";
+
+  return (
+    <div>
+      <Profile username={username} />
+    </div>
+  );
+}
+
+function Profile({ username }) {
+  return (
+    <div>
+      <h2>User Profile</h2>
+      <UserDetails username={username} />
+    </div>
+  );
+}
+
+function UserDetails({ username }) {
+  return <p>Welcome, {username}!</p>;
+}
+In this example, the username prop is passed from App to Profile to UserDetails. This is prop drilling.
+How to avoid it:
+While prop drilling is a basic concept in React, it can become cumbersome in larger applications. Here are a couple of alternatives to avoid prop drilling:
+Context API: Provides a way to share data globally between components without explicitly passing props through each level.
+State Management Libraries (e.g., Redux): Offer a centralized way to manage and share application state.
+
+Prop drilling occurs when a prop needs to be passed through several layers of nested components to reach a deeply nested child component that actually needs the prop. Each intermediary component in the hierarchy has to pass the prop down, even if it doesn't use the prop itself.
+
+React distinguishes between components and functions in a few ways:
+1. Naming Convention:
+Components:
+By convention, component names start with a capital letter. For example, MyComponent, UserList, Button.
+Functions:
+Regular functions typically start with a lowercase letter, like calculateTotal, formatData, handleClick.
+2. Return Value:
+Components:
+Must return a React element, which is a description of what should be rendered on the screen. This can be a single element, multiple elements wrapped in a fragment (`<> </>), or null (to render nothing).
+Functions:
+Can return any valid JavaScript data type, such as a string, number, object, or array.
+3. Usage:
+Components:
+Used as building blocks of the UI. They are typically rendered inside other components or directly within the main app component.
+Functions:
+Used for various purposes, such as performing calculations, handling events, or manipulating data. They can be called from within components or other functions.
+4. Hooks (in functional components):
+With the introduction of React Hooks, functional components gained the ability to manage state and side effects, blurring the lines between components and functions. However, even with hooks, the naming convention and return value expectations still apply.
+In summary, React primarily uses the naming convention and return value to differentiate between components and functions. If it sees a function starting with a capital letter and returning a React element, it treats it as a component.
+
+Here are the key takeaways: Class components are robust and feature-rich, offering lifecycle methods and state management, but they tend to be more verbose. Functional components are streamlined and concise, and with React Hooks, they now have the capabilities that were once exclusive to class components.
+
+last but not the least, useRef is the last hook we are going to study, whose use is to access DOM elements a simpler way in React. Earlier we used to do document.getElementById(), but in react we do useRef which is used to get reference to DOM elements and does not confuse react if we are still doing having the same value or not by passing this reference to useEffect or some other hook.
+
+We can understand this with above analogy by imagining if we are planning on doing tax evasion and we want to override what my CA calculated as my income tax, which we will do by reporting an incorrect value to the government. So either we should do it using traditional JS way by DOM manipulation or by using useRef and changing the variable at reference we copied using useRef.
