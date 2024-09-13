@@ -184,7 +184,7 @@ app.use('/admin', router, (req, res) => {
 Error-handling middleware
 Error-handling middleware always takes four arguments. You must provide four arguments to identify it as an error-handling middleware function. Even if you don’t need to use the next object, you must specify it to maintain the signature. Otherwise, the next object will be interpreted as regular middleware and will fail to handle errors.
 
-Define error-handling middleware functions in the same way as other middleware functions, except with four arguments instead of three, specifically with the signature (err, req, res, next)):
+Define error-handling middleware functions in the same way as other middleware functions, except with four arguments instead of three, specifically with the signature (err, req, res, next):
 
 app.use((err, req, res, next) => {
   console.error(err.stack)
@@ -223,4 +223,3 @@ But we can consider amusement park as a route handler because it is the last thi
 Through express, we can write cycle of request, every user going through a cycle of requests before giving access.
 
 It is very convinient also because by writing so many middlewares we can write common ticket checker for all amusement park rides and not a separate ticket checker or a different middleware for each one.
-
