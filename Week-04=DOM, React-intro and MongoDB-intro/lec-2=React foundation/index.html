@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to React</title>
+</head>
+<body>
+    <script>
+        function addTodo(){
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            document.getElementById("container").innerHTML = "asdfdfs"
+        }
+    </script>
+    <div>
+        <input type="text" placeholder="title" id="title"><br>
+        <input type="text" placeholder="description" id="description"><br>
+        <button onclick="addTodo()">Add TODO</button>
+        <div id="container"></div>
+    </div>
+</body>
+</html>
