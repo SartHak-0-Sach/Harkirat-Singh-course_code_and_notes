@@ -1,0 +1,84 @@
+In this lecture we are further going to deep dive into DOM
+
+DOM (Document Object Model) API Notes
+What is DOM?
+The Document Object Model (DOM) is a programming interface for web documents that represents a page as a structured tree of objects. Each object corresponds to parts of a web document, such as elements, attributes, and text. Using the DOM, programs can dynamically change the content, structure, and styling of a web page.
+
+How does the DOM work?
+The DOM represents an HTML or XML document as a tree of nodes. These nodes include:
+
+Element nodes (e.g., <div>, <p>)
+Attribute nodes (e.g., id="finalSum")
+Text nodes (e.g., the text inside a paragraph)
+By manipulating these nodes, you can modify any aspect of the web page, such as adding new elements, changing styles, updating content, and more.
+
+DOM Manipulation
+DOM manipulation refers to interacting with and changing the structure, style, and content of the HTML document. JavaScript is commonly used for DOM manipulation to update web pages dynamically.
+
+Example of DOM Manipulation:
+In the code provided, the DOM is manipulated by:
+
+Input Event Listeners: When values are entered into the input fields (oninput="debounce()"), it triggers the debounce() function, which calls the populate() function after a delay.
+Fetching data from a server: The populate() function uses the fetch() API to retrieve data from a server, and updates the DOM by changing the content of the <div> element with id="finalSum".
+Debouncing
+Debouncing is a technique used to limit the rate at which a function is executed. When an event is triggered frequently (e.g., on input), debouncing ensures that the function only executes after a specified period of inactivity.
+
+How Debouncing Works:
+In the provided code, debouncing is implemented as follows:
+
+Timeout is cleared every time the debounce() function is triggered.
+A new timeout is set with a delay of 100 milliseconds.
+If no new input is detected within 100ms, the populate() function is called to update the sum based on the input values.
+
+let timeout;
+function debounce() {
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    populate();
+  }, 100);
+}
+Throttling
+Throttling is a similar concept to debouncing but ensures that a function is called at regular intervals, regardless of how many times an event is triggered. Unlike debouncing, which waits until the event stops firing, throttling guarantees execution at consistent intervals. Although not used in the provided code, throttling is essential when handling events like scrolling or resizing windows.
+
+DOM Manipulation Methods in Code
+The provided code uses the following DOM manipulation techniques:
+
+Accessing Elements:
+
+document.getElementById("firstNum").value retrieves the value entered in the input with id="firstNum".
+document.getElementById("finalSum") accesses the <div> with id="finalSum" to update its content.
+Modifying Content:
+
+document.getElementById("finalSum").innerHTML = ans; updates the inner HTML of the finalSum div with the sum fetched from the server.
+Event Handling:
+
+oninput="debounce()" listens for the input event and calls the debounce() function whenever the user types in the input fields.
+Using Fetch for Asynchronous Calls
+In the provided code, the fetch() API is used to make asynchronous calls to a server. Fetch returns a promise, which allows you to handle asynchronous code more cleanly.
+
+
+const res = fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b);
+res.then(function (response) {
+  response.text().then(function (ans) {
+    document.getElementById("finalSum").innerHTML = ans;
+  });
+});
+Using Async/Await for Cleaner Asynchronous Code:
+async and await make it easier to handle promises. In populateDiv2() and populateDiv3(), await is used to wait for the fetch request to complete before updating the DOM.
+
+
+async function populateDiv2() {
+  const a = document.getElementById("firstNum").value;
+  const b = document.getElementById("secondNum").value;
+  const response = await fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b);
+  const ans = await response.text();
+  document.getElementById("finalSum").innerHTML = ans;
+}
+Example Breakdown
+
+<input id="firstNum" type="text" oninput="debounce()" placeholder="First Number">
+Event listener: Whenever the user inputs data, the debounce() function is triggered.
+DOM Access: The value of the firstNum field is accessed using document.getElementById().
+
+<div id="finalSum"></div>
+DOM Update: The result from the server is placed in this div using innerHTML.
