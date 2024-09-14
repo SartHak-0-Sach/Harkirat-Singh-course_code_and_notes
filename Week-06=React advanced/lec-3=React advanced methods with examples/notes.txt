@@ -1,0 +1,7 @@
+This lecture was a recap lecture of previous 2 lectures
+
+Let's understand reconciliation with an example, imagine you are a working professional earning handsomly so you hire a CA, you give him/her all your bank info/demat info/job info/pan card etc, they reconcile the deposits/withdrawls/interest gains etc and tell us our final revenue, expense, profits.
+
+Similar to this we are the developer here giving state to react which then re-renders things on the DOM, we can directly file our taxes similar to directly writing on DOM but it faster and more efficient method to use React
+
+one fancy chrome developer setting I got to know is to set break points in sources tab of inspecting a webpage and the code will get stuck everytime the control reaches the specific statement with breakpoint and will only start when we click on the pause button in the sources tab(a fancier way of doing debugging).
