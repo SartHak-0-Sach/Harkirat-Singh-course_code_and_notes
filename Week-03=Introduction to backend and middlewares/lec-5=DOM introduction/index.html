@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>DOM manipulation</title>
     <!-- <script>
         window.onload = () => {
             const heading = document.createElement("h1");
@@ -19,6 +19,20 @@
     <h1>Header</h1>
     <p>paragraph</p>
 
+    <p>Finding elements by class name</p>
+    <p class="intro">Hello World</p>
+    <p class="intro">
+      This example demonstrates the <b>getElementsByClassName</b> method.
+    </p>
+
+    <h2>Finding HTML Elements using document.anchors</h2>
+
+    <a name="html"></a><br>
+    <a name="css"></a><br>
+    <a name="xml"></a><br>
+
+    <p id="demo"></p>
+
     <form action="/action_page.php" id="LoginForm">
       First Name:
       <input type="text" name="fname" value="Donald" title="first-name" />
@@ -33,6 +47,37 @@
 
     <p id="displayspace"></p>
 
+    <p>Finding HTML elements using <b>document.forms</b>.</p>
+    <form action="/action_page.php" id="frm1"></form>
+      First Name:
+      <input type="text" name="fname" value="Donald" title="first-name" />
+      <br />
+      Last Name:
+      <input type="text" name="lname" value="Duck" title="last-name" /> <br />
+      <input type="submit" value="submit">
+    </form>
+
+    <p>These are the values of each element in the form: </p>
+
+    <img src="smiley.gif" alt="gif" id="image" width="160" height="120">
+
+    <button onclick="myFunc()">Add class to existing p tag</button>
+
+    <div id="mydiv"></div>
+
+    <ul class="myList">Vegetables</ul>
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Guava</li>
+
+    <button id="myBtn">Try it</button>
+
+    <div onmouseover="myOver(this)" onmouseout="mOut(this)" style="background-color: #D94A38;" width:120px height="Mouse over me" ></div>
+
+    <div id="myDiv1"><h2>Bubbling</h2> <p id="myP1">Click me!</p></div>
+
+    <div id="myDiv2"><h2>Capturing</h2> <p id="myP2">Click me</p></div>
+
     <script>
       function myFunction() {
         var x = document.getElementById("LoginForm").elements.length;
@@ -44,6 +89,129 @@
           "first name entered is: " +
           y;
       }
+
+      const z = document.getElementsByClassName("intro");
+      document.getElementById("demo").innerHTML =
+        'The first paragraph (index 0) with class "intro" is: ' +
+        x[0].innerHTML;
+
+      var paragraphs = document.querySelectorAll("p");
+      paragraphs.forEach((paragraph) => (paragraph.display = "none"));
+
+      var introPara = querySelectorAll(".intro");
+      console.log(
+        "number of paragraphs with intro class are: " + introPara.length
+      );
+
+      for (let i = 0; i < introPara.length; i++) {
+        introPara[i].style.backgroundColor = "green";
+      }
+
+      const para = document.createElement("p");
+      para.innerText = "This is a paragraph created via DOM.";
+      document.body.appendChild(para);
+
+      const y = document.forms["frm1"]
+      let text = "";
+      for (let i = 0; i < y.length; i++) {
+        text += y.elements[i].name + " " + y.elements[i].value + "<br>";
+        }
+      document.getElementById("demo").innerHTML = text;
+
+      document.getElementById("demo").innerHTML = "Number of anchors are: " + document.anchors.length;
+
+      document.getElementById("demo").innerHTML = document.body.innerHTML;
+
+      document.getElementById("demo") = document.documentElement.innerHTML;
+
+      document.getElementById("image").src="landscape.jpg";
+
+      document.write(Date())
+
+      function myFunc(){
+        document.getElementById("demo").setAttribute("class", "democlass")
+      }
+
+      const para = document.createElement("p");
+      para.innerHTML = "This is a paragraph created using DOM manipulation"
+      document.getElementById("mydiv").appendChild(para);
+      para.setAttribute("id", "new")
+
+      const parent = getElementById("mydiv")
+      const child = getElementById("new")
+
+      parent.removeChild(child);
+
+      const element = document.getElementsByClassName("myList").children[1];
+      const newNode = document.createTextNode("Juice")
+      element.replaceChild(newNode, element.childNodes[0])
+
+      list = document.getElementsByClassName("myList").firstChild.nodevalue;
+      list = document.getElementsByClassName("myList").childNodes[0].nodevalue;
+
+      const nodeList = document.body.childNodes;
+
+      let sampleText = "";
+      for(let i = 0; i<nodeList.length; i++)
+      {
+        text += nodeList[i].nodeName + "<br>"
+      }
+      document.getElementById("demo").innerHTML = text;
+
+      const ul = document.querySelector(".myList");
+      console.log(ul.parentNode)
+      ul.parentNode.style.colour = "red";
+      console.log(ul.previousElementSibling)
+
+      document.getElementById("myBtn").onclick = displayDate;
+
+      function DisplayDate(){
+        document.getElementById("demo").innerHTML = Date();
+
+        function myOver(obj){
+          obj.innerHTML = "Thank You"
+
+          function myOut(obj){
+            obj.innerHTML = "Hover over me"
+          }
+        }
+      }
+
+      var final = document.getElementById("myBtn")
+      final.addEventListener("mouseover", myFunction);
+      final.addEventListener("click", SecondFunction);
+      final.addEventListener("mouseout", thirdFunction);
+
+      function myFunction(){
+        document.getElementById("demo").innerHTML = "Mouse over me";
+
+        function SecondFunction(){
+          document.getElementById("demo").innerHTML = "click me";
+        }
+
+        function thirdFunction(){
+          document.getElementById("demo").innerHTML = "Mouse out";
+        }
+      }
+
+      document.getElementById("myP1").addEventListener("click", function(){
+        alert("You clicked the orange element")
+      }, true);
+
+      document.getElementById("myDiv1").addEventListener("click", function(){
+        alert("You clicked the white element")
+      }, true);
+
+      document.getElementById("myP2").addEventListener("click", function(){
+        alert("You clicked the orange element")
+      }, false);
+
+      document.getElementById("myDiv2").addEventListener("click", function(){
+        alert("You clicked the white element")
+      }, false);
+
     </script>
+
+    <p>The original image was a gif but the script changed it to an iamge with .jpg extension through dom manipulation</p>
   </body>
 </html>
