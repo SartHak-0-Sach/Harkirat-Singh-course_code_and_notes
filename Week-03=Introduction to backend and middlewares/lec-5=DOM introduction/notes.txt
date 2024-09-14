@@ -34,3 +34,386 @@ DOM represents the webpage using a series of objects. The main object is the doc
 When a web browser parses an HTML document, it builds a DOM tree and then uses it to display the document.
 
 The document object is the top most object in DOM. It has properties and methods which you can use to get information about the document using a rule known as dot notation.
+
+If I have written this dom manipulation code
+
+var paragraphs = document.querySelectorAll('p');
+      paragraphs.forEach(paragraph => paragraph.display = 'none')
+
+And after that I write this code and execute it
+
+const para = document.createElement("p");
+      para.innerText = "This is a paragraph created via DOM.";
+      document.body.appendChild(para);
+
+Will this new paragraph also share the same property that was added through query selector all?
+
+No, the newly created paragraph will not share the same property that was applied earlier using querySelectorAll('p') and forEach.
+
+Here’s why:
+
+The first code block selects all existing <p> elements in the document at the time the querySelectorAll('p') is executed and sets their display to 'none'.
+
+However, when you create a new paragraph using document.createElement('p') and append it to the body, this paragraph is not part of the NodeList returned by the initial querySelectorAll('p'), as querySelectorAll does not dynamically update with new elements added after its execution.
+
+Solution:
+If you want newly created paragraphs to also have the same property applied, you should either:
+
+Reapply the rule to all paragraphs after creating the new one by calling querySelectorAll('p') again, or
+Use a CSS class or modify the global styles instead of directly applying inline styles in JavaScript. For instance:
+
+p {
+  display: none;
+}
+or using a class:
+
+
+.hidden {
+  display: none;
+}
+Then, in your JavaScript, you could toggle this class on any paragraph element:
+
+
+var paragraphs = document.querySelectorAll('p');
+paragraphs.forEach(paragraph => paragraph.classList.add('hidden'));
+This way, any new paragraph element will automatically inherit the styling or class behavior.
+
+Selecting an element in css-
+
+In CSS, you can select elements using a variety of selectors based on different attributes and conditions. Here’s a list of all the commonly used ways to select elements in CSS:
+
+1. Universal Selector
+* – Selects all elements.
+
+* {
+  margin: 0;
+  padding: 0;
+}
+2. Type (Tag) Selector
+Selects all elements of a given type (tag name).
+
+p {
+  color: blue;
+}
+3. Class Selector
+Selects all elements with a specified class name.
+
+.classname {
+  background-color: yellow;
+}
+4. ID Selector
+Selects an element with a specific ID.
+
+#unique-id {
+  font-size: 20px;
+}
+5. Attribute Selector
+Selects elements with specific attributes.
+
+Basic Attribute
+
+
+[type="text"] {
+  border: 1px solid black;
+}
+Presence Attribute
+
+
+[disabled] {
+  opacity: 0.5;
+}
+Attribute Begins With
+
+
+[type^="te"] {
+  background-color: lightgray;
+}
+Attribute Ends With
+
+
+[type$="password"] {
+  background-color: pink;
+}
+Attribute Contains
+
+
+[class*="btn"] {
+  padding: 10px;
+}
+6. Descendant Selector
+Selects elements that are descendants of a specific element.
+
+div p {
+  color: red;
+}
+7. Child Selector
+Selects direct children of a specific element.
+
+ul > li {
+  list-style: none;
+}
+8. Adjacent Sibling Selector
+Selects the immediate sibling element.
+
+h1 + p {
+  margin-top: 0;
+}
+9. General Sibling Selector
+Selects all siblings after a specified element.
+
+h1 ~ p {
+  color: gray;
+}
+10. Pseudo-classes
+Select elements based on their state or position.
+
+
+
+button:hover {
+  background-color: blue;
+}
+
+
+p:first-child {
+  font-weight: bold;
+}
+(n)
+
+
+li:nth-child(2) {
+  color: green;
+}
+
+
+div:last-child {
+  margin-bottom: 10px;
+}
+()
+
+
+div:not(.active) {
+  opacity: 0.5;
+}
+
+
+input:focus {
+  border-color: blue;
+}
+(n)
+
+
+p:nth-of-type(3) {
+  color: brown;
+}
+11. Pseudo-elements
+Style specific parts of an element.
+
+::before
+
+
+p::before {
+  content: "Note: ";
+  font-weight: bold;
+}
+::after
+
+
+p::after {
+  content: " (end)";
+}
+::first-letter
+
+
+p::first-letter {
+  font-size: 2em;
+}
+::first-line
+
+
+p::first-line {
+  text-transform: uppercase;
+}
+12. Group Selector
+Applies styles to multiple selectors.
+
+h1, h2, h3 {
+  color: purple;
+}
+13. Combinators
+Child combinator (>)
+
+Selects direct children.
+
+ul > li {
+  font-weight: bold;
+}
+General sibling combinator (~)
+
+Selects all siblings.
+
+h1 ~ p {
+  color: green;
+}
+Adjacent sibling combinator (+)
+
+Selects the next sibling.
+
+p + p {
+  margin-top: 10px;
+}
+14.
+Selector
+Targets the root element, usually used for setting CSS variables.
+
+:root {
+  --main-color: coral;
+}
+15. CSS Variables Selector
+You can select elements using variables for better reusability:
+
+body {
+  --primary-color: #333;
+}
+
+Explanation of terms used in code-
+
+document.querySelectorAll():
+Selects all elements that match a specified CSS selector. Returns a NodeList, allowing operations on the elements.
+
+document.getElementById():
+Selects an element with the specified id attribute.
+
+document.createElement():
+Creates a new HTML element (e.g., <p>, <div>), which can be added to the DOM.
+
+document.createTextNode():
+Creates a text node with specified content, which can be appended to an element.
+
+element.appendChild():
+Adds a new child node (element or text) to the end of a specified parent element.
+
+document.getElementsByClassName():
+Returns a live HTMLCollection of all elements with the specified class name.
+
+element.innerHTML:
+Gets or sets the HTML content inside an element.
+
+element.setAttribute():
+Sets a specified attribute and value for an element (e.g., class, id, src).
+
+element.style.backgroundColor:
+Modifies the CSS property of an element through JavaScript (changes the background color).
+
+element.removeChild():
+Removes a specified child node from the parent element.
+
+element.replaceChild():
+Replaces an existing child node with a new node.
+
+document.forms[]:
+Accesses a form element via the name or id attribute.
+
+document.body.innerHTML:
+Sets or gets the HTML content of the entire <body> element.
+
+document.documentElement.innerHTML:
+Sets or gets the HTML content of the entire HTML document (including <html>).
+
+element.addEventListener():
+Attaches an event handler to a specified element for a specified event (e.g., click, mouseover).
+
+document.anchors.length:
+Returns the number of <a> elements with the name attribute in the document.
+
+document.write():
+Writes text or HTML directly to the document stream, generally discouraged after the page load event.
+
+node.childNodes:
+Returns a NodeList of all child nodes of an element, including text nodes.
+
+element.previousElementSibling:
+Returns the previous sibling element of the specified element, ignoring text and comment nodes.
+
+element.parentNode:
+References the parent of a specified DOM node.
+
+document.getElementsByTagName():
+Selects elements by their tag name and returns an HTMLCollection (not present in your code but often used similarly to getElementsByClassName()).
+
+A comprehensive list of commonly used DOM manipulation methods and properties in JavaScript that allow different types of interactions with the DOM:
+
+1. Selecting Elements
+document.getElementById(id): Selects an element by its id.
+document.getElementsByClassName(class): Selects all elements with the given class name.
+document.getElementsByTagName(tag): Selects all elements with the specified tag name.
+document.querySelector(selector): Selects the first element that matches the specified CSS selector.
+document.querySelectorAll(selector): Selects all elements that match the specified CSS selector (returns a NodeList).
+document.forms: Accesses forms within the document by index or name.
+document.anchors: Accesses all <a> elements with the name attribute.
+document.images: Accesses all <img> elements.
+document.links: Accesses all <a> elements with an href attribute.
+2. Creating and Inserting Elements
+document.createElement(tag): Creates a new element (e.g., <div>, <p>).
+document.createTextNode(text): Creates a text node.
+element.appendChild(node): Adds a new child node to the end of an element's child nodes.
+element.insertBefore(newNode, referenceNode): Inserts a new node before a specified existing node.
+element.innerHTML: Gets or sets the HTML content inside an element.
+element.textContent: Gets or sets the text content of an element, excluding HTML.
+3. Removing and Replacing Elements
+element.removeChild(child): Removes a child element from its parent.
+element.replaceChild(newChild, oldChild): Replaces an existing child element with a new one.
+element.remove(): Removes the element from the DOM.
+element.innerHTML = '': Clears the content inside the element.
+4. Modifying Attributes
+element.setAttribute(name, value): Sets the value of an attribute on the specified element.
+element.getAttribute(name): Gets the value of an attribute on the specified element.
+element.removeAttribute(name): Removes an attribute from the element.
+element.hasAttribute(name): Checks if an element has the specified attribute.
+5. Modifying Classes
+element.classList.add(class): Adds a class to the element.
+element.classList.remove(class): Removes a class from the element.
+element.classList.toggle(class): Toggles a class on or off.
+element.classList.contains(class): Checks if the element contains a specific class.
+6. Modifying Styles
+element.style.property = value: Sets an inline style for the element (e.g., element.style.color = 'blue').
+element.style.cssText: Sets or gets the entire style as a text string.
+window.getComputedStyle(element): Gets all the computed styles of an element.
+7. Event Handling
+element.addEventListener(event, function): Attaches an event listener to the element (e.g., click, mouseover).
+element.removeEventListener(event, function): Removes an event listener from the element.
+element.onclick = function: Assigns an event handler for the onclick event.
+8. Navigating the DOM
+element.parentNode: Returns the parent node of the element.
+element.childNodes: Returns a NodeList of child nodes, including text nodes.
+element.children: Returns an HTMLCollection of child elements, excluding text and comment nodes.
+element.firstChild: Returns the first child node, including text nodes.
+element.firstElementChild: Returns the first child element, excluding text and comment nodes.
+element.lastChild: Returns the last child node.
+element.previousSibling: Returns the previous sibling node.
+element.previousElementSibling: Returns the previous sibling element.
+element.nextSibling: Returns the next sibling node.
+element.nextElementSibling: Returns the next sibling element.
+9. Form Control Manipulation
+document.forms: Returns all forms within the document.
+form.elements: Returns all form elements (input, select, textarea) within a form.
+element.value: Gets or sets the value of a form control (e.g., input, textarea).
+element.checked: Gets or sets the checked state of a checkbox or radio button.
+10. Other DOM Properties
+document.body: Refers to the <body> element.
+document.head: Refers to the <head> element.
+document.documentElement: Refers to the root element of the document (i.e., <html>).
+document.title: Gets or sets the title of the document.
+document.URL: Gets the URL of the document.
+document.readyState: Checks the loading state of the document (e.g., complete, loading).
+11. Scrolling and Positioning
+element.scrollIntoView(): Scrolls the element into view.
+window.scrollTo(x, y): Scrolls the window to a particular set of coordinates.
+window.scrollBy(x, y): Scrolls the window by a certain amount.
+element.scrollTop: Gets or sets the number of pixels that the element is scrolled vertically.
+element.offsetTop: Returns the top position of the element relative to its offset parent.
+12. Traversing the DOM
+element.closest(selector): Finds the closest ancestor of the current element (or itself) that matches the selector.
+element.matches(selector): Checks if the element matches a specific CSS selector.
+element.contains(node): Checks if a node is a descendant of the element.
+13. Cloning Elements
+element.cloneNode(deep): Creates a copy of an element. If deep is true, it copies all descendants.
