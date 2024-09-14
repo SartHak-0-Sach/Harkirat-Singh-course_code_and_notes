@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM manipulation</title>
+  </head>
+  <body>
+    <input
+      oninput="debounce()"
+      id="firstNum"
+      type="text"
+      class="inputs"
+      placeholder="First Number"
+    /><br />
+    <input
+      oninput="debounce()"
+      type="text"
+      id="secondNum"
+      class="inputs"
+      placeholder="Second Number"
+    /><br />
+    <!-- <Button onclick="populateDiv()">Calculate Sum</Button><br> -->
+    <div id="finalSum"></div>
+    
+    <br><br><br><br>
+    
+    <input id="amount" type="text" class="inputs" placeholder="amount" /><br />
+    <input type="text" id="roi" class="inputs" placeholder="roi" /><br />
+    <input id="time" type="text" class="inputs" placeholder="time" /><br />
+    <div id="finalAmt"></div>
+
+
+    <script>
+      let timeout;
+      function debounce() {
+        // delay the call to populate div if I've not been called for 100ms
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+          populate();
+        }, 100);
+      }
+
+      function populate() {
+        const a = document.getElementById("firstNum").value;
+        const b = document.getElementById("secondNum").value;
+        const element = document.getElementById("finalSum");
+        // element.innerHTML = parseInt(a)+parseInt(b);
+        const res = fetch(
+          "https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b
+        ); // server code can be found on code.js file
+        console.log(res); // res is a promise as fetch is an async function call
+        res.then(function (response) {
+          console.log(response); // response is a response object
+          response.text().then(function (ans) {
+            console.log(ans); // ans is the text of the response
+            document.getElementById("finalSum").innerHTML = ans;
+          });
+        });
+      }
+
+      async function populateDiv2() {
+        const a = document.getElementById("firstNum").value;
+        const b = document.getElementById("secondNum").value;
+
+        const response = await fetch(
+          "https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b
+        );
+        const ans = await response.text();
+        document.getElementById("finalSum").innerHTML = ans;
+      }
+
+      async function populateDiv3() {
+        //harder assignment
+        const a = document.getElementById("amount").value;
+        const b = document.getElementById("roi").value;
+        const c = document.getElementById("time").value;
+
+        const response = await fetch(
+          "https://sum-server.100xdevs.com/interest?principal=" +
+            a +
+            "&rate=" +
+            b +
+            "&time=" +
+            c
+        );
+        const ans = await response.text();
+
+        document.getElementById("finalAmt").innerHTML = ans;
+      }
+    </script>
+  </body>
+</html>
