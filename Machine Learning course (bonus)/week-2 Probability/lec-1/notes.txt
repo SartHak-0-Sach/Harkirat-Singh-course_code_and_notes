@@ -1,0 +1,3 @@
+Welcome to week-2, this week involves introduction to probability and statistics that is a necessary fundamental for learning machine learning effectively.
+
+All the notes have been compiled and provided in the same parent week-2 folder and interpretation can be found here.
