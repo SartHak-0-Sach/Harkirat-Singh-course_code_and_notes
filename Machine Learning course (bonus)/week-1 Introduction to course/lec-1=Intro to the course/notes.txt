@@ -1,0 +1,3 @@
+Welcome to this bonus section of Harkirat Singh's cohort. This section will cater to learning of MLops and machine learning from absolute fundamentals.
+
+The first week involves 4 lectures that were all about introduction to the course and a few tips provided by Ayush himself regarding how to keep up with this course.
